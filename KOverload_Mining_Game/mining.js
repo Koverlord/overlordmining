@@ -63,15 +63,15 @@ var default_SD = { //기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1,
-    UGS : {
-        0 : {
+    UGS : { //SD["UGS"]
+        0 : { //SD["UGS"][list_num]
             name : "한번에 얻는 광물 개수 증가",
-            material : "SD.iron",          //new Function('return ' + SD.UGS[0].material)()
+            material : ["철", "SD['iron']"],          //new Function('return ' + SD["UGS"][list_num]["material"][1])();
             level : 0,
             price : 50,
-            price_equation : "parseInt((50 + SD.UGS[num].level * (SD.UGS[num].level + 1) * 25) * SD.udc)",           //eval() 이용해서 결제할것
+            price_equation : "SD[\'UGS\'][num][\'price\'] = parseInt((50 + SD.UGS[num].level * (SD.UGS[num].level + 1) * 25) * SD.udc)",           //eval() 이용해서 결제할것
             result : [
-                ["SD.a", "(parseInt((n + 1)/5) * -5 + 2 * n + 2) * (parseInt((n + 1)/5) + 1)/2;"],
+                ["SD['a']", "(parseInt((SD['UGS'][num]['level'] + 1)/5) * - 5 + 2 * SD['UGS'][num]['level'] + 2) * (parseInt((SD['UGS'][num]['level'] + 1)/5) + 1) / 2"],
             ]
         },
         1 : {
@@ -118,14 +118,20 @@ function loadRecursive(defaulDict, oldDict){
     var newDict = {};
     for(key in defaulDict){
         if(oldDict.hasOwnProperty(key)){
-            newDict[key] = oldDict[key];
+            if(typeof oldDict[key] == "number"){
+                newDict[key] = oldDict[key];
+            }
+            else if((typeof oldDict[key] != "string") && (!Array.isArray(oldDict[key]))){
+                newDict[key] = loadRecursive(defaulDict[key], oldDict[key]);
+            }
         }
     }
-    for(key in defaulDict){
-        if(!newDict.hasOwnProperty(key)){
-            newDict[key] = defaulDict[key];
+    for(key in defaulDict){//default_SD 와 SD 대조해서
+        if(!newDict.hasOwnProperty(key)){//default_SD 세이브파일에만 존제하는 키를 (SD 세이브파일에 없는거)
+            newDict[key] = defaulDict[key];//가져온다
         }
     }
+    // console.log("out", newDict);
     return newDict;
 }
 
@@ -207,12 +213,27 @@ function mining(num) { // 아시다시피 광질하는거 대충 복사했음
 
 function UGS_load(list_num) {
     var y = document.getElementsByClassName("UGS_list");
-    y[list_num].innerHTML = SD["UGS"][list_num]["name"];
+    var upgrade_text = " "
+    upgrade_text += SD["UGS"][list_num]["name"] + " level : " + SD["UGS"][list_num]["level"] + "<br>";
+    upgrade_text += "업그레이드 재료 : "+ SD["UGS"][list_num]["material"][0] + " " + SD["UGS"][list_num]["price"] + "개<br>";
+    y[list_num].innerHTML = upgrade_text;
 }
 
 function upgrade(num) {
-
+    var material = new Function('return ' + SD["UGS"][num]["material"][1])();
+    if ( material>= SD["UGS"][num]["price"]){
+        material -= SD["UGS"][num]["price"];
+        eval(SD["UGS"][num]["material"][1] + "=" + material);
+        SD["UGS"][num]["level"] += 1;
+        eval(SD["UGS"][num]["price_equation"]);
+        var result = SD["UGS"][num]["result"][0][1];
+        eval(SD["UGS"][num]["result"][0][0] + "=" + result);
+        store();
+        UGS_load(num)
+    }
 }
+//SD["UGS"][num]["material"][1] = "SD.iron"
+//new Function('return ' + SD["UGS"][num]["material"][1])(); = SD.iron 의 값 리턴
 
 function test() {
     var z = document.getElementById("testt");
@@ -220,9 +241,10 @@ function test() {
     test_text += "<p>SD.iorn : " + SD.iron + "</P>";
     test_text += "<p>SD.UGS.0.name : " + SD['UGS']['0']['name'] + "</P>";
     test_text += "<p>SD.UGS.0.level : " + SD['UGS']['0']['level'] + "</P>";
-    test_text += "<p></P>";
-    test_text += "<p></P>";
-    test_text += "<p></P>";
+    // test_text += "<p>SD.UGS.0.result : " + SD['UGS']['0']['result'] + "</P>";
+    // test_text += "<p>SD.UGS.0.result.0.0 : " + SD['UGS']['0']['result'][0][0] + "</P>";
+    // test_text += "<p>SD.UGS.0.result.0.1 : " + SD['UGS']['0']['result'][0][1] + "</P>";
+    // test_text += "<p></P>";
     z.innerHTML = test_text
 }
 
