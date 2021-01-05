@@ -6,35 +6,31 @@
 </head>
 <body>
     <ul>
-        <li><div name="tab_menu" class="active" onclick="tab(0)">홈</div></li>
-        <li><div name="tab_menu" class="not_active" onclick="tab(1)">업그레이드 상점</div></li>
-        <li><div name="tab_menu" class="not_active" onclick="tab(2)">조합소</div></li>
-        <li><div name="tab_menu" class="not_active" onclick="tab(3)">옵션</div></li>
+        <li><div class="tab_menu active" onclick="tab(0)">홈</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(1)">업그레이드 상점</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(2)">조합소</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(3)">옵션</div></li>
     </ul>
 
     <table>
         <tr style="vertical-align: top;">
-            <td><div id="log" class="box" style="overflow-y: scroll; height: 196px;"><p></p></div></td>
+            <td><div id="log" class="box" style="overflow-y: scroll; height: 196px;"></div></td>
             <td><div id="storehouse" class="box"></div></td>
         </tr>
     </table>
 
-    <div id="tab0">
-        <p>탭0</p> <!--임시로 쓴거고 나중에 지울거-->
+    <div id="tab0"> <!--탭0-->
         <div class="button button5 stop-dragging" onclick="mining(1)">광질</div>
     </div>
     
-    <div id="tab1" style="display: none;">
-        <p>탭1</p> <!--임시로 쓴거고 나중에 지울거-->
-        <div class="box" style="overflow-y: scroll; height: 196px;"><p></p></div>
+    <div id="tab1" style="display: none;">  <!--탭1-->
+        <div class="box" style="overflow-y: scroll; width: 626px; margin: 1px 0 0 3px;"><p></p></div>
     </div>
 
-    <div id="tab2" style="display: none;">
-        <p>탭2</p> <!--임시로 쓴거고 나중에 지울거-->
+    <div id="tab2" style="display: none;">  <!--탭2-->
     </div>
 
-    <div id="tab3" style="display: none;">
-        <p>탭3</p> <!--임시로 쓴거고 나중에 지울거-->
+    <div id="tab3" style="display: none;">  <!--탭3-->
         <div class="button button5 stop-dragging" onclick="save()">세이브</div>
         <div class="button button5 stop-dragging" onclick="load()">로드</div>
     </div>

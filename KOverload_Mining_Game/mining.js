@@ -64,7 +64,20 @@ var SD = {
     mythpurchased3 : 0,
     e : 1,
     f : 1,
+    UGS : [
+        {
+            name : "한번에 얻는 광물 개수 증가",
+            material : "SD.iron"
+
+        },
+        {
+            name : "한번에 조합하는 일반 아이템 개수 증가",
+            material : "SD.gold"
+        },
+
+    ],
 }
+
 
 function save() { // 세이브
     localStorage['saveFile'] = JSON.stringify(SD);
@@ -79,13 +92,13 @@ function load() { // 로드
 
 function tab(num) {
     let tab_size = 4;
-    let x = document.getElementsByName("tab_menu");
+    let x = document.getElementsByClassName("tab_menu");
     for (i = 0; i < tab_size; i++) {
         document.getElementById("tab" + i).style.display = "none";
-        x[i].className = " ";
+        x[i].className = "tab_menu not_active";
     }
     document.getElementById("tab" + num).style.display = "block";
-    x[num].className = "active";
+    x[num].className = "tab_menu active";
 }
 
 var n = 0;
