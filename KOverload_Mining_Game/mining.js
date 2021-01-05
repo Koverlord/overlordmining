@@ -63,8 +63,8 @@ var default_SD = { //기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1,
-    UGS : [
-        {
+    UGS : {
+        0 : {
             name : "한번에 얻는 광물 개수 증가",
             material : "SD.iron",          //new Function('return ' + SD.UGS[0].material)()
             level : 0,
@@ -74,7 +74,7 @@ var default_SD = { //기본값 세이브파일
                 ["SD.a", "(parseInt((n + 1)/5) * -5 + 2 * n + 2) * (parseInt((n + 1)/5) + 1)/2;"],
             ]
         },
-        {
+        1 : {
             name : "한번에 조합하는 일반 아이템 개수 증가",
             material : "SD.diamon",
             level : 0,
@@ -84,7 +84,7 @@ var default_SD = { //기본값 세이브파일
                 ["SD.b", "SD.UGS[num].level + 1"]
             ]
         },
-    ],
+    },
 }
 
 function save() { // 세이브
@@ -92,30 +92,55 @@ function save() { // 세이브
     add_log("*세이브되었습니다*");
 }
 
-function load() { // 로드
-    var SD_old; //SD_old 세이브파일
-    if(localStorage.hasOwnProperty("saveFile")){ //SD_old 세이브 파일이 있을경우
-        SD_old = JSON.parse(localStorage['saveFile']); //불러온다
-    }
+// function load() { // 로드
+//     var SD_old; //SD_old 세이브파일
+//     if(localStorage.hasOwnProperty("saveFile")){ //SD_old 세이브 파일이 있을경우
+//         SD_old = JSON.parse(localStorage['saveFile']); //불러온다
+//     }
     
-    for(key in default_SD){ //default_SD 와 SD_old 대조해서
-        if(SD_old.hasOwnProperty(key)){ //키값이 같은게 SD_old에 있을경우 (만약 SD_old에만 있는 키값이 있으면 가져오지 않음)
-            SD[key] = SD_old[key];  //SD_old를 SD 세이브파일로 불러온다
-        }
-    }
+//     for(key in default_SD){ //default_SD 와 SD_old 대조해서
+//         if(SD_old.hasOwnProperty(key)){ //키값이 같은게 SD_old에 있을경우 (만약 SD_old에만 있는 키값이 있으면 가져오지 않음)
+//             SD[key] = SD_old[key];  //SD_old를 SD 세이브파일로 불러온다
+//         }
+//     }
     
-    for(key in default_SD){ //default_SD 와 SD 대조해서
-        if(!SD.hasOwnProperty(key)){    //default_SD 세이브파일에만 존제하는 키를 (SD 세이브파일에 없는거)
-            SD[key] = default_SD[key]; //가져온다
-        }
-    }
+//     for(key in default_SD){ //default_SD 와 SD 대조해서
+//         if(!SD.hasOwnProperty(key)){    //default_SD 세이브파일에만 존제하는 키를 (SD 세이브파일에 없는거)
+//             SD[key] = default_SD[key]; //가져온다
+//         }
+//     }
 
+//     add_log("*로드되었습니다*");
+//     store();
+// }
+
+function loadRecursive(defaulDict, oldDict){
+    var newDict = {};
+    for(key in defaulDict){
+        if(oldDict.hasOwnProperty(key)){
+            newDict[key] = oldDict[key];
+        }
+    }
+    for(key in defaulDict){
+        if(!newDict.hasOwnProperty(key)){
+            newDict[key] = defaulDict[key];
+        }
+    }
+    return newDict;
+}
+
+function load() {
+    var SD_old;
+    if(localStorage.hasOwnProperty("saveFile")){
+        SD_old = JSON.parse(localStorage['saveFile']);
+    }
+    SD = loadRecursive(default_SD, SD_old);
     add_log("*로드되었습니다*");
     store();
 }
 
 function tab(num) {
-    let tab_size = 4;
+    let tab_size = 5;
     let x = document.getElementsByClassName("tab_menu");
     for (i = 0; i < tab_size; i++) {
         document.getElementById("tab" + i).style.display = "none";
@@ -126,7 +151,6 @@ function tab(num) {
 }
 
 var n = 0;
-
 function add_log(log) { // log를 id="log"인 div에 추가함
     n++;
     var x = document.createElement("p");    //<p></p> 만들고 x 라고하자
@@ -188,6 +212,18 @@ function UGS_load(list_num) {
 
 function upgrade(num) {
 
+}
+
+function test() {
+    var z = document.getElementById("testt");
+    test_text = " ";
+    test_text += "<p>SD.iorn : " + SD.iron + "</P>";
+    test_text += "<p>SD.UGS.0.name : " + SD['UGS']['0']['name'] + "</P>";
+    test_text += "<p>SD.UGS.0.level : " + SD['UGS']['0']['level'] + "</P>";
+    test_text += "<p></P>";
+    test_text += "<p></P>";
+    test_text += "<p></P>";
+    z.innerHTML = test_text
 }
 
 
