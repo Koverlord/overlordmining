@@ -144,5 +144,5 @@ function tab(num) {
 
 window.onload = function () { // 페이지가 다 load 되면 store(), load()함수 실행
     store(); //세이브파일이 없을때 실행해도 보유갯수가 0개로 보이게 하기위해 사용
-    load();
+    load(); // 테스트
 }
