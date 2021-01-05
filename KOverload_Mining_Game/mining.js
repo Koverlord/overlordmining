@@ -101,7 +101,7 @@ function store() {  //id="storehouse" 인 div의 내용을 아래에 있는 Stor
 }
 
 function mining(num) { // 아시다시피 광질하는거 대충 복사했음
-    if (Math.random < (doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs% 확률임)
+    if (Math.random < (saveData.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs% 확률임)
         num *= 2;
     }
     var r_n = Math.floor(Math.random() * (100)) + 1; // 1 ~ 100 사이의 정수 랜덤생성
