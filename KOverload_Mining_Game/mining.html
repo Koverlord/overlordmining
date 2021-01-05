@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>[K]Overload Mining Game</title>
+    <script src="mining.js"></script>
+    <link href="mining.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <ul>
+        <li><div name="tab_menu" class="active" onclick="tab(0)">홈</a></li>
+        <li><div name="tab_menu" class="not_active" onclick="tab(1)">업그레이드 상점</a></li>
+        <li><div name="tab_menu" class="not_active" onclick="tab(2)">조합소</a></li>
+        <li><div name="tab_menu" class="not_active" onclick="tab(3)">옵션</a></li>
+    </ul>
+
+    <table>
+        <tr style="vertical-align: top;">
+            <td><div class="box" id="log" style="overflow-y: scroll; height: 196px;"><p></p></div></td>
+            <td><div class="box" id="storehouse"></div></td>
+        </tr>
+    </table>
+
+    <div id="tab0">
+        <p>탭0</p>
+        <div class="button button5" onclick="mining()">광질</div>
+    </div>
+    
+    <div id="tab1" style="display: none;">
+        <p>탭1</p>
+    </div>
+
+    <div id="tab2" style="display: none;">
+        <p>탭2</p>
+    </div>
+
+    <div id="tab3" style="display: none;">
+        <p>탭3</p>
+        <div class="button button5" onclick="save()">세이브</div>
+        <div class="button button5" onclick="load()">로드</div>
+    </div>
+
+
+    
+</body>
+
+
+
+
