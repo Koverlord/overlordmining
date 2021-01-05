@@ -92,7 +92,7 @@ function store() {  //id="storehouse" 인 div의 내용을 아래에 있는 Stor
     var Store = "";
     Store += "<p>철 " + saveData.iron + "개</p>";
     Store += "<p>금 " + saveData.gold + "개</p>";
-    Store += "<p>다이몬드 " + saveData.diamond + "개</p>";
+    Store += "<p>다이아몬드 " + saveData.diamond + "개</p>";
     Store += "<p>에메랄드 " + saveData.emerald + "개</p>";
     Store += "<p>루비 " + saveData.ruby + "개</p>";
     Store += "<p>오버로드 " + saveData.overlord + "개</p>";
@@ -104,27 +104,27 @@ function mining() { // 아시다시피 광질하는거 대충 복사했음
     var r = Math.floor(Math.random() * (100)) + 1; // 1 ~ 100 사이의 정수 랜덤생성
     if (r > 50){
         saveData.iron += saveData.a + saveData.c;
-        add_log("철 " + (saveData.a + saveData.c) + "개 회득! 현재 " + saveData.iron + "개");
+        add_log("철 " + (saveData.a + saveData.c) + "개 획득! 현재 " + saveData.iron + "개");
     }
     else if (r > 20){
         saveData.gold += saveData.a + saveData.c
-        add_log("금 " + (saveData.a + saveData.c) + "개 회득! 현재 " + saveData.gold + "개");
+        add_log("금 " + (saveData.a + saveData.c) + "개 획득! 현재 " + saveData.gold + "개");
     }
     else if (r > 10){
         saveData.diamond += saveData.a + saveData.d
-        add_log("다이아몬드 " + (saveData.a + saveData.d) + "개 회득! 현재 " + saveData.diamond + "개");
+        add_log("다이아몬드 " + (saveData.a + saveData.d) + "개 획득! 현재 " + saveData.diamond + "개");
     }
     else if (r > 5){
         saveData.emerald += saveData.a + saveData.d
-        add_log("에메랄드 " + (saveData.a + saveData.d) + "개 회득! 현재 " + saveData.emerald + "개");
+        add_log("에메랄드 " + (saveData.a + saveData.d) + "개 획득! 현재 " + saveData.emerald + "개");
     }
     else if (r > 1){
         saveData.ruby += saveData.a + saveData.d
-        add_log("루비 " + (saveData.a + saveData.d) + "개 회득! 현재 " + saveData.ruby + "개");
+        add_log("루비 " + (saveData.a + saveData.d) + "개 획득! 현재 " + saveData.ruby + "개");
     }
     else if (r <= saveData.overlordposs){
         saveData.overlord += saveData.a * saveData.f
-        add_log("오버로드 " + (saveData.a * saveData.f) + "개 회득! 현재 " + saveData.overlord + "개");
+        add_log("오버로드 " + (saveData.a * saveData.f) + "개 획득! 현재 " + saveData.overlord + "개");
     }
     store(); // 광질 한 후 보유량 업데이트
 }
