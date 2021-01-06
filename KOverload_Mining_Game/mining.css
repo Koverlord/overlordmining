@@ -1,4 +1,4 @@
-.box {
+.box { 
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #c5c5c5;
@@ -43,6 +43,11 @@ p {
     width: 80px;
     /* display: block;
     margin: auto; */
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .button5 {
@@ -84,10 +89,10 @@ li div:hover:not(.active) {
     background-color: #4CAF50;
 }
 
-div.stop-dragging {
+/* div.stop-dragging {
     -ms-user-select: none; 
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-}
+} */

@@ -7,8 +7,8 @@ var default_SD = { //기본값 세이브파일
     emerald : 0,
     ruby : 0,
     overlord : 0,
-    upgrade3 : 5,
-    purchased3 : 0,
+    upgrade3 : 5,   // 필요 재료 갯수
+    purchased3 : 0, // 레벨
     upgrade4 : 50,
     purchased4 : 0,
     upgrade5 : 400,
@@ -68,6 +68,7 @@ var default_SD = { //기본값 세이브파일
             name : "한번에 얻는 광물 개수 증가",
             material : ["철", "SD['iron']"],          //new Function('return ' + SD["UGS"][list_num]["material"][1])();
             level : 0,
+            max_level : -1,
             price : 50,
             price_equation : "SD[\'UGS\'][num][\'price\'] = parseInt((50 + SD.UGS[num].level * (SD.UGS[num].level + 1) * 25) * SD.udc)",           //eval() 이용해서 결제할것
             result : [
@@ -76,14 +77,68 @@ var default_SD = { //기본값 세이브파일
         },
         1 : {
             name : "한번에 조합하는 일반 아이템 개수 증가",
-            material : "SD.diamon",
+            material : ["다이아몬드","SD['diamond']"],
             level : 0,
+            max_level : 4,
             price : 2000,
-            price_equation : "parseInt((2000 + SD.UGS[num].level * (SD.UGS[num].level + 1) * 1000) * SD.udc)",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = parseInt((2000 + SD.UGS[num].level * (SD.UGS[num].level + 1) * 1000) * SD.udc)",
             result : [
                 ["SD.b", "SD.UGS[num].level + 1"]
             ]
         },
+        2 : {
+            name : "",
+            material : ["재료이름", "재료경로"],
+            level : 0,
+            max_level : -1,
+            price : "필요한 재료 갯수(숫자)",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = 수식",
+            result : [
+                ["업그레이드로 바뀔것", ["업그레이드로 바뀌게할 수식"]]
+            ],
+        },
+        3 : {
+            name : "",
+            material : ["재료이름", "재료경로"],
+            level : 0,
+            max_level : -1,
+            price : "필요한 재료 갯수(숫자)",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = 수식",
+            result : [
+                ["업그레이드로 바뀔것", ["업그레이드로 바뀌게할 수식"]]
+            ],
+        },
+        4 : {
+            name : "",
+            material : ["재료이름", "재료경로"],
+            level : 0,
+            max_level : -1,
+            price : "필요한 재료 갯수(숫자)",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = 수식",
+            result : [
+                ["업그레이드로 바뀔것", ["업그레이드로 바뀌게할 수식"]]
+            ],
+        },
+        5 : {
+            name : "",
+            material : ["재료이름", "재료경로"],
+            level : 0,
+            price : "필요한 재료 갯수(숫자)",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = 수식",
+            result : [
+                ["업그레이드로 바뀔것", ["업그레이드로 바뀌게할 수식"]]
+            ],
+        },
+        // num : {
+        //     name : "",
+        //     material : ["재료이름", "재료경로"],
+        //     level : 0,
+        //     price : "필요한 재료 갯수(숫자)",
+        //     price_equation : "SD[\'UGS\'][num][\'price\'] = 수식",
+        //     result : [
+        //         ["업그레이드로 바뀔것", ["업그레이드로 바뀌게할 수식"]]
+        //     ],
+        // },
     },
 }
 
@@ -137,11 +192,13 @@ function loadRecursive(defaulDict, oldDict){
 
 function load() {
     var SD_old;
-    if(localStorage.hasOwnProperty("saveFile")){
-        SD_old = JSON.parse(localStorage['saveFile']);
+    if(localStorage.hasOwnProperty("saveFile")){ // 만약 localStorage에 saveFile이 있을경우
+        SD_old = JSON.parse(localStorage['saveFile']); //SD_old에 저장한다
     }
-    SD = loadRecursive(default_SD, SD_old);
-    add_log("*로드되었습니다*");
+    add_log("*로드되었습니다*"); // 여기서 n++; 됨 (최초엔 n = 0)
+    if (n == 1) { // 처음 로딩시에만 
+        SD = loadRecursive(default_SD, SD_old); // 세이브 파일에 오류가 있는지 확인한다
+    }
     store();
 }
 
@@ -211,25 +268,32 @@ function mining(num) { // 아시다시피 광질하는거 대충 복사했음
     store(); // 광질 한 후 보유량 업데이트
 }
 
-function UGS_load(list_num) {
+function UGS_load(num) {
     var y = document.getElementsByClassName("UGS_list");
+    // eval(SD["UGS"][num]["price_equation"]); // 레벨에 해당하는 가격을 설정 (패치로 가격 변동시 동기화)
+    // eval(SD["UGS"][num]["result"][0][0] + "=" + SD["UGS"][num]["result"][0][1]); // 현제레벨에 필요한 재료 갯수를 설정
     var upgrade_text = " "
-    upgrade_text += SD["UGS"][list_num]["name"] + " level : " + SD["UGS"][list_num]["level"] + "<br>";
-    upgrade_text += "업그레이드 재료 : "+ SD["UGS"][list_num]["material"][0] + " " + SD["UGS"][list_num]["price"] + "개<br>";
-    y[list_num].innerHTML = upgrade_text;
+    upgrade_text += SD["UGS"][num]["name"] + " level : " + SD["UGS"][num]["level"] + "<br>";
+    upgrade_text += "업그레이드 재료 : "+ SD["UGS"][num]["material"][0] + " " + SD["UGS"][num]["price"] + "개<br>";
+    y[num].innerHTML = upgrade_text;
 }
 
 function upgrade(num) {
-    var material = new Function('return ' + SD["UGS"][num]["material"][1])();
-    if ( material>= SD["UGS"][num]["price"]){
-        material -= SD["UGS"][num]["price"];
-        eval(SD["UGS"][num]["material"][1] + "=" + material);
-        SD["UGS"][num]["level"] += 1;
-        eval(SD["UGS"][num]["price_equation"]);
-        var result = SD["UGS"][num]["result"][0][1];
-        eval(SD["UGS"][num]["result"][0][0] + "=" + result);
-        store();
-        UGS_load(num)
+    if ((SD["UGS"][num]["level"] < SD["UGS"][num]["max_level"]) || (SD["UGS"][num]["max_level"] == -1)){
+        if (eval(SD["UGS"][num]["material"][1]) >= SD["UGS"][num]["price"]) { // 필요한 재료 >= 가격 일때
+            eval(SD["UGS"][num]["material"][1] + "-=" + SD["UGS"][num]["price"]); // 필요한 재료 -= 가격
+            SD["UGS"][num]["level"] += 1; // 레벨 증가
+            eval(SD["UGS"][num]["price_equation"]); // 가격 조정
+            eval(SD["UGS"][num]["result"][0][0] + "=" + SD["UGS"][num]["result"][0][1]); // 다음레벨에 필요한 재료 갯수
+            store();
+            UGS_load(num)
+        }
+        else{
+            alert("업글 불가 (재료)");
+        }
+    }
+    else {
+        alert("업글 불가 (레벨)");
     }
 }
 //SD["UGS"][num]["material"][1] = "SD.iron"
@@ -238,7 +302,7 @@ function upgrade(num) {
 function test() {
     var z = document.getElementById("testt");
     test_text = " ";
-    test_text += "<p>SD.iorn : " + SD.iron + "</P>";
+    test_text += "<p>SD.iron : " + SD.iron + "</P>";
     test_text += "<p>SD.UGS.0.name : " + SD['UGS']['0']['name'] + "</P>";
     test_text += "<p>SD.UGS.0.level : " + SD['UGS']['0']['level'] + "</P>";
     // test_text += "<p>SD.UGS.0.result : " + SD['UGS']['0']['result'] + "</P>";
