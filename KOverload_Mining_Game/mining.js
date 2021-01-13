@@ -88,22 +88,22 @@ var default_SD = { //기본값 세이브파일
         },
         2 : {
             name : "오버로드 출현 확률 증가",
-            material : ["overlordingot", "overlordingot 경로"], // 경로 확인바람
+            material : ["오버로드 주괴", "SD['overlordingot']", // 경로 확인바람
             level : 0,
             max_level : 99,
-            price : "3",
-            price_equation : "SD[\'UGS\'][num][\'price\'] = 3",
+            price : "5",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = 5",
             result : [
                 ["overlordposs", ["level + 1"]] // 식 확인바람
             ],
         },
         3 : {
-            name : "",
-            material : ["재료이름", "재료경로"],
+            name : "이중 채광 확률 증가",
+            material : ["금", "SD['gold']",
             level : 0,
-            max_level : -1,
-            price : "필요한 재료 갯수(숫자)",
-            price_equation : "SD[\'UGS\'][num][\'price\'] = 수식",
+            max_level : 100,
+            price : "50",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = 50",
             result : [
                 ["업그레이드로 바뀔것", ["업그레이드로 바뀌게할 수식"]]
             ],
