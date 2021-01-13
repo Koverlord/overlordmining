@@ -88,7 +88,7 @@ var default_SD = { //기본값 세이브파일
         },
         2 : {
             name : "오버로드 출현 확률 증가",
-            material : ["오버로드 주괴", "SD['overlordingot']", // 경로 확인바람
+            material : ["오버로드 주괴", "SD['overlordingot']"], // 경로 확인바람
             level : 0,
             max_level : 99,
             price : "5",
@@ -99,7 +99,7 @@ var default_SD = { //기본값 세이브파일
         },
         3 : {
             name : "이중 채광 확률 증가",
-            material : ["금", "SD['gold']",
+            material : ["금", "SD['gold']"],
             level : 0,
             max_level : 100,
             price : "50",
