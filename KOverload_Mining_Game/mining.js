@@ -92,7 +92,7 @@ var default_SD = { //기본값 세이브파일
             level : 0,
             max_level : 99,
             price : "5",
-            price_equation : "SD[\'UGS\'][num][\'price\'] = parseInt(parseInt(5 + SD.UGS[num].level * (SD.UGS[num].level + 1) * 2.5) * SD.udc)",
+            price_equation : "SD[\'UGS\'][num][\'price\'] = 5",
             result : [
                 ["overlordposs", ["level + 1"]] // 식 확인바람
             ],
