@@ -209,36 +209,42 @@ function store() {  //id="storehouse" 인 div의 내용을 아래에 있는 Stor
     //최적화 하자면 업데이트를 전체를 하는게 아니라 수정된 자원이 있는 줄만 replace로 수정하면 될듯
 }
 
-function mining(num) { // 아시다시피 광질하는거 대충 복사했음
+function mining(rep) { // 아시다시피 광질하는거 대충 복사했음
     if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs% 확률임)
-        num *= 2;
+        rep *= 2;
         add_log("2배 채광!")
     }
     var r_n = Math.floor(Math.random() * (100)) + 1; // 1 ~ 100 사이의 정수 랜덤생성
     var r_no = Math.floor(Math.random() * (100)) + 1;
     if (r_n > 50){
-        SD.iron += (SD.a + SD.c) * num;
-        add_log("철 " + (SD.a + SD.c) * num + "개 획득! 현재 " + SD.iron + "개");
+        SD['iron'] += (SD['a'] + SD['c']) * rep;
+        SD['iron'] = parseInt(SD['iron'] * 10) / 10;
+        add_log("철 " + (SD.a + SD.c) * rep + "개 획득! 현재 " + SD.iron + "개");
     }
     else if (r_n > 20){
-        SD.gold += (SD.a + SD.c) * num;
-        add_log("금 " + (SD.a + SD.c) * num + "개 획득! 현재 " + SD.gold + "개");
+        SD['gold'] += (SD['a'] + SD['c']) * rep;
+        SD['gold'] = parseInt(SD['gold'] * 10) / 10;
+        add_log("금 " + (SD['a'] + SD['c']) * rep + "개 획득! 현재 " + SD.gold + "개");
     }
     else if (r_n > 10){
-        SD.diamond += (SD.a + SD.d) * num;
-        add_log("다이아몬드 " + (SD.a + SD.d) * num + "개 획득! 현재 " + SD.diamond + "개");
+        SD['diamond'] += (SD['a'] + SD['d']) * rep;
+        SD['diamond'] = parseInt(SD['diamond'] * 10) / 10;
+        add_log("다이아몬드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.diamond + "개");
     }
     else if (r_n > 5){
-        SD.emerald += (SD.a + SD.d) * num;
-        add_log("에메랄드 " + (SD.a + SD.d) * num + "개 획득! 현재 " + SD.emerald + "개");
+        SD['emerald'] += (SD['a'] + SD['d']) * rep;
+        SD['emerald'] = parseInt(SD['emerald'] * 10) / 10;
+        add_log("에메랄드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.emerald + "개");
     }
     else if (r_n > 0){
-        SD.ruby += (SD.a + SD.d) * num;
-        add_log("루비 " + (SD.a + SD.d) * num + "개 획득! 현재 " + SD.ruby + "개");
+        SD['ruby'] += (SD['a'] + SD['d']) * rep;
+        SD['ruby'] = parseInt(SD['ruby'] * 10) / 10;
+        add_log("루비 " + (SD.a + SD.d) * rep + "개 획득! 현재 " + SD.ruby + "개");
     }
     if (r_no <= SD.overlordposs){
-        SD.overlord += (SD.a * SD.f) * num;
-        add_log("오버로드 " + (SD.a * SD.f) * num + "개 획득! 현재 " + SD.overlord + "개");
+        SD['overlord'] += (SD['a'] * SD['f']) * rep;
+        SD['overlord'] = parseInt(SD['overlord'] * 10) / 10;
+        add_log("오버로드 " + (SD.a * SD.f) * rep + "개 획득! 현재 " + SD.overlord + "개");
     }
     store(); // 광질 한 후 보유량 업데이트
 }
