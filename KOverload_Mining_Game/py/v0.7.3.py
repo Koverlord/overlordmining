@@ -222,8 +222,8 @@ while True:
                     print("더 이상 구매하실 수 없습니다.")
             elif string2=="5":
                 if emerald>=upgrade5:
-                    emerald-=upgrade5
-                    purchased5+=1
+                    emerald-=upgrade5 #upgrade 가격
+                    purchased5+=1 # 레벨
                     upgrade5=int((200+purchased5*(purchased5+1)*100)*udc)
                     c+=purchased5/5+1
                     print("구매 완료!")
