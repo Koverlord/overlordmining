@@ -218,32 +218,32 @@ function mining(rep) { // 아시다시피 광질하는거 대충 복사했음
     var r_no = Math.floor(Math.random() * (100)) + 1;
     if (r_n > 50){
         SD['iron'] += (SD['a'] + SD['c']) * rep;
-        SD['iron'] = parseInt(SD['iron'] * 10) / 10;
+        SD['iron'] = Math.round(SD['iron'] * 10) / 10;
         add_log("철 " + (SD.a + SD.c) * rep + "개 획득! 현재 " + SD.iron + "개");
     }
     else if (r_n > 20){
         SD['gold'] += (SD['a'] + SD['c']) * rep;
-        SD['gold'] = parseInt(SD['gold'] * 10) / 10;
+        SD['gold'] = Math.round(SD['gold'] * 10) / 10;
         add_log("금 " + (SD['a'] + SD['c']) * rep + "개 획득! 현재 " + SD.gold + "개");
     }
     else if (r_n > 10){
         SD['diamond'] += (SD['a'] + SD['d']) * rep;
-        SD['diamond'] = parseInt(SD['diamond'] * 10) / 10;
+        SD['diamond'] = Math.round(SD['diamond'] * 10) / 10;
         add_log("다이아몬드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.diamond + "개");
     }
     else if (r_n > 5){
         SD['emerald'] += (SD['a'] + SD['d']) * rep;
-        SD['emerald'] = parseInt(SD['emerald'] * 10) / 10;
+        SD['emerald'] = Math.round(SD['emerald'] * 10) / 10;
         add_log("에메랄드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.emerald + "개");
     }
     else if (r_n > 0){
         SD['ruby'] += (SD['a'] + SD['d']) * rep;
-        SD['ruby'] = parseInt(SD['ruby'] * 10) / 10;
+        SD['ruby'] = Math.round(SD['ruby'] * 10) / 10;
         add_log("루비 " + (SD.a + SD.d) * rep + "개 획득! 현재 " + SD.ruby + "개");
     }
     if (r_no <= SD.overlordposs){
         SD['overlord'] += (SD['a'] * SD['f']) * rep;
-        SD['overlord'] = parseInt(SD['overlord'] * 10) / 10;
+        SD['overlord'] = Math.round(SD['overlord'] * 10) / 10;
         add_log("오버로드 " + (SD.a * SD.f) * rep + "개 획득! 현재 " + SD.overlord + "개");
     }
     store(); // 광질 한 후 보유량 업데이트
