@@ -27,14 +27,14 @@ var default_SD = { //기본값 세이브파일
     overlordsoul : 0,
     overlordposs : 1,
     extractorlevel : 1,
-    exupgrade1 : 20,
-    exupgrade2 : 5,
-    expurchased : 0,
-    doubleminingposs : 0,
-    enchantedoverlordingot : 0,
-    autominetime : 10,
-    robotmaker : 0,
-    minepower : 0,
+    exupgrade1 : 20, //추출기 업그레이드 가격 (부품들)
+    exupgrade2 : 5, //추출기 업그레이드 가격 (오버로드괴, 추출 엔진)
+    expurchased : 0, //추출기 업그레이드 구매 횟수
+    doubleminingposs : 0, 
+    enchantedoverlordingot : 0, //오버로드 주괴 2티어 개수
+    autominetime : 10, //자동광질하는 주기, 기본은 10(초)
+    robotmaker : 0, //1이면 로봇 제작소 해금
+    minepower : 0, //로봇마다 광질 빠-워가 있는데 로봇들의 광질 빠-워 총합을 나타냄
     circuit : 0,
     maxrobot : 5,
     robotbody : 0,
@@ -43,13 +43,13 @@ var default_SD = { //기본값 세이브파일
     robotcount : 0,
     commonminingrobot : 0,
     commonexcavatorrobot : 0,
-    robotupgrade1 : 50,
-    robotpurchased1 : 0,
-    mythmineticket : 0,
+    robotupgrade1 : 50, //로봇 업그레이드 가격
+    robotpurchased1 : 0, //로봇 업그레이드 구매 횟수
+    mythmineticket : 0, //1이면 전설의 광산이 열림
     mythrill : 0,
     orichalcum : 0,
     adamantite : 0,
-    udc : 1,
+    udc : 1, //Upgrade DisCount의 약자, 업글할때마다 0.01씩 감소함
     mythupgrade1 : 10,
     mythpurchased1 : 0,
     mythupgrade2 : 10,
