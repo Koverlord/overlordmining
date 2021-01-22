@@ -1,4 +1,4 @@
-//탭0, 기본적인거
+//탭0, 메인
 
 function tab(num) { //num번째 탭으로 전환
     let tab_size = 5;
@@ -37,7 +37,7 @@ var repeatmining = 1;
 function mining(rep) { // 광질
     if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs% 확률임)
         repeatmining = 2;
-        add_log("2배 채광!")
+        add_log("한번 더 채광!")
     }
     else {
         repeatmining = 1;

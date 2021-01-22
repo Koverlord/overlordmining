@@ -1,4 +1,4 @@
-//탭4
+//탭4 - 테스트용
 
 function test() {
     var z = document.getElementById("testt");
@@ -11,4 +11,9 @@ function test() {
     // test_text += "<p>SD.UGS.0.result.0.1 : " + SD['UGS']['0']['result'][0][1] + "</P>";
     // test_text += "<p></P>";
     z.innerHTML = test_text
+}
+
+function reset() { //세이브 리셋
+    SD = default_SD;
+    load();
 }

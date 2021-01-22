@@ -1,4 +1,4 @@
-//탭1 업그레이드
+//탭1 - 업그레이드
 
 function UGS_load(num) {
     var y = document.getElementsByClassName("UGS_list");
@@ -19,13 +19,14 @@ function upgrade(num) {
             // eval(SD["UGS"][num]["price_equation"]); // 가격 조정
             // eval(SD["UGS"][num]["result"][0][0] + "=" + SD["UGS"][num]["result"][0][1]); // 다음레벨에 필요한 재료 갯수
             store();
-            UGS_load(num)
+            UGS_load(num);
+            add_log("업그레이드!");
         }
         else{
-            alert("업글 불가 (재료)");
+            add_log("업글 불가 (재료)");
         }
     }
     else {
-        alert("업글 불가 (레벨)");
+        add_log("업글 불가 (레벨)");
     }
 }

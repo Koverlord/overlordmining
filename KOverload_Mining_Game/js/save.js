@@ -11,7 +11,7 @@ var default_SD = { //기본값 세이브파일
     overlord : 0,
     // upgradeN   // 필요 재료 갯수
     // purchasedN // 레벨
-    a : 1,  //+한번에 얻는 광물 개수
+    a : 1,  //한번에 얻는 광물 개수
     b : 1,  //한번에 조합하는 일반 아이템 개수
     c : 0,  //한번에 얻는 금속 개수
     d : 0,  //한번에 얻는 보석 개수
@@ -177,9 +177,4 @@ function load() {
         for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);} // 업그레이드 목록 동기화
     }
     store();
-}
-
-function reset() {
-    SD = default_SD;
-    load();
 }
