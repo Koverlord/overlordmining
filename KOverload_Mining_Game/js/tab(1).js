@@ -2,8 +2,8 @@
 
 function UGS_load(num) {
     var y = document.getElementsByClassName("UGS_list");
-    eval(SD["UGS"][num]["price_equation"]); // 가격 조정
-    eval(SD["UGS"][num]["result"][0][0] + "=" + SD["UGS"][num]["result"][0][1]); // 다음레벨에 필요한 재료 갯수
+    eval(SD["UGS"][num]["price_equation"]); // 가격 레벨에 맞게 업데이트
+    eval(SD["UGS"][num]["result"][0][0] + "=" + SD["UGS"][num]["result"][0][1]); // 다음레벨에 필요한 재료 갯수 업데이트
     var upgrade_text = " "
     upgrade_text += SD["UGS"][num]["name"] + " level : " + SD["UGS"][num]["level"] + "<br>";
     upgrade_text += "업그레이드 재료 : "+ SD["UGS"][num]["material"][0] + " " + SD["UGS"][num]["price"] + "개<br>";
