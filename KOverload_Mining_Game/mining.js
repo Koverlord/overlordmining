@@ -15,16 +15,16 @@ var default_SD = { //기본값 세이브파일
     d : 0,  //한번에 얻는 보석 개수
     e : 1,
     f : 1,
-    irongold : 0,
-    extractpipe : 0,
-    engine : 0,
-    emitpipe : 0,
-    extractor : 0,
-    overlordscrap : 0,
-    overlordpart : 0,
-    overlordingot : 0,
-    overlordessence : 0,
-    overlordsoul : 0,
+    irongold : 0, //철-금 합금 개수
+    extractpipe : 0, //추출 파이프 개수
+    engine : 0, //추출 엔진 개수
+    emitpipe : 0, //배출 파이프 개수
+    extractor : 0, //1이면 추출소 해금
+    overlordscrap : 0, //오버로드의 파편 개수
+    overlordpart : 0, //오버로드의 조각 개수
+    overlordingot : 0, //오버로드 주괴 개수
+    overlordessence : 0, //오버로드 정수 개수
+    overlordsoul : 0, //오버로드의 영혼 개수
     overlordposs : 1,
     extractorlevel : 1,
     exupgrade1 : 20, //추출기 업그레이드 가격 (부품들)
