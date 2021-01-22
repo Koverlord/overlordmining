@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <head>
     <title>[K]Overlord Mining Game</title>
-    <script src="mining.js"></script>
+    <!-- <script src="mining.js"></script> -->
     <link href="mining.css" rel="stylesheet" type="text/css">
+    <script src="js/main.js"></script>
+    <script src="js/save.js"></script>
+    <script src="js/tab(1).js"></script>
+    <script src="js/tab(4).js"></script>
 </head>
 <body>
     <ul>
@@ -33,27 +37,27 @@
                 </tr>
                 <tr><td colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점1, 한번에 조합하는 일반 아이템 개수 증가</div></td>
+                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점1, 이중 채광 확률 증가</div></td>
                     <td style="width: 20%;"><div class="button button5" onclick="upgrade(1)">업그레이드</div></td></td>
                 </tr>
                 <tr><td colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점2, 오버로드 출현 확률 증가</div></td>
+                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점2, 한번에 얻는 금속 개수 증가</div></td>
                     <td style="width: 20%;"><div class="button button5" onclick="upgrade(2)">업그레이드</div></td></td>
                 </tr>
                 <tr><td colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점3, 2배 채광 확률 증가</div></td>
+                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점3, 한번에 얻는 보석 개수 증가</div></td>
                     <td style="width: 20%;"><div class="button button5" onclick="upgrade(3)">업그레이드</div></td></td>
                 </tr>
                 <tr><td colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점4, 한번에 얻는 금속 개수 증가</div></td>
+                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점4, 오버로드 출현 확률 증가</div></td>
                     <td style="width: 20%;"><div class="button button5" onclick="upgrade(4)">업그레이드</div></td></td>
                 </tr>
                 <tr><td colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점5, 한번에 얻는 보석 개수 증가</div></td>
+                    <td style="width: 80%;"><div class="UGS_list">업그레이드 상점5, 한번에 조합하는 일반 아이템 개수 증가</div></td>
                     <td style="width: 20%;"><div class="button button5" onclick="upgrade(5)">업그레이드</div></td></td>
                 </tr>
             </table>
@@ -71,7 +75,8 @@
     <div id="tab4" style="display: none;">  <!--탭4-->
         <div id="testt" class="box" style="width: 600px;"></div>
         <div class="button button5" onclick="test()">업데이트</div>
-        <div class="button button5 stop-dragging" onclick="mining(1000)">광질 1천회</div>
+        <button class="button button5 stop-dragging" onclick="mining(1000)" style="width: 148px;">광질 1천회</button>
+        <div class="button button5" onclick="reset()">리셋</div>
     </div>
 
 </body>
