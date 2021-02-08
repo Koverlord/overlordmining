@@ -239,20 +239,20 @@ while True:
                 else:
                     print("광물 부족!")
             elif string2=="A":
-                if extractor==1:
-                    if extractorlevel<=19:
-                        if extractpipe>=exupgrade1 and engine>=exupgrade2 and emitpipe>=exupgrade1 and overlordingot>=exupgrade2:
-                            extractpipe-=exupgrade1
-                            engine-=exupgrade2
-                            emitpipe-=exupgrade1
-                            overlordingot-=exupgrade2
-                            extractorlevel+=1
-                            expurchased+=1
-                            exupgrade1=20+expurchased*20
-                            exupgrade2=5+expurchased*5
-                            print("업그레이드 완료!")
+                if extractor==1: #추출소가 있는지 판단 #웹에 만들때는 추출소가 있을때만 탭 나오게 하면 됨
+                    if extractorlevel<=19: #추출소가 최대 레벨인지 판단
+                        if extractpipe>=exupgrade1 and engine>=exupgrade2 and emitpipe>=exupgrade1 and overlordingot>=exupgrade2:# 재료 충분한지 판단
+                            extractpipe-=exupgrade1 #추출파이프 재료 차감
+                            engine-=exupgrade2 #추출엔진 재료 차감 
+                            emitpipe-=exupgrade1 #배출파이프 재료 차감
+                            overlordingot-=exupgrade2 #오버로드주괴 재료 차감
+                            extractorlevel+=1 #레벨 올라감
+                            expurchased+=1 #구매횟수 올라감
+                            exupgrade1=20+expurchased*20 #재료 가격증가공식 (추출&배출 파이프)
+                            exupgrade2=5+expurchased*5 # 재료 가격증가공식(엔진이랑 오버로드주괴)
+                            print("업그레이드 완료!") #끝
                         else:
-                            print("재료 부족!")
+                            print("재료 부족!") #거지는 컷함
                     else:
                         print("추출기가 최대 레벨입니다.")
                 else:
