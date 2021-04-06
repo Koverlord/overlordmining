@@ -19,7 +19,7 @@
         <li><div class="tab_menu not_active" onclick="tab(5); test()">개발용 테스트옵션</div></li>
     </ul>
 
-    <table>
+    <table> <!--항상 노출-->
         <tr style="vertical-align: top;">
             <td><div id="log" class="box" style="overflow-y: scroll; height: 196px; width: 378px;"></div></td> <!--로그-->
             <td><div id="storehouse" class="box"></div></td> <!--보유량-->
@@ -72,6 +72,11 @@
                 <tr>
                     <td style="width: 80%;"><div class="UGS_list">철 제련하기</div></td>
                     <td style="width: 20%;"><div class="button button5" onclick="melt.bind(this)('iron');">제련</div></td>
+                </tr>
+                <tr><td colspan="2"><hr></td></tr>
+                <tr>
+                    <td style="width: 80%;"><div class="UGS_list">금 제련하기</div></td>
+                    <td style="width: 20%;"><div class="button button5" onclick="melt.bind(this)('gold');">제련</div></td>
                 </tr>
             </table>
         </div>
