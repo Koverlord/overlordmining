@@ -71,7 +71,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td style="width: 80%;"><div class="UGS_list">철 제련하기</div></td>
-                    <td style="width: 20%;"><div class="button button5" onclick="setInterval(melt(),1000)">제련</div></td>
+                    <td style="width: 20%;"><div class="button button5" onclick="setInterval(function(){ if (SD.iron>){SD.iron-=1;SD.iron_ingot+=1;store()}},1000)">제련</div></td>
                 </tr>
             </table>
         </div>
