@@ -18,7 +18,6 @@ function add_log(log) { // log를 id="log"인 div에 추가함
     x.innerHTML = log;
     x.setAttribute("id", "scroll_" + n);
     document.getElementById("log").append(x);
-    document.getElementById("scroll_" + n).scrollIntoView(true);
 }
 
 function store() {  //광물 보유량 업데이트
