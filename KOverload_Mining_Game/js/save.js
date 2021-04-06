@@ -4,7 +4,11 @@ var SD = {}; //현제 세이브파일이 될 예정
 
 var default_SD = { //기본값 세이브파일
     iron : 0,
+    iron_ingot : 0,
+    iron_melt : 0,
     gold : 0,
+    gold_ingot : 0,
+    gold_melt : 0,
     diamond : 0,
     emerald : 0,
     ruby : 0,
@@ -59,9 +63,14 @@ var default_SD = { //기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1,
-    iron_ingot : 0,
     UGS : [0, 0, 0, 0, 0, 0]
-}
+};
+
+var Name = {
+    iron : "철",
+    gold : "금"
+};
+
 
 function save() { // 세이브
     localStorage['saveFile'] = JSON.stringify(SD);
