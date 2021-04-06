@@ -1,4 +1,5 @@
 //탭1 - 업그레이드
+//작동 안할꺼임
 
 function UGS_load(num) {
     var y = document.getElementsByClassName("UGS_list");

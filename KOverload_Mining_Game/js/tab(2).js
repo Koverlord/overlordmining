@@ -1,7 +1,7 @@
 //탭2 - 제련소
 
-function melt(){
-    if (SD.iron >= 1){
+function melt() {
+    if (SD.iron >= 1) {
         SD.iron -= 1;
         SD.iron_ingot += 1;
         store()
@@ -9,10 +9,10 @@ function melt(){
     }
 }
 
-function realmelt(){
+function realmelt() {
     if (typeof t === "undefined") { // check t is undefined
-    let t = setInterval(melt, 1000);
-    this.innerHTML = "중단하기";
+        let t = setInterval(melt, 1000);
+        this.innerHTML = "중단하기";
     } 
     else { // overwrite t to undefined
         t = clearInterval(t);
