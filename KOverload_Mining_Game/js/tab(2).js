@@ -1,10 +1,7 @@
-function melt(ore){
-    var a=ore;
-    var b=a;
-    b+='_ingot';
-    if SD[a]>=0{
-        SD[a]-=1;
-        SD[b]+=1;
+function melt(){
+    if SD[iron]>=0{
+        SD[iron]-=1;
+        SD[iron_ingot]+=1;
         store()
     }
 }
