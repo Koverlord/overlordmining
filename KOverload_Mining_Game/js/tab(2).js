@@ -1,3 +1,5 @@
+//탭2 - 제련소
+
 function melt(){
     if (SD.iron>=1){
         SD.iron-=1;
