@@ -59,6 +59,7 @@ var default_SD = { //기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1,
+    iron_ingot : 0;
     UGS : { //SD['UGS']
         0 : { //SD['UGS'][num]
             name : "한번에 얻는 광물 개수 증가",
