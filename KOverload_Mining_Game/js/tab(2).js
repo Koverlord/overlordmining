@@ -7,5 +7,5 @@ function melt(){
 }
 
 function realmelt(){
-    var wow = setinterval(melt(),1000);
+    var wow = setInterval(melt(),1000);
 }
