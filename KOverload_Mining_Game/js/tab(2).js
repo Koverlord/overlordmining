@@ -8,5 +8,11 @@ function melt(){
 }
 
 function realmelt(){
-    var wow = setInterval(melt,1000);
+  if (typeof t === "undefined") { // check t is undefined
+  let t = setInterval(melt, 1000);
+  this.innerHTML = "중단하기";
+} else {
+  t = clearInterval(t); // overwrite t to undefined
+  this.innerHTML = "제련하기";
+}
 }
