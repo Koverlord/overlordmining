@@ -8,23 +8,23 @@ const UGS_maxlvl = [-1]; // 최고 레벨 (-1은 레벨제한 없음)
 function UGS_load(num) {
     let y = document.getElementsByClassName("UGS_list");
     let UGS_text = "";
-    y[num].innerHTML = UGS_text;
     switch (num) { //가격계산
         case 0: // 한번에 얻는 광물 개수 증가
-            UGS_price[num] = parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
-            SD.a = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
-            UGS_text += "테스트";
-            UGS_text += "테스트";
+        UGS_price[num] = parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
+        SD.a = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
+        UGS_text += "한번에 얻는 광물 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
+        UGS_text += "업그레이드 재료 : " + Name["iron"] + " " + UGS_price[num];
         break;
-
+        
     }
+    y[num].innerHTML = UGS_text;
 }
 
 function upgrade(num) {
     switch (num) {
         case 0: // 한번에 얻는 광물 개수 증가
-            if (SD.iron >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
-                SD.iron = SD.iron - UGS_price[num]; // 재화 소모
+        if (SD.iron >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
+            SD.iron = SD.iron - UGS_price[num]; // 재화 소모
                 SD.UGS_lvl[0]++; // 레벨업
                 add_log("업그레이드 성공!");
             }
@@ -38,7 +38,7 @@ function upgrade(num) {
         //     break;            
     }
 
-    //SD.UGS[num] // 레벨
+    //SD.UGS_lvl[num] // 레벨
 
     UGS_load(num);
     store();
