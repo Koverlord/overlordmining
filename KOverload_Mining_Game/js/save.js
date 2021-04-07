@@ -55,7 +55,7 @@ var default_SD = { //기본값 세이브파일
     mythrill : 0,
     orichalcum : 0,
     adamantite : 0,
-    udc : 1,
+    udc : 1, // 할인율 Upgrade DisCount
     mythupgrade1 : 10,
     mythpurchased1 : 0,
     mythupgrade2 : 10,
@@ -63,7 +63,7 @@ var default_SD = { //기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1,
-    UGS : [0, 0, 0, 0, 0, 0]
+    UGS_lvl : [0, 0, 0, 0, 0, 0]
 };
 
 var Name = {
@@ -106,7 +106,7 @@ function load() {
     add_log("*로드되었습니다*"); // 여기서 n++; 됨 (최초엔 n = 0)
     if (n == 1) { // 처음 로딩시에만 
         SD = loadRecursive(default_SD, SD_old); // 세이브 파일에 오류가 있는지 확인한다
-        // for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);} // 업그레이드 목록 동기화
+        for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);} // 업그레이드 목록 동기화
     }
     store();
 }
