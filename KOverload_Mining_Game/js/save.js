@@ -100,6 +100,7 @@ function loadRecursive(defaultDict, oldDict) {
 
 function load() {
     var SD_old;
+    SD = default_SD;
     if (localStorage.hasOwnProperty("saveFile")){ // 만약 localStorage에 saveFile이 있을경우
         SD_old = JSON.parse(localStorage['saveFile']); //SD_old에 저장한다
     }
