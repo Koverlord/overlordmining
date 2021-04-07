@@ -9,19 +9,6 @@ function real_melt(ore) {
     // }
 }
 
-// function realmelt() {
-//     if (typeof t === "undefined") { // check t is undefined
-//         var t = setInterval(melt, 1000);
-//         this.innerHTML = "중단하기";
-        
-//     } 
-//     else { // overwrite t to undefined
-//         clearInterval(t);
-//         this.innerHTML = "제련하기";
-//     }
-//     // this.innerHTML = "중단하기";
-// }
-
 //melt('iron');
 function melt(ore) {
     if (SD[`${ore}_melt`] == 0) {

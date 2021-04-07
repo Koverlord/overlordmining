@@ -1,7 +1,7 @@
 //탭0, 메인
 
 function tab(num) { //num번째 탭으로 전환
-    let tab_size = document.getElementsByClassName("tab_menu").length;
+    const tab_size = document.getElementsByClassName("tab_menu").length;
     let x = document.getElementsByClassName("tab_menu");
     for (i = 0; i < tab_size; i++) {
         document.getElementById("tab" + i).style.display = "none";
