@@ -105,7 +105,7 @@ function load() {
         SD_old = JSON.parse(localStorage['saveFile']); //SD_old에 저장한다
         if (n == 1) { // 처음 로딩시에만 
             SD = loadRecursive(default_SD, SD_old); // 세이브 파일에 오류가 있는지 확인한다
-            for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);} // 업그레이드 목록 동기화
+            // for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);} // 업그레이드 목록 동기화
         }
     }
     add_log("*로드되었습니다*"); // 여기서 n++; 됨 (최초엔 n = 0)
