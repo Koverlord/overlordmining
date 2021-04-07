@@ -1,88 +1,88 @@
 //탭1 - 업그레이드
-//작동 안할꺼임
 
 //UGS 변수
 let UGS_price = []; // 가격
 const UGS_maxlvl = [-1, 100]; // 최고 레벨 (-1은 레벨제한 없음)
+let Mineral = ""; // 미네랄
 
 function UGS_load(num) {
     let y = document.getElementsByClassName("UGS_list");
     let UGS_text = "";
+    Mineral_check(num);
+
     switch (num) {
         case 0: // 한번에 얻는 광물 개수 증가
             UGS_price[num] = parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
             SD.a = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
             UGS_text += "한번에 얻는 광물 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
-            UGS_text += "업그레이드 재료 : " + Name["iron"] + " " + UGS_price[num] + "개";
             break;
 
-        case 1: // 한번에 얻는 광물 개수 증가
+        case 1: // 이중 채광 확률 증가
             UGS_price[num] =parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
             SD.doubleminingposs =  SD.UGS_lvl[num];
-            UGS_text += "한번에 얻는 광물 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
-            UGS_text += "업그레이드 재료 : " + Name["gold"] + " " + UGS_price[num] + "개";
+            UGS_text += "이중 채광 확률 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
 
-        // case num: // 한번에 얻는 광물 개수 증가
+        // case num: // 설명
         //     UGS_price[num] = 가격 결정 식;
         //     결과 = 결과 결정 식;
         //     UGS_text += "업글 내용. level : " + SD.UGS_lvl[num] + "<br>";
-        //     UGS_text += "업그레이드 재료 : " + Name[""] + " " + UGS_price[num] + "개";
         //     break;
         
     }
+    UGS_text += "업그레이드 재료 : " + Name[Mineral] + " " + UGS_price[num] + "개";
     y[num].innerHTML = UGS_text;
+
 }
 
 function upgrade(num) {
-    switch (num) {
-        case 0: // 한번에 얻는 광물 개수 증가
-            if (SD.iron >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
-                SD.iron = SD.iron - UGS_price[num]; // 재화 소모
-                    SD.UGS_lvl[0]++; // 레벨업
-                    add_log("업그레이드 성공!");
-                }
-                else {
-                    UGS_fail(num);
-                }
-            break;
-        case 1: // 이중 채광 확률 증가
-            if (SD.gold >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
-                SD.gold = SD.gold - UGS_price[num]; // 재화 소모
-                    SD.UGS_lvl[0]++; // 레벨업
-                    add_log("업그레이드 성공!");
-                }
-                else {
-                    UGS_fail(num);
-                }
-            break; 
-
-        // case num: // 업글 내용
-        //     if (SD. >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
-        //         SD. = SD. - UGS_price[num]; // 재화 소모
-        //             SD.UGS_lvl[0]++; // 레벨업
-        //             add_log("업그레이드 성공!");
-        //         }
-        //         else {
-        //             UGS_fail(num);
-        //         }
-        //     break;           
+    Mineral_check(num);
+    if (SD[Mineral] >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl[num] < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
+        SD[Mineral] = SD[Mineral] - UGS_price[num]; // 재화 소모
+        SD.UGS_lvl[num]++; // 레벨업
+        add_log("업그레이드 성공!");
     }
-
-    //SD.UGS_lvl[num] // 레벨
-
-    UGS_load(num);
-    store();
-}
-
-function UGS_fail(num) {
-    if (SD.UGS_lvl[num] == UGS_maxlvl) {
+    else if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
         add_log("최고 레벨입니다");
     }
     else {
         add_log("재료가 부족합니다"); //만렙이 아닌데 이메시지뜨면 잘못된것
     }
+    UGS_load(num);
+    store();
 }
+
+function Mineral_check(num) {
+    switch (num) {
+        case 0:
+            Mineral = "iron";
+            break;
+        case 1:
+            Mineral = "gold";
+            break;
+        case 2:
+            Mineral = "emerald";
+            break;
+        case 3:
+            Mineral = "ruby";
+            break;
+        case 4:
+            Mineral = "overlordingot";
+            break;
+        case 5:
+            Mineral = "diamond";
+            break;
+    }
+}
+
+// function UGS_fail(num) {
+//     if (SD.UGS_lvl[num] == UGS_maxlvl) {
+//         add_log("최고 레벨입니다");
+//     }
+//     else {
+//         add_log("재료가 부족합니다"); //만렙이 아닌데 이메시지뜨면 잘못된것
+//     }
+// }
 
 // UGS : { //SD['UGS']
 //     0 : { //SD['UGS'][num]
