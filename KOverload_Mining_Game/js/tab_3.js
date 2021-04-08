@@ -13,7 +13,7 @@ function have_no_idea_to_naming(num){
     let max_make=parseInt(SD[material[num][0]]/price[num][0]);
     for(var i=0; i<=material[num].length; i++){
         if (parseInt(SD[material[num][i]]/price[num][i]) < max_make){
-        max_make = parseInt(SD[material[num][i]]/price[num][i];
+        max_make = parseInt(SD[material[num][i]]/price[num][i]);
     }
 }
   
