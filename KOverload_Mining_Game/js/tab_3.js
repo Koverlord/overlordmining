@@ -11,7 +11,7 @@ var result = {
     1 : irongold
 };
     
-function have_no_idea_to_naming(num){
+function craft(num){
 
     let max_make=parseInt(SD[material[num][0]]/price[num][0]);
     for(let i=0; i<=material[num].length; i++){
