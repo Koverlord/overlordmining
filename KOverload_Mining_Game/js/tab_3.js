@@ -7,15 +7,34 @@ var material = {
 var price = {
     1 : ['10', '10']
 };
-
+var result = {
+    1 : irongold
+};
+    
 function have_no_idea_to_naming(num){
-    let a = prompt("조합할 개수를 입력해 주세요.");
-    console.log(a);
+
     let max_make=parseInt(SD[material[num][0]]/price[num][0]);
-    for(var i=0; i<=material[num].length; i++){
+    for(let i=0; i<=material[num].length; i++){
         if (parseInt(SD[material[num][i]]/price[num][i]) < max_make){
-            max_make = parseInt(SD[material[num][i]]/price[num][i]);
+        max_make = parseInt(SD[material[num][i]]/price[num][i]);
         }
+    }
+    let make=prompt("조합할 개수를 입력해 주세요. 현재 최대 조합 가능 개수 : " + max_make + "개");
+    try {
+        make=parseInt(make);
+        if (make<=max_make){
+            for(let i=0; i<=material[num].length; i++){
+                SD[material[num][i]]-=price[num][i]*make;
+            }
+            SD[result[num]]+=make;
+            alert("조합 완료.");
+        }
+        else {
+            alert("제대로 입력하세요 빠빡대가리야");
+        }
+    }
+    catch{
+        alert("제대로 입력하세요 빠빡대가리야");
     }
 }
   
