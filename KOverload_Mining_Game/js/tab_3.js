@@ -8,7 +8,7 @@ var price = {
     1 : ['10', '10']
 };
 var result = {
-    1 : irongold
+    1 : 'irongold'
 };
     
 function craft(num){
