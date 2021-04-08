@@ -31,6 +31,7 @@ function store() {  //광물 보유량 업데이트
     Store += "<p>오버로드 " + SD.overlord + "개</p>";
     Store += "<p>철괴 " + SD.iron_ingot +"개</p>";
     Store += "<p>금괴 " + SD.gold_ingot +"개</p>";
+    Store += "<p>철-금 합금" + SD.irongold +"개</p>";
     document.getElementById("storehouse").innerHTML = Store 
     //최적화 하자면 업데이트를 전체를 하는게 아니라 수정된 자원이 있는 줄만 replace로 수정하면 될듯
 }
