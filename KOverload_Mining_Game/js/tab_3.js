@@ -6,8 +6,7 @@ var material = {
 
 var price = {
     1 : ['10', '10']
-    
-var 
+};
 function have_no_idea_to_naming(num){
     let a=prompt("조합할 개수를 입력해 주세요.");
     console.log(a);
