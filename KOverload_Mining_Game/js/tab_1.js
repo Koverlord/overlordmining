@@ -55,10 +55,10 @@ function upgrade(num) {
 function Mineral_check(num) {
     switch (num) {
         case 0:
-            Mineral = "iron";
+            Mineral = "iron_ingot";
             break;
         case 1:
-            Mineral = "gold";
+            Mineral = "gold_ingot";
             break;
         case 2:
             Mineral = "emerald";
