@@ -67,7 +67,7 @@ function mining(rep) { // 광질
             SD['ruby'] += (SD['a'] + SD['d']) * rep;
             add_log("루비 " + (SD.a + SD.d) * rep + "개 획득! 현재 " + SD.ruby + "개");
         }
-        if (r_no <= SD.overlordposs){
+        if (r_no <= SD.overlord_poss){
             SD['overlord'] += (SD['a'] * SD['f']) * rep;
             add_log("오버로드 " + (SD.a * SD.f) * rep + "개 획득! 현재 " + SD.overlord + "개");
         }

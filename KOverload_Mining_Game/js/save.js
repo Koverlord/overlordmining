@@ -24,12 +24,12 @@ var default_SD = { //기본값 세이브파일
     engine : 0,
     emitpipe : 0,
     extractor : 0,
-    overlordscrap : 0,
-    overlordpart : 0,
-    overlordingot : 0,
-    overlordessence : 0,
-    overlordsoul : 0,
-    overlordposs : 1,
+    overlord_scrap : 0,
+    overlord_part : 0,
+    overlord_ingot : 0,
+    overlord_essence : 0,
+    overlord_soul : 0,
+    overlord_poss : 1,
     extractorlevel : 1,
     exupgrade1 : 20,
     exupgrade2 : 5,
@@ -67,8 +67,12 @@ var default_SD = { //기본값 세이브파일
 var Name = {
     iron : "철",
     gold : "금",
-    iron_ingot : "철괴",
-    gold_ingot : "금괴"
+    iron_ingot : "철 주괴",
+    gold_ingot : "금 주괴",
+    ruby : "루비",
+    emerald : "에메랄드",
+    diamond : "다이아몬드",
+    overlord_ingot : "오버로드 주괴",
 };
 
 var Melt = {

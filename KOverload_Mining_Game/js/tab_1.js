@@ -2,13 +2,13 @@
 
 //UGS 변수
 let UGS_price = []; // 가격
-const UGS_maxlvl = [-1, 100]; // 최고 레벨 (-1은 레벨제한 없음)
-let Mineral = ""; // 미네랄
+const UGS_maxlvl = [-1, 100, -1, -1, 99, 4]; // 최고 레벨 (-1은 레벨제한 없음)
+let UGS_material = ""; // 미네랄
 
 function UGS_load(num) {
     let y = document.getElementsByClassName("UGS_list");
     let UGS_text = "";
-    Mineral_check(num);
+    UGS_material_check(num);
 
     switch (num) {
         case 0: // 한번에 얻는 광물 개수 증가
@@ -22,6 +22,26 @@ function UGS_load(num) {
             SD.doubleminingposs =  SD.UGS_lvl[num];
             UGS_text += "이중 채광 확률 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
+        case 2: // 한번에 얻는 금속 개수 증가
+            UGS_price[num] = parseInt((200 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 100) * SD.udc);
+            SD.c = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
+            UGS_text += "한번에 얻는 금속 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
+            break;
+        case 3: // 한번에 얻는 보석 개수 증가
+            UGS_price[num] = parseInt((200 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 100) * SD.udc);
+            SD.d = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
+            UGS_text += "한번에 얻는 보석 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
+            break;
+        case 4: // 오버로드 출현 확률 증가
+            UGS_price[num] = 5;
+            SD.overlord_poss = SD.UGS_lvl[num] + 1;
+            UGS_text += "오버로드 출현 확률 증가. level : " + SD.UGS_lvl[num] + "<br>";
+            break;
+        case 5: // 한번에 조합하는 일반 아이템 개수 증가
+            UGS_price[num] = parseInt((2000 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 1000) * SD.udc);
+            SD.b = SD.UGS_lvl[num] + 1;
+            UGS_text += "한번에 조합하는 일반 아이템 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
+            break;
 
         // case num: // 설명
         //     UGS_price[num] = 가격 결정 식;
@@ -30,15 +50,15 @@ function UGS_load(num) {
         //     break;
         
     }
-    UGS_text += "업그레이드 재료 : " + Name[Mineral] + " " + UGS_price[num] + "개";
+    UGS_text += "업그레이드 재료 : " + Name[UGS_material] + " " + UGS_price[num] + "개";
     y[num].innerHTML = UGS_text;
 
 }
 
 function upgrade(num) {
-    Mineral_check(num);
-    if (SD[Mineral] >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl[num] < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
-        SD[Mineral] = SD[Mineral] - UGS_price[num]; // 재화 소모
+    UGS_material_check(num);
+    if (SD[UGS_material] >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl[num] < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
+        SD[UGS_material] = SD[UGS_material] - UGS_price[num]; // 재화 소모
         SD.UGS_lvl[num]++; // 레벨업
         add_log("업그레이드 성공!");
     }
@@ -52,25 +72,25 @@ function upgrade(num) {
     store();
 }
 
-function Mineral_check(num) {
+function UGS_material_check(num) {
     switch (num) {
         case 0:
-            Mineral = "iron_ingot";
+            UGS_material = "iron_ingot";
             break;
         case 1:
-            Mineral = "gold_ingot";
+            UGS_material = "gold_ingot";
             break;
         case 2:
-            Mineral = "emerald";
+            UGS_material = "emerald";
             break;
         case 3:
-            Mineral = "ruby";
+            UGS_material = "ruby";
             break;
         case 4:
-            Mineral = "overlordingot";
+            UGS_material = "overlord_ingot";
             break;
         case 5:
-            Mineral = "diamond";
+            UGS_material = "diamond";
             break;
     }
 }
