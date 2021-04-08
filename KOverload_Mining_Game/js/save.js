@@ -100,13 +100,15 @@ function loadRecursive(defaultDict, oldDict) {
 
 function load() {
     var SD_old;
-    // SD = default_SD;
     if (localStorage.hasOwnProperty("saveFile")){ // 만약 localStorage에 saveFile이 있을경우
         SD_old = JSON.parse(localStorage['saveFile']); //SD_old에 저장한다
         // if (n == 0) { // 처음 로딩시에만 
         SD = loadRecursive(default_SD, SD_old); // 갱신
             // for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);} // 업그레이드 목록 동기화
         // }
+    }
+    else {
+        SD = default_SD; // 세이브파일이 없을경우(처음) 세이브파일 생성
     }
     add_log("*로드되었습니다*"); // 여기서 n++; 됨 (최초엔 n = 0)
 
