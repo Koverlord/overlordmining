@@ -65,8 +65,8 @@ var default_SD = { //기본값 세이브파일
 };
 
 var Name = {
-    iron : "철",
-    gold : "금"
+    iron_ingot : "철괴",
+    gold_ingot : "금괴"
 };
 
 var Melt = {
