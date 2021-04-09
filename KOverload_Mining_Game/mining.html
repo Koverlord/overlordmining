@@ -17,8 +17,9 @@
         <li><div class="tab_menu not_active" onclick="tab(1); for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);}">업그레이드 상점</div></li>
         <li><div class="tab_menu not_active" onclick="tab(2)">제련소</div></li>
         <li><div class="tab_menu not_active" onclick="tab(3)">조합소</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(4)">옵션</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(5); test()">개발용 테스트옵션</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(4)">추출소</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(5);">옵션</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(6); test()"">개발용 테스트옵션</div></li>
     </ul>
 
     <table> <!--항상 노출-->
@@ -95,12 +96,16 @@
         </div>
     </div>
 
-    <div id="tab4" style="display: none;">  <!--탭4-->
+    <div id="tab4"> <!--탭4-->
+        <div class="button button5" >추출</div>
+    </div>
+
+    <div id="tab5" style="display: none;">  <!--탭5-->
         <div class="button button5" onclick="save()">세이브</div>
         <div class="button button5" onclick="load()">로드</div>
     </div>
 
-    <div id="tab5" style="display: none;">  <!--탭5-->
+    <div id="tab6" style="display: none;">  <!--탭6-->
         <div id="testt" class="box" style="width: 600px;"></div>
         <div class="button button5" onclick="test()">업데이트</div>
         <button class="button button5" onclick="mining(1000)" style="width: 148px;">광질 1천회</button>
