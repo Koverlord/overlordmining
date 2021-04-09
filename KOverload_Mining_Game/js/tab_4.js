@@ -22,5 +22,6 @@ function extract(){
         }
     }
     SD.overlord=0;
+    store()
     add_log("추출 완료.")
 }
