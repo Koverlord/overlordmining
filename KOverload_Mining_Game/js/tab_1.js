@@ -67,5 +67,7 @@ function upgrade(num) {
         add_log("재료가 부족합니다"); //만렙이 아닌데 이메시지뜨면 잘못된것
     }
     UGS_load(num);
-    store();
+    store(0); // 광물
+    store(1); // 주괴
+    store(4); // 오버로드
 }

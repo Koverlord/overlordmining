@@ -24,6 +24,8 @@ function extract() {  //추출
         }
     }
     SD.overlord=0;
-    store();
+    store(0); // 광물
+    store(1); // 주괴
+    store(4); // 오버로드
     add_log("추출 완료.");
 }

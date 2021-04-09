@@ -33,7 +33,8 @@ function craft(num){
         }
         SD[craft_result[num]] += craft;
         add_log(craft + "개 조합 완료");
-        store();
+        store(0); // 광물
+        store(2); // 합금
     }
 }
   

@@ -67,14 +67,14 @@ p {
     color: white;
 }
 
-ul{
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
   
-li{
+li {
     float: left;
 }
   
@@ -84,6 +84,7 @@ li div {
     padding: 14px 16px;
     text-decoration: none;
 }
+
 li .tab_menu {
     color: white;
 }

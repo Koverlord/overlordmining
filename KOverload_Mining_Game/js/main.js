@@ -49,22 +49,32 @@ function store(num) {  //스토어 업데이트
             break;
         case 1: //주괴
             store_text += "<p>";
-            store_text += "";
+            store_text += "철 주괴 " + SD.iron_ingot + "개<br>";
+            store_text += "금 주괴 " + SD.gold_ingot + "개<br>";
+            store_text += "오버로드 주괴 " + SD.overlord_ingot + "개<br>";
+            store_text += "인챈트된 오버로드 주괴 " + SD.enchantedoverlordingot + "개<br>";
             store_text += "</p>";
             break;        
         case 2: //합금
             store_text += "<p>";
-            store_text += "";
+            store_text += "철-금 합금" + SD.irongold + "개<br>";
             store_text += "</p>";
             break;        
         case 3: //조합
             store_text += "<p>";
-            store_text += "";
+            store_text += "아직 없는듯?";
             store_text += "</p>";
             break;    
         case 4: // 오버로드
             store_text += "<p>";
-            store_text += "";
+            store_text += "오버로드 " + SD.overlord + "개<br>";
+            store_text += "오버로드 파편 " + SD.overlord_scrap + "개<br>";
+            store_text += "오버로드 조각 " + SD.overlord_part + "개<br>";
+            store_text += "오버로드 주괴 " + SD.overlord_ingot + "개<br>";
+            store_text += "오버로드 정수 " + SD.overlord_essence + "개<br>";
+            store_text += "오버로드 영혼 " + SD.overlord_soul + "개<br>";
+            store_text += "오버로드 포스 " + SD.overlord_poss + "개<br>";
+            store_text += "인첸트된 오버로드 주괴 " + SD.enchantedoverlordingot + "개<br>";
             store_text += "</p>";
             break;
         // case n:
@@ -116,7 +126,8 @@ function mining(rep) { // 광질
             add_log("오버로드 " + (SD.a * SD.f) * rep + "개 획득! 현재 " + SD.overlord + "개");
         }
     }
-    store(); // 광질 한 후 보유량 업데이트
+    store(0); // 광물
+    store(4); // 오버로드
 }
 
 window.onload = function () { // 페이지가 다 load 되면 load()함수 실행
