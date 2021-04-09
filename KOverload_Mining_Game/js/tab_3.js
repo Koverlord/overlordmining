@@ -28,6 +28,7 @@ function craft(num){
             }
             SD[result[num]]+=make;
             alert("조합 완료.");
+            store()
         }
         else {
             alert("제대로 입력하세요 빠빡대가리야");
