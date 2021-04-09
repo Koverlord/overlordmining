@@ -6,7 +6,7 @@ const UGS_maxlvl = [-1, 100, -1, -1, 99, 4]; // 최고 레벨 (-1은 레벨제�
 let UGS_material = ["iron_ingot", "gold_ingot", "emerald", "ruby", "overlord_ingot", "diamond"]; // 미네랄
 
 function UGS_load(num) {
-    let y = document.getElementsByClassName("UGS_list");
+    let UGS_list = document.getElementsByClassName("UGS_list");
     let UGS_text = "";
 
     switch (num) {
@@ -50,7 +50,7 @@ function UGS_load(num) {
         
     }
     UGS_text += "업그레이드 재료 : " + Name[UGS_material[num]] + " " + UGS_price[num] + "개";
-    y[num].innerHTML = UGS_text;
+    UGS_list[num].innerHTML = UGS_text;
 
 }
 

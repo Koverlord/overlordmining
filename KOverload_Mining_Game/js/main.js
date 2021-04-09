@@ -2,21 +2,32 @@
 
 function tab(num) { //num번째 탭으로 전환
     const tab_size = document.getElementsByClassName("tab_menu").length;
-    let x = document.getElementsByClassName("tab_menu");
+    let tab_list = document.getElementsByClassName("tab_menu");
     for (i = 0; i < tab_size; i++) {
         document.getElementById("tab" + i).style.display = "none";
-        x[i].className = "tab_menu not_active";
+        tab_list[i].className = "tab_menu not_active";
     }
     document.getElementById("tab" + num).style.display = "block";
-    x[num].className = "tab_menu active";
+    tab_list[num].className = "tab_menu active";
+}
+
+tab_sotre_num = 0;
+function tab_store(num) {
+    let tab_store_list = document.getElementsByClassName("tab_store")
+    let store_list = document.getElementsByClassName("store");
+    tab_store_list[tab_sotre_num].className = "tab_store not_active";
+    store_list[tab_sotre_num].style.display = "none";
+    tab_store_list[num].className = "tab_store active";
+    store_list[num].style.display = "block";
+    tab_sotre_num = num;
 }
 
 var n = 0;
 function add_log(log) { // log를 id="log"인 div에 추가함
     n++;
-    var x = document.createElement("p");
-    x.innerHTML = log;
-    x.setAttribute("id", "scroll_" + n);
+    var log = document.createElement("p");
+    log.innerHTML = log;
+    log.setAttribute("id", "scroll_" + n);
     document.getElementById("log").append(x);
     document.getElementById("scroll_" + n).scrollIntoView(true);
 }
