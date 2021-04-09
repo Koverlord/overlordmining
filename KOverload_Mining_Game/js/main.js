@@ -38,24 +38,39 @@ function store(num) {  //스토어 업데이트
     var store_text = "";
     switch (num) {
         case 0: //광물
-            store_text += "<p>철 " + SD.iron + "개</p>";
-            store_text += "<p>금 " + SD.gold + "개</p>";
-            store_text += "<p>다이아몬드 " + SD.diamond + "개</p>";
-            store_text += "<p>에메랄드 " + SD.emerald + "개</p>";
-            store_text += "<p>루비 " + SD.ruby + "개</p>";
-            store_text += "<p>오버로드 " + SD.overlord + "개</p>";
+            store_text += "<p>";
+            store_text += "철 " + SD.iron + "개<br>";
+            store_text += "금 " + SD.gold + "개<br>";
+            store_text += "다이아몬드 " + SD.diamond + "개<br>";
+            store_text += "에메랄드 " + SD.emerald + "개<br>";
+            store_text += "루비 " + SD.ruby + "개<br>";
+            store_text += "오버로드 " + SD.overlord + "개<br>";
+            store_text += "</p>";
             break;
         case 1: //주괴
-            store_text += "<p>테스트</p><p>테스트</p>";
+            store_text += "<p>";
+            store_text += "";
+            store_text += "</p>";
             break;        
         case 2: //합금
-            store_text += "<p>테스트<br>테스트</p>";
+            store_text += "<p>";
+            store_text += "";
+            store_text += "</p>";
             break;        
         case 3: //조합
-            store_text += "테스트3";
+            store_text += "<p>";
+            store_text += "";
+            store_text += "</p>";
             break;    
+        case 4: // 오버로드
+            store_text += "<p>";
+            store_text += "";
+            store_text += "</p>";
+            break;
         // case n:
+        //     store_text += "<p>";
         //     store_text += "";
+        //     store_text += "</p>";
         //     break;
     }
     store_list[num].innerHTML = store_text;
