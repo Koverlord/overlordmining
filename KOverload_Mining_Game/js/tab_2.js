@@ -14,13 +14,13 @@ function melt(ore) {
     if (Melt[`${ore}`] == 0) {
         Melt[`${ore}`] = setInterval(real_melt, 1000, ore);
         this.innerHTML = "중단"
-        add_log(Name[ore] + " 제련 시작");
+        // add_log(Name[ore] + " 제련 시작");
     }
     else {
         clearTimeout(Melt[`${ore}`]);
         Melt[`${ore}`] = 0;
         this.innerHTML = "제련"
-        add_log(Name[ore] + " 제련 중지");
+        // add_log(Name[ore] + " 제련 중지");
     }
 
 

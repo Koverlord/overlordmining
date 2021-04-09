@@ -20,30 +20,46 @@ function tab_store(num) {
     tab_store_list[num].className = "tab_store active";
     store_list[num].style.display = "block";
     tab_sotre_num = num;
+    store(num);
 }
 
 var n = 0;
 function add_log(log) { // log를 id="log"인 div에 추가함
     n++;
-    var log = document.createElement("p");
-    log.innerHTML = log;
-    log.setAttribute("id", "scroll_" + n);
-    document.getElementById("log").append(x);
+    var log_line = document.createElement("p");
+    log_line.innerHTML = log;
+    log_line.setAttribute("id", "scroll_" + n);
+    document.getElementById("log").append(log_line);
     document.getElementById("scroll_" + n).scrollIntoView(true);
 }
 
-function store() {  //광물 보유량 업데이트
-    var Store = "";
-    Store += "<p>철 " + SD.iron + "개</p>";
-    Store += "<p>금 " + SD.gold + "개</p>";
-    Store += "<p>다이아몬드 " + SD.diamond + "개</p>";
-    Store += "<p>에메랄드 " + SD.emerald + "개</p>";
-    Store += "<p>루비 " + SD.ruby + "개</p>";
-    Store += "<p>오버로드 " + SD.overlord + "개</p>";
-    Store += "<p>철괴 " + SD.iron_ingot +"개</p>";
-    Store += "<p>금괴 " + SD.gold_ingot +"개</p>";
-    Store += "<p>철-금 합금 " + SD.irongold +"개</p>";
-    document.getElementById("storehouse").innerHTML = Store 
+function store(num) {  //스토어 업데이트
+    let store_list = document.getElementsByClassName("store");
+    var store_text = "";
+    switch (num) {
+        case 0: //광물
+            store_text += "<p>철 " + SD.iron + "개</p>";
+            store_text += "<p>금 " + SD.gold + "개</p>";
+            store_text += "<p>다이아몬드 " + SD.diamond + "개</p>";
+            store_text += "<p>에메랄드 " + SD.emerald + "개</p>";
+            store_text += "<p>루비 " + SD.ruby + "개</p>";
+            store_text += "<p>오버로드 " + SD.overlord + "개</p>";
+            break;
+        case 1: //주괴
+            store_text += "<p>테스트</p><p>테스트</p>";
+            break;        
+        case 2: //합금
+            store_text += "<p>테스트<br>테스트</p>";
+            break;        
+        case 3: //조합
+            store_text += "테스트3";
+            break;    
+        // case n:
+        //     store_text += "";
+        //     break;
+    }
+    store_list[num].innerHTML = store_text;
+
     //최적화 하자면 업데이트를 전체를 하는게 아니라 수정된 자원이 있는 줄만 replace로 수정하면 될듯
 }
 

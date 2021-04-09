@@ -121,5 +121,5 @@ function load() {
     }
     add_log("*로드되었습니다*"); // 여기서 n++; 됨 (최초엔 n = 0)
 
-    store();
+    store(0);
 }
