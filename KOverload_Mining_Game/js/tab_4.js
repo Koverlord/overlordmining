@@ -16,7 +16,7 @@ function extract(){
             if (r_extract >= 2){
                 SD.overlord_ingot += 1
             }
-            else{
+            else {
                 SD.overlord_soul += 1
             }
         }
