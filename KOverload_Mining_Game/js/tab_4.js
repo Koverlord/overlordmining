@@ -3,22 +3,23 @@
 function extract() {  //추출
     for (let i = 0; i < SD.overlord; i++) {
         let r_extract = Math.floor(Math.random() * (100)) + 1; // 1 ~ 100 난수 생성
-        if (r_extract >= 51) {
-            SD.overlord_essence += 1; //정수
+        if (r_extract % 2 == 0) {       // 50%
+            SD.overlord_essence += 1;   // 정수
         }
-        else if (r_extract >= 31) {
-            SD.overlord_scrap += 1; //파편
+        // 위랑 아래는 독립적
+        if (r_extract > 30) {           // 70%
+            SD.overlord_scrap += 1;     // 파편
         }
-        else if (r_extract >= 2) {
-            SD.overlord_part += 1; //조각
+        else if (r_extract > 1) {       // 29%
+            SD.overlord_part += 1;      // 조각
         }
-        else if (r_extract == 1) {
+        else if (r_extract == 1) {      // 1%
             r_extract = Math.floor(Math.random() * (100)) + 1;
-            if (r_extract >= 2) {
-                SD.overlord_ingot += 1;
+            if (r_extract > 2) {        // 99%
+                SD.overlord_ingot += 1; // 주괴
             }
-            else {
-                SD.overlord_soul += 1;
+            else {                      // 1%
+                SD.overlord_soul += 1;  // 영혼
             }
         }
     }
