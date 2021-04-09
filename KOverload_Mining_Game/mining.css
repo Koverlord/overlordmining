@@ -91,7 +91,8 @@ li .tab_menu {
 }
 
 .tab_store.active {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    background-color: #ddd;
 }
 
 /* div.stop-dragging {
