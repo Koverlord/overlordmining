@@ -13,7 +13,7 @@
     <script src="js/tab_6.js"></script>
 </head>
 <body>
-    <ul>
+    <ul style="background-color: #333;"> <!--메뉴 탭-->
         <li><div class="tab_menu active" onclick="tab(0)">홈</div></li>
         <li><div class="tab_menu not_active" onclick="tab(1); for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);}">업그레이드 상점</div></li>
         <li><div class="tab_menu not_active" onclick="tab(2)">제련소</div></li>
@@ -26,7 +26,25 @@
     <table> <!--항상 노출-->
         <tr style="vertical-align: top;">
             <td><div id="log" class="box" style="overflow-y: scroll; height: 258px; width: 378px;"></div></td> <!--로그-->
-            <td><div id="storehouse" class="box"></div></td> <!--보유량-->
+            <td>
+                <div class="box">
+                    <ul>
+                        <li>
+                            <div class="tab_store active">광물</div>
+                        </li>
+                        <li>
+                            <div class="tab_store not_active">주괴</div>
+                        </li>
+                        <li>
+                            <div class="tab_store not_active">합금</div>
+                        </li>
+                        <li>
+                            <div class="tab_store not_active">조합</div>
+                        </li>
+                    </ul>
+                    <div id="storehouse"></div>
+                </div>
+            </td> <!--보유량-->
         </tr>
     </table>
 

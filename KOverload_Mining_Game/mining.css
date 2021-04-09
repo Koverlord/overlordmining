@@ -61,32 +61,37 @@ p {
     color: white;
 }
 
-ul {
+ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
 }
   
-li {
+li{
     float: left;
 }
   
 li div {
     display: block;
-    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
+li .tab_menu {
+    color: white;
+}
   
-li div:hover:not(.active) {
+.tab_menu:hover:not(.active) {
     background-color: #111;
 }
   
-.active {
+.tab_menu.active {
     background-color: #4CAF50;
+}
+
+.tab_store.active {
+    text-decoration: underline;
 }
 
 /* div.stop-dragging {
