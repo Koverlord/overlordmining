@@ -21,11 +21,11 @@ function craft(num){
 
     let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요. 현재 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
     console.log(craft);
-    if (craft == 0) {
+    if (craft == 0) { //자연수 아니면 여기서 걸러짐
         add_log("1 이상의 숫자를 입력해 주세요");
     }
     else {
-        if (craft > max_craft){
+        if (craft > max_craft){ // 최대갯수보다 많이만들려고하면 최대갯수만큼 만들어지게 해줌
             craft = max_craft;
         }
         for(let i = 0; i <= craft_material[num].length; i++){     
