@@ -22,7 +22,7 @@ function craft(num){
     let make=prompt("조합할 개수를 입력해 주세요. 현재 최대 조합 가능 개수 : " + max_make + "개");
     try {
         make=parseInt(make);
-        if (0<=make<=max_make){
+        if (0<=make && make<=max_make){
             for(let i=0; i<=material[num].length; i++){
                 SD[material[num][i]]-=price[num][i]*make;
             }
