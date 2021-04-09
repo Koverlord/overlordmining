@@ -13,31 +13,33 @@ const craft_result = {
     
 function craft(num){
 
-    let max_make = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
+    let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
     for(let i = 0; i <= craft_material[num].length; i++){
-        if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_make){
-        max_make = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
+        if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft){
+        max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
         }
     }
-    // let make = prompt("조합할 개수를 입력해 주세요. 현재 최대 조합 가능 개수 : " + max_make + "개");
-    let make = parseInt("0" + prompt("조합할 개수를 입력해 주세요. 현재 최대 조합 가능 개수 : " + max_make + "개"));
 
-    // try {
-        // make = parseInt(make);
-        if (0 <= make && make <= max_make){
-            for(let i=0; i <= craft_material[num].length; i++){
-                SD[craft_material[num][i]] -= craft_price[num][i] * make;
-            }
-            SD[craft_result[num]] += make;
-            alert(make + "개 조합 완료.");
-            store()
+    let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요. 현재 최대 조합 가능 개수 : " + max_craft + "개"));
+
+    if (craft < 1) {
+        add_log("1 이상의 숫자를 입력해 주세요");
+    }
+    else if (craft <= max_craft){
+        for(let i = 0; i <= craft_material[num].length; i++){
+            SD[craft_material[num][i]] -= craft_price[num][i] * craft;
         }
-        else {
-            alert("제대로 입력하세요 빠빡대가리야");
+        SD[craft_result[num]] += craft;
+        add_log(craft + "개 조합 완료");
+        store();
+    }
+    else {
+        for(let i = 0; i <= craft_material[num].length; i++){
+            SD[craft_material[num][i]] -= craft_price[num][i] * max_craft;
         }
-    // }
-    // catch{
-    //     alert("제대로 입력하세요 빠빡대가리야");
-    // }
+        SD[craft_result[num]] += craft;
+        add_log(craft + "개 조합 완료");
+        store();
+    }
 }
   
