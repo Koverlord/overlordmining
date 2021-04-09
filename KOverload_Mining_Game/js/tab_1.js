@@ -23,12 +23,12 @@ function UGS_load(num) {
             break;
         case 2: // 한번에 얻는 금속 개수 증가
             UGS_price[num] = parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
-            SD.c = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
+            SD.c = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2 - 1;
             UGS_text += "한번에 얻는 금속 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
         case 3: // 한번에 얻는 보석 개수 증가
             UGS_price[num] = parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
-            SD.d = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
+            SD.d = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2 - 1;
             UGS_text += "한번에 얻는 보석 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
         case 4: // 오버로드 출현 확률 증가
