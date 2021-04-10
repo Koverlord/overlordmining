@@ -21,7 +21,7 @@ var default_SD = { //기본값 세이브파일
     f : 1,  //*오버로드 나오는 개수 증가
     irongold : 0,
     extractpipe : 0,
-    engine : 0,
+    extract_engine : 0,
     emitpipe : 0,
     extractor : 0,
     overlord_scrap : 0,
