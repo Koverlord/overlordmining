@@ -21,26 +21,28 @@
         <li><div class="tab_menu not_active" onclick="tab(4);">추출소</div></li>
         <li><div class="tab_menu not_active" onclick="tab(5);">옵션</div></li>
         <li><div class="tab_menu not_active" onclick="tab(6); test()">개발용 테스트옵션</div></li>
+        <!-- <li>테스트</li> -->
     </ul>
-
-    <table> <!--항상 노출-->
+    
+    <table style="height: 300px; overflow-y: hidden; margin: 0px 0px 4px 0px;"> <!--항상 노출-->
         <tr style="vertical-align: top;">
-            <td><div id="log" class="box" style="overflow-y: scroll; height: 258px; width: 378px;"></div></td> <!--로그-->
+            <td><div id="log" class="box" style="overflow-y: scroll; width: 378px; height: calc(100% - 4px); padding: 0px 10px;"></div></td> <!--로그-->
             <td> <!--스토어 박스-->
-                <div class="box" style="width: 100%;">
-                    <ul style="background-color: #eee;"> <!--스토어 탭-->
+                <div class="box" style="height: calc(100% - 4px); padding: 0px 10px;">
+                    <ul style="background-color: #eee; margin: 10px 0px;"> <!--스토어 탭-->
                         <li><div class="tab_store active" onclick="tab_store(0);">광물</div></li>
                         <li><div class="tab_store not_active" onclick="tab_store(1);">주괴</div></li>
                         <li><div class="tab_store not_active" onclick="tab_store(2);">합금</div></li>
                         <li><div class="tab_store not_active" onclick="tab_store(3);">조합</div></li>
                         <li><div class="tab_store not_active" onclick="tab_store(4);">오버로드</div></li>
                     </ul>
-                    <div id="storehouse"></div> <!--스토어-->
-                    <div class="store" style="display: block;">광물 탭 내용</div>
-                    <div class="store" style="display: none;">주괴 탭 내용</div>
-                    <div class="store" style="display: none;">합금 탭 내용</div>
-                    <div class="store" style="display: none;">조합 탭 내용</div>
-                    <div class="store" style="display: none;">오버로드 탭 내용</div>
+                    <div id="storehouse"> <!--스토어-->
+                        <div class="store" style="display: block;">광물 탭 내용</div>
+                        <div class="store" style="display: none;">주괴 탭 내용</div>
+                        <div class="store" style="display: none;">합금 탭 내용</div>
+                        <div class="store" style="display: none;">조합 탭 내용</div>
+                        <div class="store" style="display: none;">오버로드 탭 내용</div>
+                    </div>
                 </div>
             </td> 
         </tr>

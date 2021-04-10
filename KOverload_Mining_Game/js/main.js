@@ -29,8 +29,8 @@ function add_log(log) { // log를 id="log"인 div에 추가함
     var log_line = document.createElement("p");
     log_line.innerHTML = log;
     log_line.setAttribute("id", "scroll_" + n);
-    document.getElementById("log").append(log_line);
-    document.getElementById("scroll_" + n).scrollIntoView(true);
+    document.getElementById("log").append(log_line); // log 에 내용 추가
+    // document.getElementById("scroll_" + n).scrollIntoView(true);
 }
 
 function store(num) {  //스토어 업데이트
