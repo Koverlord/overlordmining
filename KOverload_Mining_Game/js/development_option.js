@@ -5,7 +5,8 @@ function test() {
     let test_text = " ";
     test_text += "할짓 모음 <br>"
     test_text += "1. 업그레이드, 조합소 탭 나누기 <br>"
-    test_text += "2. 조합소 재료 쓰기"
+    test_text += "2. 조합소 재료 쓰기 <br>"
+    test_text += "3. 기계들 버프 적용 준비 <br>"
     z.innerHTML = test_text
 }
 
