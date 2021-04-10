@@ -57,7 +57,7 @@ function store(num) {  //스토어 업데이트
             break;        
         case 2: //합금
             store_text += "<p>";
-            store_text += "철-금 합금" + SD.alloy_iron_gold + "개<br>";
+            store_text += "철-금 합금 " + SD.alloy_iron_gold + "개<br>";
             store_text += "</p>";
             break;        
         case 3: //조합
