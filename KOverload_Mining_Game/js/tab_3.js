@@ -8,7 +8,7 @@ const craft_price = {
     0 : ['10', '10']
 };
 const craft_result = {
-    0 : 'irongold'
+    0 : 'alloy_iron_gold'
 };
     
 function craft(num){

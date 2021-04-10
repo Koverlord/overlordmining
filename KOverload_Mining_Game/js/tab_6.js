@@ -2,8 +2,9 @@
 
 function test() {
     var z = document.getElementById("testt");
-    var test_text = " ";
-    test_text += " 테스트"
+    let test_text = " ";
+    test_text += "할짓 모음 <br>"
+    test_text += "1. 업그레이드 탭 나누기 <br>"
     z.innerHTML = test_text
 }
 
