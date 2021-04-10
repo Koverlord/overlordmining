@@ -9,7 +9,7 @@ const craft_material = {
 const craft_price = {
     0 : ['10', '10'],
     1 : ['10', '50', '50'],
-    2 : ['50', '100']
+    2 : ['30', '200']
 };
 const craft_result = {
     0 : 'alloy_iron_gold',
