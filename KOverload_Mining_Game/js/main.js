@@ -73,7 +73,6 @@ function store(num) {  //스토어 업데이트
             store_text += "오버로드 주괴 " + SD.overlord_ingot + "개<br>";
             store_text += "오버로드 정수 " + SD.overlord_essence + "개<br>";
             store_text += "오버로드 영혼 " + SD.overlord_soul + "개<br>";
-            store_text += "오버로드 포스 " + SD.overlord_poss + "개<br>";
             store_text += "인첸트된 오버로드 주괴 " + SD.enchantedoverlordingot + "개<br>";
             store_text += "</p>";
             break;
