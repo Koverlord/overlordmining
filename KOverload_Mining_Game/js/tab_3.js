@@ -1,14 +1,20 @@
 //탭3 : 조합소
 
 const craft_material = {
-    0 : ['iron_ingot','gold_ingot']
+    0 : ['iron_ingot', 'gold_ingot'],
+    1 : ['alloy_iron_gold', 'diamond', 'ruby'],
+    2 : ['alloy_iron_gold', 'emerald']
 };
 
 const craft_price = {
-    0 : ['10', '10']
+    0 : ['10', '10'],
+    1 : ['10', '50', '50'],
+    2 : ['50', '100']
 };
 const craft_result = {
-    0 : 'alloy_iron_gold'
+    0 : 'alloy_iron_gold',
+    1 : 'pipe',
+    2 : 'extract_engine'
 };
     
 function craft(num){
@@ -35,6 +41,7 @@ function craft(num){
         add_log(craft + "개 조합 완료");
         store(1); // 주괴
         store(2); // 합금
+        store(3); // 조합템
     }
 }
   

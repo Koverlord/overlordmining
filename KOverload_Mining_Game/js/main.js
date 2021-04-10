@@ -62,7 +62,8 @@ function store(num) {  //스토어 업데이트
             break;        
         case 3: //조합
             store_text += "<p>";
-            store_text += "아직 없는듯?";
+            store_text += "파이프 " + SD.pipe + "개<br>";
+            store_text += "추출 엔진 " + SD.extract_engine + "개<br>";
             store_text += "</p>";
             break;    
         case 4: // 오버로드
