@@ -1,7 +1,7 @@
 //탭3 : 조합소
 
 const craft_material = {
-    0 : ['iron','gold']
+    0 : ['iron_ingot','gold_ingot']
 };
 
 const craft_price = {
