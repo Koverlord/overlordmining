@@ -1,4 +1,4 @@
-//탭5 - 테스트용
+//테스트용 탭
 
 function test() {
     var z = document.getElementById("testt");
