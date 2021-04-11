@@ -31,6 +31,10 @@ function add_log(log) { // log를 id="log"인 div에 추가함
     log_line.setAttribute("id", "scroll_" + n);
     document.getElementById("log").append(log_line); // log 에 내용 추가
     document.getElementById("scroll_" + n).scrollIntoView(true);
+    var log_remove = document.getElementById("scroll_" + (n - 100));
+    if (n > 100) {
+        document.getElementById("log").removeChild(log_remove);
+    }
 }
 
 let store_list = document.getElementsByClassName("store");
