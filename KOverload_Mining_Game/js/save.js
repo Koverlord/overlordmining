@@ -64,6 +64,8 @@ var default_SD = { //기본값 세이브파일
     test1 : 1,
     UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0],
     unlock : [0, 0]
+    // 0 개발자용 테스트 옵션
+    // 1 추출기
 };
 
 var Name = {
@@ -86,6 +88,11 @@ var Melt = {
 function save() { // 세이브
     localStorage['saveFile'] = JSON.stringify(SD);
     add_log("*세이브되었습니다*");
+    if (SD.iron > 1000000000000) {
+        alert("철 1조개를 어케넘기누 시발련들아");
+        reset();
+        save();
+    }
 }
 
 function loadRecursive(defaultDict, oldDict) {
