@@ -40,29 +40,34 @@ const craft_result = {
     6 : 'enchantedoverlordingot'
 };
     
-function craft(num){
-    if (num==3){ //기계에 해당되는 번호는 여기다 적어두기
-        if (SD[craft_result[num]]==1){
+function craft(num) {
+    if (num==3) { // 추출기 해금 기계에 해당되는 번호는 여기다 적어두기
+        if (SD[craft_result[num]] == 1) {
             add_log("이미 조합하셨습니다");
+            SD.unlock.Extract = 1;
+            unlock("Extract");
         }
         else {
-            for(let i = 0; i <= craft_material[num].length; i++){
-                if (SD[craft_material[num][i]] < craft_price[num][i]){
+            for(let i = 0; i <= craft_material[num].length; i++) {
+                if (SD[craft_material[num][i]] < craft_price[num][i]) {
                     add_log("재료 부족");
                     return;
                 }
             }
-            for(let i = 0; i <= craft_material[num].length; i++){     
+            for(let i = 0; i <= craft_material[num].length; i++) {     
                 SD[craft_material[num][i]] -= craft_price[num][i]
             }
             SD[craft_result[num]] = 1;
             add_log(Name[craft_result[num]] + " 조합 완료");
+            SD.unlock.Extract = 1;
+            unlock("Extract");
         }
     }
+
     else {
         let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
-        for(let i = 1; i <= craft_material[num].length; i++){
-            if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft){
+        for(let i = 1; i <= craft_material[num].length; i++) {
+            if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft) {
             max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
             }
         }
@@ -73,10 +78,10 @@ function craft(num){
             add_log("1 이상의 숫자를 입력해 주세요");
         }
         else {
-            if (craft > max_craft){ // 최대갯수보다 많이만들려고하면 최대갯수만큼 만들어지게 해줌
+            if (craft > max_craft) { // 최대갯수보다 많이만들려고하면 최대갯수만큼 만들어지게 해줌
                 craft = max_craft;
             }
-            for(let i = 0; i <= craft_material[num].length; i++){     
+            for(let i = 0; i <= craft_material[num].length; i++) {     
                 SD[craft_material[num][i]] -= craft_price[num][i] * craft;
             }
             SD[craft_result[num]] += craft * SD['b'];
