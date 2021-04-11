@@ -59,7 +59,7 @@ function craft(num) {
             }
             SD[craft_result[num]] = 1;
             add_log(Name[craft_result[num]] + " 조합 완료");
-            add_log("추출기 탭이 해금되었습니다");
+            add_log("추출소 탭이 해금되었습니다");
             SD.unlock.Extract = 1;
             unlock("Extract");
         }
@@ -93,6 +93,5 @@ function craft(num) {
         store(2); // 합금
         store(3); // 조합템
         store(4); // 오버로드 템
-    
 }
   
