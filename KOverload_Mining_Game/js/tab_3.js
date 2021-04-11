@@ -42,17 +42,22 @@ const craft_result = {
     
 function craft(num){
     if (num==3){ //기계에 해당되는 번호는 여기다 적어두기
-        for(let i = 0; i <= craft_material[num].length; i++){
-            if (SD[craft_material[num][i]] < craft_price[num][i]){
-                add_log("재료 부족");
-                return;
+        if (SD[craft_result[num]]==1){
+            add_log("이미 조합하셨습니다");
+        }
+        else {
+            for(let i = 0; i <= craft_material[num].length; i++){
+                if (SD[craft_material[num][i]] < craft_price[num][i]){
+                    add_log("재료 부족");
+                    return;
+                }
             }
+            for(let i = 0; i <= craft_material[num].length; i++){     
+                SD[craft_material[num][i]] -= craft_price[num][i]
+            }
+            SD[craft_result[num]] = 1;
+            add_log(Name[craft_result[num]] + " 조합 완료");
         }
-        for(let i = 0; i <= craft_material[num].length; i++){     
-            SD[craft_material[num][i]] -= craft_price[num][i]
-        }
-        SD[craft_result[num]] = 1;
-        add_log(Name[craft_result[num]] + " 조합 완료");
     }
     else {
         let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
