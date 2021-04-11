@@ -19,11 +19,11 @@ const special_material = {
 const special_price = {
     0 : '500'
 };
-
+let imsi = SD.UGS_lvl[num];
 //UGS 변수
 let UGS_price = []; // 가격
 const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1, 1]; // 최고 레벨 (-1은 레벨제한 없음)
-let UGS_material = ["iron_ingot", "gold_ingot", "emerald", "ruby", "overlord_ingot", "diamond", "iron_ingot", 'special_material[SD.UGS_lvl[7]]']; // 미네랄
+let UGS_material = ["iron_ingot", "gold_ingot", "emerald", "ruby", "overlord_ingot", "diamond", "iron_ingot", special_material[imsi]]; // 미네랄
 
 function UGS_load(num) {
     let UGS_list = document.getElementsByClassName("UGS_list");
