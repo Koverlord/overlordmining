@@ -85,8 +85,13 @@ function craft(num) {
             for(let i = 0; i <= craft_material[num].length; i++) {     
                 SD[craft_material[num][i]] -= craft_price[num][i] * craft;
             }
-            SD[craft_result[num]] += craft * SD['b'];
-            add_log(craft * SD['b'] + "개 조합 완료");
+            if (num == 4 || num == 5 || num == 6) { // 오버로드 아이템은 조합버프를 받지 않아야 하므로 오버로드 아이템의 번호를 적어둘것
+                SD[craft_result[num]] += craft * SD['b'];
+                add_log(craft * SD['b'] + "개 조합 완료");
+            }
+            else { // 그외
+                SD[craft_result[num]] += craft;
+                add_log(craft + "개 조합 완료");
         }
     }
         store(1); // 주괴
