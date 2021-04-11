@@ -37,7 +37,7 @@ function craft(num){
         for(let i = 0; i <= craft_material[num].length; i++){     
             SD[craft_material[num][i]] -= craft_price[num][i] * craft;
         }
-        SD[craft_result[num]] += craft;
+        SD[craft_result[num]] += craft * SD[b];
         add_log(craft + "개 조합 완료");
         store(1); // 주괴
         store(2); // 합금
