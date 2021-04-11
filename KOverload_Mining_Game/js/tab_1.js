@@ -79,7 +79,12 @@ function UGS_load(num) {
         //     break;
         
     }
-    UGS_text += "업그레이드 재료 : " + Name[UGS_material[num]] + " " + UGS_price[num] + "개";
+    if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
+        UGS_text += "최고 레벨입니다"
+    }
+    else {
+        UGS_text += "업그레이드 재료 : " + Name[UGS_material[num]] + " " + UGS_price[num] + "개";
+    }
     UGS_list[num].innerHTML = UGS_text;
 
 }
