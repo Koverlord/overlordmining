@@ -1,6 +1,7 @@
 // 탭4 : 추출소
 
 function extract() {  //추출
+    add_log("오버로드 " + SD.overlord + "개를 추출합니다");
     for (let i = 0; i < SD.overlord; i++) {
         let r_extract = Math.floor(Math.random() * (100)) + 1; // 1 ~ 100 난수 생성
         if (r_extract % 2 == 0) {       // 50%
@@ -23,9 +24,9 @@ function extract() {  //추출
             }
         }
     }
-    SD.overlord=0;
+    SD.overlord = 0;
     store(0); // 광물
     store(1); // 주괴
     store(4); // 오버로드
-    add_log("추출 완료.");
+    add_log("추출을 완료하였습니다");
 }
