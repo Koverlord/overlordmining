@@ -12,6 +12,14 @@ function tab_UGS(num) {
     UGS_load(num);
 }
 
+const special_material = {
+    0 : 'iron_ingot'
+};
+
+const special_price = {
+    0 : '500'
+};
+
 //UGS 변수
 let UGS_price = []; // 가격
 const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1, 1]; // 최고 레벨 (-1은 레벨제한 없음)
@@ -94,10 +102,4 @@ function upgrade(num) {
     store(4); // 오버로드
 }
 
-const special_material = {
-    0 : 'iron_ingot'
-};
 
-const special_price = {
-    0 : '500'
-};
