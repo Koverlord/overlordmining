@@ -19,10 +19,9 @@ var default_SD = { //기본값 세이브파일
     d : 0,  //한번에 얻는 보석 개수
     e : 1,  //전설의 광산에서 광질할때 나오는 광물 개수
     f : 1,  //*오버로드 나오는 개수 증가
-    irongold : 0,
-    extractpipe : 0,
-    engine : 0,
-    emitpipe : 0,
+    alloy_iron_gold : 0,
+    pipe : 0,
+    extract_engine : 0,
     extractor : 0,
     overlord_scrap : 0,
     overlord_part : 0,
