@@ -14,8 +14,8 @@ function tab_UGS(num) {
 
 //UGS 변수
 let UGS_price = []; // 가격
-const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1]; // 최고 레벨 (-1은 레벨제한 없음)
-let UGS_material = ["iron_ingot", "gold_ingot", "emerald", "ruby", "overlord_ingot", "diamond", "iron_ingot"]; // 미네랄
+const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1, 1]; // 최고 레벨 (-1은 레벨제한 없음)
+let UGS_material = ["iron_ingot", "gold_ingot", "emerald", "ruby", "overlord_ingot", "diamond", "iron_ingot", special_material[UGS_lvl[7]]]; // 미네랄
 
 function UGS_load(num) {
     let UGS_list = document.getElementsByClassName("UGS_list");
@@ -58,6 +58,11 @@ function UGS_load(num) {
             SD.melt_count = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
             UGS_text += "한번에 제련하는 광물 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
+        case 7: // 광물 1개당 주괴 수 증가
+            UGS_price[num] = special_price[SD.UGS_lvl[num]];
+            SD.melt_multiply = SD.UGS_lvl[num] + 1;
+            UGS_text += "광물 1개당 주괴 수 증가. level: " + SD.UGS_lvl[num] + "<br>";
+            break;
 
         // case num: // 설명
         //     UGS_price[num] = 가격 결정 식;
@@ -88,3 +93,11 @@ function upgrade(num) {
     store(1); // 주괴
     store(4); // 오버로드
 }
+
+const special_material = {
+    0 : 'iron_ingot'
+};
+
+const special_price = {
+    0 : '500'
+};
