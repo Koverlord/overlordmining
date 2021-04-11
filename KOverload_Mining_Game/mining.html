@@ -121,7 +121,12 @@
 
     <div id="tab3" style="display: none; width: 800px;">  <!--탭3-->
         <div class="box" style="overflow-y: scroll; width: 100%; margin: 1px 0 0 3px;">
-            <table style="width: 100%;">
+            <ul style="background-color: #eee; margin: 10px 0px;">
+                <li><div class="tab_craft active" onclick="tab_craft(0);">일반</div></li>
+                <li><div class="tab_craft not_active" onclick="tab_craft(1);">기계</div></li>
+                <li><div class="tab_craft not_active" onclick="tab_craft(2);">오버로드</div></li>
+            </ul>
+            <table class="craft" style="width: 100%;">
                 <tr>
                     <td style="width: 80%;"><div>철-금 합금<br>재료 : 철괴 10개, 금괴 10개</div></td>
                     <td style="width: 20%;"><div class="button button5" onClick="craft(0)">조합</div></td>
@@ -135,6 +140,18 @@
                 <tr>
                     <td style="width: 80%;"><div>추출 엔진<br>재료 : 철-금 합금 30개, 에메랄드 200개</div></td>
                     <td style="width: 20%;"><div class="button button5" onClick="craft(2)">조합</div></td>
+                </tr>
+            </table>
+            <table class="craft" style="width: 100%; display: none;">
+                <tr>
+                    <td style="width: 80%;"><div>기계 완성품 이름<br>재료 : 재료및 개수</div></td>
+                    <td style="width: 20%;"><div class="button button5" onClick="craft(3)">조합</div></td>
+                </tr>
+            </table>
+            <table class="craft" style="width: 100%; display: none;">
+                <tr>
+                    <td style="width: 80%;"><div>오버로드 완성품 이름<br>재료 : 재료및 개수</div></td>
+                    <td style="width: 20%;"><div class="button button5" onClick="craft(4)">조합</div></td>
                 </tr>
             </table>
         </div>

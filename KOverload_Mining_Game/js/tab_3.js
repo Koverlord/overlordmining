@@ -1,5 +1,16 @@
 //탭3 : 조합소
 
+tab_craft_num = 0;
+function tab_craft(num) {
+    let tab_craft_list = document.getElementsByClassName("tab_craft")
+    let craft_list = document.getElementsByClassName("craft");
+    tab_craft_list[tab_craft_num].className = "tab_craft not_active";
+    craft_list[tab_craft_num].style.display = "none";
+    tab_craft_list[num].className = "tab_craft active";
+    craft_list[num].style.display = "block";
+    tab_craft_num = num;
+}
+
 const craft_material = {
     0 : ['iron_ingot', 'gold_ingot'],
     1 : ['alloy_iron_gold', 'diamond', 'ruby'],
