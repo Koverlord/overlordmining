@@ -51,8 +51,8 @@ function craft(num){
         for(let i = 0; i <= craft_material[num].length; i++){     
             SD[craft_material[num][i]] -= craft_price[num][i]
         }
-        SD[craft_result] = 1;
-        add_log(Name[craft_material[num]] + "조합 완료");
+        SD[craft_result[num]] = 1;
+        add_log(Name[craft_material[num]] + " 조합 완료");
     }
     else {
         let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
