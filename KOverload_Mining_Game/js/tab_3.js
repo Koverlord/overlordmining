@@ -39,8 +39,8 @@ const craft_result = {
 };
     
 function craft(num){
-    let max_craft;
-    for(let i = 0; i <= craft_material[num].length; i++){
+    let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
+    for(let i = 1; i <= craft_material[num].length; i++){
         if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft){
         max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
         }
