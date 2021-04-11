@@ -62,7 +62,8 @@ var default_SD = { //기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1,
-    UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0]
+    UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0],
+    unlock : [0, 0]
 };
 
 var Name = {
