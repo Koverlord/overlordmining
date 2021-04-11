@@ -77,6 +77,7 @@ var Name = {
     emerald : "에메랄드",
     diamond : "다이아몬드",
     overlord_ingot : "오버로드 주괴",
+    extractor : "추출기",
 };
 
 var Melt = {

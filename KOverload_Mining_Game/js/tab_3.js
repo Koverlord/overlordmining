@@ -41,31 +41,47 @@ const craft_result = {
 };
     
 function craft(num){
-    let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
-    for(let i = 1; i <= craft_material[num].length; i++){
-        if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft){
-        max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
-        }
-    }
-
-    let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요. 현재 업그레이드 미적용 기준 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
-    // console.log(craft); // 입력한 숫자 확인용
-    if (craft == 0) { //자연수 아니면 여기서 걸러짐
-        add_log("1 이상의 숫자를 입력해 주세요");
-    }
-    else {
-        if (craft > max_craft){ // 최대갯수보다 많이만들려고하면 최대갯수만큼 만들어지게 해줌
-            craft = max_craft;
+    if (num==3){ //기계에 해당되는 번호는 여기다 적어두기
+        for(let i = 0; i <= craft_material[num].length; i++){
+            if (SD[craft_material[num][i]] < craft_price[num][i]){
+                add_log("재료 부족");
+                return;
+            }
         }
         for(let i = 0; i <= craft_material[num].length; i++){     
-            SD[craft_material[num][i]] -= craft_price[num][i] * craft;
+            SD[craft_material[num][i]] -= craft_price[num][i]
         }
-        SD[craft_result[num]] += craft * SD['b'];
-        add_log(craft * SD['b'] + "개 조합 완료");
+        SD[craft_result] = 1;
+        add_log(Name[craft_material[num]] + "조합 완료");
+    }
+    else {
+        let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
+        for(let i = 1; i <= craft_material[num].length; i++){
+            if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft){
+            max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
+            }
+        }
+
+        let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요. 현재 업그레이드 미적용 기준 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
+        // console.log(craft); // 입력한 숫자 확인용
+        if (craft == 0) { //자연수 아니면 여기서 걸러짐
+            add_log("1 이상의 숫자를 입력해 주세요");
+        }
+        else {
+            if (craft > max_craft){ // 최대갯수보다 많이만들려고하면 최대갯수만큼 만들어지게 해줌
+                craft = max_craft;
+            }
+            for(let i = 0; i <= craft_material[num].length; i++){     
+                SD[craft_material[num][i]] -= craft_price[num][i] * craft;
+            }
+            SD[craft_result[num]] += craft * SD['b'];
+            add_log(craft * SD['b'] + "개 조합 완료");
+        }
+    }
         store(1); // 주괴
         store(2); // 합금
         store(3); // 조합템
         store(4); // 오버로드 템
-    }
+    
 }
   
