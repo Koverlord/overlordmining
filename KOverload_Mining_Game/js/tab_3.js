@@ -38,7 +38,7 @@ function craft(num){
             SD[craft_material[num][i]] -= craft_price[num][i] * craft;
         }
         SD[craft_result[num]] += craft * SD.b;
-        add_log(craft + "개 조합 완료");
+        add_log(craft * SD.b + "개 조합 완료");
         store(1); // 주괴
         store(2); // 합금
         store(3); // 조합템
