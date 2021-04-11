@@ -51,7 +51,7 @@ function UGS_load(num) {
             UGS_text += "한번에 얻는 보석 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
         case 4: // 오버로드 출현 확률 증가
-            UGS_price[num] = 5 * (SD.UGS_lvl[num] + 1);
+            UGS_price[num] = parseInt((5 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 2.5) * SD.udc);
             SD.overlord_poss = SD.UGS_lvl[num] + 1;
             UGS_text += "오버로드 출현 확률 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
