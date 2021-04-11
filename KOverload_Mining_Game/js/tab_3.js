@@ -52,7 +52,7 @@ function craft(num){
             SD[craft_material[num][i]] -= craft_price[num][i]
         }
         SD[craft_result[num]] = 1;
-        add_log(Name[craft_material[num]] + " 조합 완료");
+        add_log(Name[craft_result[num]] + " 조합 완료");
     }
     else {
         let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
