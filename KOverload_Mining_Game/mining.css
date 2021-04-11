@@ -97,7 +97,7 @@ li .tab_menu {
     background-color: #4CAF50;
 }
 
-.tab_store.active {
+.active {
     /* text-decoration: underline; */
     background-color: #ddd;
 }

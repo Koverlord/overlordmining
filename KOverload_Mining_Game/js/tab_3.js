@@ -18,7 +18,7 @@ const craft_result = {
 };
     
 function craft(num){
-    let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
+    let max_craft;
     for(let i = 0; i <= craft_material[num].length; i++){
         if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft){
         max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
@@ -37,8 +37,8 @@ function craft(num){
         for(let i = 0; i <= craft_material[num].length; i++){     
             SD[craft_material[num][i]] -= craft_price[num][i] * craft;
         }
-        SD[craft_result[num]] += craft * SD.b;
-        add_log(craft * SD.b + "개 조합 완료");
+        SD[craft_result[num]] += craft * SD['b'];
+        add_log(craft * SD['b'] + "개 조합 완료");
         store(1); // 주괴
         store(2); // 합금
         store(3); // 조합템

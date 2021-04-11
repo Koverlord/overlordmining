@@ -11,15 +11,15 @@ function tab(num) { //num번째 탭으로 전환
     tab_list[num].className = "tab_menu active";
 }
 
-tab_sotre_num = 0;
+tab_store_num = 0;
 function tab_store(num) {
     let tab_store_list = document.getElementsByClassName("tab_store")
     let store_list = document.getElementsByClassName("store");
-    tab_store_list[tab_sotre_num].className = "tab_store not_active";
-    store_list[tab_sotre_num].style.display = "none";
+    tab_store_list[tab_store_num].className = "tab_store not_active";
+    store_list[tab_store_num].style.display = "none";
     tab_store_list[num].className = "tab_store active";
     store_list[num].style.display = "block";
-    tab_sotre_num = num;
+    tab_store_num = num;
     store(num);
 }
 

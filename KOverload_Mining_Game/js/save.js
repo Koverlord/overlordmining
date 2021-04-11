@@ -29,6 +29,8 @@ var default_SD = { //기본값 세이브파일
     overlord_essence : 0,
     overlord_soul : 0,
     overlord_poss : 1,
+    melt_count : 1, //한번에 제련하는 개수
+    melt_multiply : 1, //광물 하나당 나오는 주괴 개수
     extractorlevel : 1,
     exupgrade1 : 20,
     exupgrade2 : 5,
@@ -60,7 +62,7 @@ var default_SD = { //기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1,
-    UGS_lvl : [0, 0, 0, 0, 0, 0]
+    UGS_lvl : [0, 0, 0, 0, 0, 0, 0]
 };
 
 var Name = {
