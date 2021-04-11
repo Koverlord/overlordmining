@@ -97,31 +97,31 @@ function mining(rep) { // 광질
     else {
         repeatmining = 1;
     }
-    for (i = 0; i < repeatmining; i++){
+    for (i = 0; i < repeatmining; i++) {
         var r_n = Math.floor(Math.random() * (100)) + 1; // 1 ~ 100 사이의 정수 랜덤생성
         var r_no = Math.floor(Math.random() * (100)) + 1;
-        if (r_n > 50){
+        if (r_n > 50) {
             SD['iron'] += (SD['a'] + SD['c']) * rep;
             add_log("철 " + (SD.a + SD.c) * rep + "개 획득! 현재 " + SD.iron + "개");
         }
-        else if (r_n > 20){
+        else if (r_n > 20) {
             SD['gold'] += (SD['a'] + SD['c']) * rep;
             add_log("금 " + (SD['a'] + SD['c']) * rep + "개 획득! 현재 " + SD.gold + "개");
         }
-        else if (r_n > 10){
+        else if (r_n > 10) {
             SD['diamond'] += (SD['a'] + SD['d']) * rep;
             add_log("다이아몬드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.diamond + "개");
         }
-        else if (r_n > 5){
+        else if (r_n > 5) {
             SD['emerald'] += (SD['a'] + SD['d']) * rep;
             add_log("에메랄드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.emerald + "개");
         }
-        else if (r_n > 0){
+        else if (r_n > 0) {
             SD['ruby'] += (SD['a'] + SD['d']) * rep;
             add_log("루비 " + (SD.a + SD.d) * rep + "개 획득! 현재 " + SD.ruby + "개");
         }
         
-        if (r_no <= SD.overlord_poss){
+        if (r_no <= SD.overlord_poss) {
             SD['overlord'] += (SD['a'] * SD['f']) * rep;
             add_log("오버로드 " + (SD.a * SD.f) * rep + "개 획득! 현재 " + SD.overlord + "개");
         }
