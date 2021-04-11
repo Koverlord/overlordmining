@@ -63,9 +63,11 @@ var default_SD = { //기본값 세이브파일
     mythpurchased3 : 0,
     test1 : 1,
     UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0],
-    unlock : [0, 0]
-    // 0 개발자용 테스트 옵션
-    // 1 추출기
+    unlock : {
+        Develop : 0, //개발자용 탭
+        Extract : 0, //추출기 탭
+    }
+
 };
 
 var Name = {
@@ -128,7 +130,13 @@ function load() {
     else {
         SD = default_SD; // 세이브파일이 없을경우(처음) 세이브파일 생성
     }
-    add_log("*로드되었습니다*"); // 여기서 n++; 됨 (최초엔 n = 0)
 
-    store(0);
+    for (x in SD.unlock) {
+        unlock(x);
+    }
+
+    add_log("*로드되었습니다*"); // 여기서 n++; 됨 (최초엔 n = 0)
+    for (i = 0; i < store_list.length; i++){
+        store(i);
+    };
 }

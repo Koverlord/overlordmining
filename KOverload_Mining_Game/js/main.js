@@ -31,7 +31,7 @@ function add_log(log) { // log를 id="log"인 div에 추가함
     log_line.setAttribute("id", "scroll_" + n);
     document.getElementById("log").append(log_line); // log 에 내용 추가
     document.getElementById("scroll_" + n).scrollIntoView(true);
-    var log_remove = document.getElementById("scroll_" + (n - 100));
+    var log_remove = document.getElementById("scroll_" + (n - 100)); //로그 100개 넘으면 삭제됨
     if (n > 100) {
         document.getElementById("log").removeChild(log_remove);
     }
@@ -142,7 +142,17 @@ function Tab_size() {
     }
 }
 
-window.addEventListener("beforeunload", function (e) {
+function unlock(Key) {
+    let lock = document.getElementById("unlock_" + Key);
+    if (!SD.unlock[Key]) {
+        lock.style.display = "none";
+    }
+    else {
+        lock.style.display = "block";
+    }
+}
+
+window.addEventListener("beforeunload", function (e) { // 새로고침 경고문
     var confirmationMessage = 'It looks like you have been editing something. '
                             + 'If you leave before saving, your changes will be lost.';
 
