@@ -16,20 +16,26 @@ const craft_material = {
     1 : ['alloy_iron_gold', 'diamond', 'ruby'],
     2 : ['alloy_iron_gold', 'emerald'],
     3 : ['alloy_iron_gold', 'pipe', 'extract_engine'],
-    4 : ['overlord_scrap']
+    4 : ['overlord_scrap'],
+    5 : ['overlord_part', 'overlord_essence']
+
 };
 
 const craft_price = {
     0 : ['10', '10'],
     1 : ['10', '50', '50'],
     2 : ['30', '200'],
-    3 : ['100', '10', '1']
+    3 : ['100', '10', '1'],
+    4 : ['5'],
+    5 : ['10', '10']
 };
 const craft_result = {
     0 : 'alloy_iron_gold',
     1 : 'pipe',
     2 : 'extract_engine',
-    3 : 'extractor'
+    3 : 'extractor',
+    4 : 'overlord_part',
+    5 : 'overlord_ingot'
 };
     
 function craft(num){
