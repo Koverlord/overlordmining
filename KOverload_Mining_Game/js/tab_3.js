@@ -41,18 +41,18 @@ const craft_result = {
 };
     
 function craft(num) {
-    if (num==3) { // 추출기 해금 기계에 해당되는 번호는 여기다 적어두기
+    if (num == 3) { // 추출기
         if (SD[craft_result[num]] == 1) {
             add_log("이미 조합하셨습니다");
         }
         else {
-            for(let i = 0; i <= craft_material[num].length; i++) {
+            for(let i = 0; i <= craft_material[num].length; i++) { // 재료 보유여부 확인
                 if (SD[craft_material[num][i]] < craft_price[num][i]) {
                     add_log("재료 부족");
                     return;
                 }
             }
-            for(let i = 0; i <= craft_material[num].length; i++) {     
+            for(let i = 0; i <= craft_material[num].length; i++) { // 재료 소모
                 SD[craft_material[num][i]] -= craft_price[num][i]
             }
             SD[craft_result[num]] = 1;
@@ -60,6 +60,8 @@ function craft(num) {
             add_log("추출소 탭이 해금되었습니다");
             SD.unlock.Extract = 1;
             unlock("Extract");
+            document.getElementById("button_extract").innerHTML = "제작 불가"; // 버튼 텍스트 변경
+            document.getElementById("button_extract").style.color = "#888"; // 회색
         }
     }
 
@@ -71,7 +73,7 @@ function craft(num) {
             }
         }
 
-        let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요<br>현재 업그레이드 미적용 기준 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
+        let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요\n현재 업그레이드 미적용 기준 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
         // console.log(craft); // 입력한 숫자 확인용
         if (craft == 0) { //자연수 아니면 여기서 걸러짐
             add_log("자연수를 입력해 주세요");
