@@ -25,7 +25,7 @@ function craft(num){
         }
     }
 
-    let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요. 현재 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
+    let craft = parseInt("0" + prompt("조합할 개수를 입력해 주세요. 현재 업그레이드 미적용 기준 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
     // console.log(craft); // 입력한 숫자 확인용
     if (craft == 0) { //자연수 아니면 여기서 걸러짐
         add_log("1 이상의 숫자를 입력해 주세요");
@@ -37,8 +37,8 @@ function craft(num){
         for(let i = 0; i <= craft_material[num].length; i++){     
             SD[craft_material[num][i]] -= craft_price[num][i] * craft;
         }
-        SD[craft_result[num]] += craft * SD[b];
-        add_log(craft + "개 조합 완료");
+        SD[craft_result[num]] += craft * SD.b;
+        add_log(craft * SD.b + "개 조합 완료");
         store(1); // 주괴
         store(2); // 합금
         store(3); // 조합템

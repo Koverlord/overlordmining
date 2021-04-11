@@ -30,11 +30,11 @@ function add_log(log) { // log를 id="log"인 div에 추가함
     log_line.innerHTML = log;
     log_line.setAttribute("id", "scroll_" + n);
     document.getElementById("log").append(log_line); // log 에 내용 추가
-    // document.getElementById("scroll_" + n).scrollIntoView(true);
+    document.getElementById("scroll_" + n).scrollIntoView(true);
 }
 
+let store_list = document.getElementsByClassName("store");
 function store(num) {  //스토어 업데이트
-    let store_list = document.getElementsByClassName("store");
     var store_text = "";
     switch (num) {
         case 0: //광물
@@ -130,6 +130,15 @@ function mining(rep) { // 광질
     store(4); // 오버로드
 }
 
+function Tab_size() {
+    const tab_size = document.getElementsByClassName("tab_menu").length;
+    let table_main_size = parseInt(document.getElementById("table_main").offsetWidth);
+    for (i = 0; i < tab_size; i++) {
+        document.getElementById("tab" + i).style.width = table_main_size - 28 + "px";
+    }
+}
+
 window.onload = function () { // 페이지가 다 load 되면 load()함수 실행
     load();
+    Tab_size();
 }
