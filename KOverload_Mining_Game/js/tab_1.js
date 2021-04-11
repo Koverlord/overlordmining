@@ -81,7 +81,7 @@ function upgrade(num) {
         add_log("최고 레벨입니다");
     }
     else {
-        add_log("재료가 부족합니다"); //만렙이 아닌데 이메시지뜨면 잘못된것
+        add_log("재료가 부족합니다"); //재료부족이 아닌데 이메시지뜨면 잘못된것
     }
     UGS_load(num);
     store(0); // 광물

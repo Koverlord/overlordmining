@@ -3,7 +3,7 @@
 function real_melt(ore) {
     if (SD[ore] >= SD['melt_count']) {
         SD[ore] -= SD['melt_count'];
-        SD[`${ore}_ingot`] += SD['melt_multiply'];
+        SD[`${ore}_ingot`] += SD['melt_count'] * SD['melt_multiply'];
         store(0); // 광물
         store(1); // 주괴
         // add_log(Name[ore] + " 1개 제련!");
