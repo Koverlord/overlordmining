@@ -8,6 +8,10 @@ function real_melt(ore) {
         store(1); // 주괴
         // add_log(Name[ore] + " 1개 제련!");
     }
+    else {
+        add_log("제련 재료가 부족합니다");
+        melt(ore);
+    }
 }
 
 //melt('iron');

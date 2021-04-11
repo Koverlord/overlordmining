@@ -24,7 +24,7 @@
         <!-- <li>테스트</li> -->
     </ul>
     
-    <table style="height: 300px; overflow-y: hidden; margin: 0px 0px 4px 0px;"> <!--항상 노출-->
+    <table id="table_main" style="height: 300px; overflow-y: hidden; margin: 0px 0px 4px 0px;"> <!--항상 노출-->
         <tr style="vertical-align: top;">
             <td><div id="log" class="box" style="overflow-y: scroll; width: 378px; height: calc(100% - 4px); padding: 0px 10px;"></div></td> <!--로그-->
             <td> <!--스토어 박스-->
@@ -52,8 +52,8 @@
         <div class="button button5" onclick="mining(1)">광질</div>
     </div>
     
-    <div id="tab1" style="display: none;">  <!--탭1-->
-        <div class="box" style="overflow-y: scroll; width: 704px; margin: 1px 0 0 3px;">
+    <div id="tab1" style="display: none; width: 800px;">  <!--탭1-->
+        <div class="box" style="overflow-y: scroll; width: 100%; margin: 1px 0 0 3px;">
             <table style="width: 100%;">
                 <tr>
                     <td style="width: 80%;"><div class="UGS_list">업그레이드 상점0, 한번에 얻는 광물 개수 증가</div></td>
@@ -88,8 +88,8 @@
         </div>
     </div>
 
-    <div id="tab2" style="display: none;">  <!--탭2-->
-        <div class="box" style="overflow-y: scroll; width: 704px; margin: 1px 0 0 3px;">
+    <div id="tab2" style="display: none; width: 800px;">  <!--탭2-->
+        <div class="box" style="overflow-y: scroll; width: 100%; margin: 1px 0 0 3px;">
             <table style="width: 100%;">
                 <tr>
                     <td style="width: 80%;"><div>철 제련하기</div></td>
@@ -104,8 +104,8 @@
         </div>
     </div>
 
-    <div id="tab3" style="display: none;">  <!--탭3-->
-        <div class="box" style="overflow-y: scroll; width: 704px; margin: 1px 0 0 3px;">
+    <div id="tab3" style="display: none; width: 800px;">  <!--탭3-->
+        <div class="box" style="overflow-y: scroll; width: 100%; margin: 1px 0 0 3px;">
             <table style="width: 100%;">
                 <tr>
                     <td style="width: 80%;"><div>철-금 합금</div></td>
@@ -115,17 +115,25 @@
         </div>
     </div>
 
-    <div id="tab4" style="display: none;"> <!--탭4-->
+    <div id="tab4" style="display: none; width: 800px;"> <!--탭4-->
         <div class="button button5" onclick="extract()">추출</div>
     </div>
 
-    <div id="tab5" style="display: none;">  <!--탭5-->
+    <div id="tab5" style="display: none; width: 800px;">  <!--탭5-->
         <div class="button button5" onclick="save()">세이브</div>
         <div class="button button5" onclick="load()">로드</div>
     </div>
 
-    <div id="tab6" style="display: none;">  <!--탭6-->
-        <div id="testt" class="box" style="width: 600px;"></div>
+    <div id="tab6" style="display: none; width: 800px;">  <!--탭6-->
+        <div class="box" style="overflow-y: scroll; width: 100%; margin: 1px 0 0 3px;">
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <div id="testt"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div class="button button5" onclick="test()">업데이트</div>
         <button class="button button5" onclick="mining(1000)" style="width: 148px;">광질 1천회</button>
         <div class="button button5" onclick="reset()">리셋</div>
