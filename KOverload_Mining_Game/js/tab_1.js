@@ -14,7 +14,7 @@ function tab_UGS(num) {
 
 //UGS 변수
 let UGS_price = []; // 가격
-const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1]; // 최고 레벨 (-1은 레벨제한 없음) //6번 최고레벨 추가 바람
+const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1]; // 최고 레벨 (-1은 레벨제한 없음)
 let UGS_material = ["iron_ingot", "gold_ingot", "emerald", "ruby", "overlord_ingot", "diamond", "iron_ingot"]; // 미네랄
 
 function UGS_load(num) {
