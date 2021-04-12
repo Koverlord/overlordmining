@@ -67,7 +67,7 @@ function craft(num) {
 
     else {
         let max_craft = parseInt(SD[craft_material[num][0]] / craft_price[num][0]);
-        for(let i = 1; i <= craft_material[num].length; i++) {
+        for(let i = 1; i < craft_material[num].length; i++) {
             if (parseInt(SD[craft_material[num][i]] / craft_price[num][i]) < max_craft) {
             max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
             }
@@ -86,11 +86,11 @@ function craft(num) {
                 SD[craft_material[num][i]] -= craft_price[num][i] * craft;
             }
             if (num == 4 || num == 5 || num == 6) { // 오버로드 아이템은 조합버프를 받지 않아야 하므로 오버로드 아이템의 번호를 적어둘것
-                SD[craft_result[num]] += craft * SD['b'];
+                SD[craft_result[num]] += craft;
                 add_log(craft * SD['b'] + "개 조합 완료");
             }
             else { // 그외
-                SD[craft_result[num]] += craft;
+                SD[craft_result[num]] += craft * SD['b'];
                 add_log(craft + "개 조합 완료");
             }
         }
