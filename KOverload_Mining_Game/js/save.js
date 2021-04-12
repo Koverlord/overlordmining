@@ -99,6 +99,10 @@ function save() { // 세이브
     }
 }
 
+function auto_save() {
+    
+}
+
 function loadRecursive(defaultDict, oldDict) {
     var newDict = {};
     for (key in defaultDict){
