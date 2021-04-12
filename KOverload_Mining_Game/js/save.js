@@ -31,7 +31,7 @@ var default_SD = { // 기본값 세이브파일
     overlord_poss : 1,
     melt_count : 1, // 한번에 제련하는 개수
     melt_multiply : 1, // 광물 하나당 나오는 주괴 개수
-    extractorlevel : 1,
+    extractor_level : 1,
     exupgrade1 : 20,
     exupgrade2 : 5,
     expurchased : 0,
@@ -63,7 +63,8 @@ var default_SD = { // 기본값 세이브파일
     mythupgrade3 : 10,
     mythpurchased3 : 0,
     test1 : 1, // 이건 뭐지;;
-    Auto_save : 0,
+    Auto_Save : 0,
+    A_test : 0,
     UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0, 0],
     unlock : {
         Develop : 0, //개발자용 탭
@@ -103,14 +104,16 @@ function save() { // 세이브
     }
 }
 
-var Auto_save;
+let Auto_save;
 function auto_save() {
-    SD.Auto_save = !SD.Auto_save;
-    if (SD.Auto_save) {
+    console.log("SD.Auto_Save", SD.Auto_Save);
+    if (SD.Auto_Save == 0) {
+        SD.Auto_Save = 1;
         add_log("오토세이브가 켜졌습니다");
         Auto_save = setInterval(save, 30 * 1000); // 30초
     }
     else {
+        SD.Auto_Save = 0;
         add_log("오토세이브가 꺼졌습니다");
         clearTimeout(Auto_save);
     }
@@ -162,6 +165,6 @@ function load() {
         SD.enchantedoverlordingot = 0;
     }
 
-    SD.Auto_save = !SD.Auto_save; // 오토 세이브 자동적용
-    auto_save();
+    // SD.Auto_save = !SD.Auto_save; // 오토 세이브 자동적용
+    // auto_save();
 }

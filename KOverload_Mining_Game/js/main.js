@@ -163,4 +163,7 @@ window.addEventListener("beforeunload", function (e) { // 새로고침 경고문
 window.onload = function () { // 페이지가 다 load 되면 load()함수 실행
     load();
     Tab_size();
+
+    SD.Auto_Save = !SD.Auto_Save;
+    auto_save();
 }
