@@ -90,8 +90,8 @@ function craft(num) {
                 add_log(craft_num + "개 조합 완료");
             }
             else { // 그외
-                SD[craft_result[num]] += craft * SD['b'];
-                add_log(craft + "개 조합 완료");
+                SD[craft_result[num]] += craft_num * SD['b'];
+                add_log(craft_num + "개 조합 완료");
 
         }
         store(1); // 주괴
