@@ -106,25 +106,22 @@ function save() { // 세이브
 
 let Auto_save;
 function auto_save() {
-    console.log("SD.Auto_Save", SD.Auto_Save);
-    if (SD.Auto_Save == 0) {
-        SD.Auto_Save = 1;
+    SD.Auto_Save = !SD.Auto_Save;
+    if (SD.Auto_Save) {
         add_log("오토세이브가 켜졌습니다");
         Auto_save = setInterval(save, 30 * 1000); // 30초
     }
     else {
-        SD.Auto_Save = 0;
         add_log("오토세이브가 꺼졌습니다");
         clearTimeout(Auto_save);
     }
-    
 }
 
 function loadRecursive(defaultDict, oldDict) {
     var newDict = {};
     for (key in defaultDict){
         if (oldDict.hasOwnProperty(key)){
-            if (typeof oldDict[key] == "number") {
+            if (typeof oldDict[key] == "number" || typeof oldDict[key] == "boolean") {
                 newDict[key] = oldDict[key];
             }
             else {
