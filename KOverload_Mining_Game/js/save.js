@@ -31,7 +31,7 @@ var default_SD = { //기본값 세이브파일
     overlord_poss : 1,
     melt_count : 1, //한번에 제련하는 개수
     melt_multiply : 1, //광물 하나당 나오는 주괴 개수
-    extractorlevel : 1,
+    extractor_level : 1,
     exupgrade1 : 20,
     exupgrade2 : 5,
     expurchased : 0,
@@ -78,8 +78,11 @@ var Name = {
     ruby : "루비",
     emerald : "에메랄드",
     diamond : "다이아몬드",
+    alloy_iron_gold : "철-금 합금",
     overlord_ingot : "오버로드 주괴",
+    pipe : "파이프",
     extractor : "추출기",
+    extract_engine : "추출 엔진",
     enchantedoverlordingot : "강화 오버로드 주괴",
 };
 
