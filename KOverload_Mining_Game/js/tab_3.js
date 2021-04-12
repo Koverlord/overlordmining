@@ -98,6 +98,5 @@ function craft(num) {
         store(2); // 합금
         store(3); // 조합템
         store(4); // 오버로드 템
-        }
     }
 }
