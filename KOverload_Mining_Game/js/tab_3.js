@@ -92,11 +92,11 @@ function craft(num) {
             else { // 그외
                 SD[craft_result[num]] += craft;
                 add_log(craft + "개 조합 완료");
+            }
         }
-    }
         store(1); // 주괴
         store(2); // 합금
         store(3); // 조합템
         store(4); // 오버로드 템
-}
+    }
 }
