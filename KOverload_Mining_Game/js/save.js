@@ -80,6 +80,7 @@ var Name = {
     diamond : "다이아몬드",
     overlord_ingot : "오버로드 주괴",
     extractor : "추출기",
+    enchantedoverlordingot : "강화 오버로드 주괴",
 };
 
 var Melt = {
