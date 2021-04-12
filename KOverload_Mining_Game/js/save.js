@@ -1,8 +1,8 @@
-//변수, 세이브, 로드
+// 변수, 세이브, 로드
 
-var SD = {}; //현제 세이브파일이 될 예정
+var SD = {}; // 현제 세이브파일이 될 예정
 
-var default_SD = { //기본값 세이브파일
+var default_SD = { // 기본값 세이브파일
     iron : 0,
     iron_ingot : 0,
     gold : 0,
@@ -13,12 +13,12 @@ var default_SD = { //기본값 세이브파일
     overlord : 0,
     // upgradeN   // 필요 재료 갯수
     // purchasedN // 레벨
-    a : 1,  //한번에 얻는 광물 개수
-    b : 1,  //한번에 조합하는 일반 아이템 개수
-    c : 0,  //한번에 얻는 금속 개수
-    d : 0,  //한번에 얻는 보석 개수
-    e : 1,  //전설의 광산에서 광질할때 나오는 광물 개수
-    f : 1,  //*오버로드 나오는 개수 증가
+    a : 1,  // 한번에 얻는 광물 개수
+    b : 1,  // 한번에 조합하는 일반 아이템 개수
+    c : 0,  // 한번에 얻는 금속 개수
+    d : 0,  // 한번에 얻는 보석 개수
+    e : 1,  // 전설의 광산에서 광질할때 나오는 광물 개수
+    f : 1,  // *오버로드 나오는 개수 증가
     alloy_iron_gold : 0,
     pipe : 0,
     extract_engine : 0,
@@ -29,8 +29,8 @@ var default_SD = { //기본값 세이브파일
     overlord_essence : 0,
     overlord_soul : 0,
     overlord_poss : 1,
-    melt_count : 1, //한번에 제련하는 개수
-    melt_multiply : 1, //광물 하나당 나오는 주괴 개수
+    melt_count : 1, // 한번에 제련하는 개수
+    melt_multiply : 1, // 광물 하나당 나오는 주괴 개수
     extractorlevel : 1,
     exupgrade1 : 20,
     exupgrade2 : 5,
@@ -61,13 +61,13 @@ var default_SD = { //기본값 세이브파일
     mythpurchased2 : 0,
     mythupgrade3 : 10,
     mythpurchased3 : 0,
-    test1 : 1,
+    test1 : 1, // 이건 뭐지;;
+    Auto_save : 0,
     UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0, 0],
     unlock : {
         Develop : 0, //개발자용 탭
         Extract : 0, //추출기 탭
     }
-
 };
 
 var Name = {
@@ -90,7 +90,7 @@ var Melt = {
 
 
 function save() { // 세이브
-    localStorage['saveFile'] = JSON.stringify(SD);
+    localStorage["saveFile"] = JSON.stringify(SD);
     add_log("*세이브되었습니다*");
     if (SD.iron > 1000000000000) {
         alert("철 1조개를 어케넘기누 시발련들아");
@@ -100,6 +100,10 @@ function save() { // 세이브
 }
 
 function auto_save() {
+    Auto_save = !Auto_save
+    if (Auto_save) {
+        add_log("오토세이브가 켜졌습니다")
+    }
     
 }
 
@@ -127,11 +131,8 @@ function loadRecursive(defaultDict, oldDict) {
 function load() {
     var SD_old;
     if (localStorage.hasOwnProperty("saveFile")){ // 만약 localStorage에 saveFile이 있을경우
-        SD_old = JSON.parse(localStorage['saveFile']); //SD_old에 저장한다
-        // if (n == 0) { // 처음 로딩시에만 
+        SD_old = JSON.parse(localStorage["saveFile"]); //SD_old에 저장한다
         SD = loadRecursive(default_SD, SD_old); // 갱신
-            // for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);} // 업그레이드 목록 동기화
-        // }
     }
     else {
         SD = default_SD; // 세이브파일이 없을경우(처음) 세이브파일 생성

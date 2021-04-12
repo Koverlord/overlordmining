@@ -4,9 +4,9 @@ melt_ore = ["iron", "gold"];
 button_melt = document.getElementsByClassName("button_melt");
 
 function real_melt(num) {
-    if (SD[melt_ore[num]] >= SD['melt_count']) {
-        SD[melt_ore[num]] -= SD['melt_count'];
-        SD[`${melt_ore[num]}_ingot`] += SD['melt_count'] * SD['melt_multiply'];
+    if (SD[melt_ore[num]] >= SD["melt_count"]) {
+        SD[melt_ore[num]] -= SD["melt_count"];
+        SD[`${melt_ore[num]}_ingot`] += SD["melt_count"] * SD["melt_multiply"];
         store(0); // 광물
         store(1); // 주괴
         // add_log(Name[melt_ore[num]] + " 1개 제련!");
@@ -17,7 +17,7 @@ function real_melt(num) {
     }
 }
 
-//melt('iron');
+//melt("iron");
 function melt(num) {
     if (Melt[`${melt_ore[num]}`] == 0) {
         Melt[`${melt_ore[num]}`] = setInterval(real_melt, 1000, num);
