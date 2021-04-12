@@ -82,7 +82,7 @@ function craft(num) {
             if (craft_num > max_craft) { // 최대갯수보다 많이만들려고하면 최대갯수만큼 만들어지게 해줌
                 craft_num = max_craft;
             }
-            for(let i = 0; i <= craft_material[num].length; i++) {     
+            for(let i = 0; i <= craft_material[num].length; i++) { // 재료 소모  
                 SD[craft_material[num][i]] -= craft_price[num][i] * craft_num;
             }
             if (num == 4 || num == 5 || num == 6) { // 오버로드 아이템은 조합버프를 받지 않아야 하므로 오버로드 아이템의 번호를 적어둘것
@@ -90,13 +90,13 @@ function craft(num) {
                 add_log(craft_num + "개 조합 완료");
             }
             else { // 그외
-                SD[craft_result[num]] += craft_num * SD['b'];
+                SD[craft_result[num]] += craft_num * SD.b;
                 add_log(craft_num + "개 조합 완료");
             }
         }
-        store(1); // 주괴
-        store(2); // 합금
-        store(3); // 조합템
-        store(4); // 오버로드 템
     }
+    store(1); // 주괴
+    store(2); // 합금
+    store(3); // 조합템
+    store(4); // 오버로드 템
 }
