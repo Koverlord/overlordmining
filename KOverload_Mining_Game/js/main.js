@@ -56,7 +56,7 @@ function store(num) {  //스토어 업데이트
             store_text += "철 주괴 " + SD.iron_ingot + "개<br>";
             store_text += "금 주괴 " + SD.gold_ingot + "개<br>";
             store_text += "오버로드 주괴 " + SD.overlord_ingot + "개<br>";
-            store_text += "강화 오버로드 주괴 " + SD.enchantedoverlordingot + "개<br>";
+            store_text += "강화 오버로드 주괴 " + SD.enchanted_overlord_ingot + "개<br>";
             store_text += "</p>";
             break;        
         case 2: //합금
@@ -78,7 +78,7 @@ function store(num) {  //스토어 업데이트
             store_text += "오버로드의 조각 " + SD.overlord_part + "개<br>";
             store_text += "오버로드 주괴 " + SD.overlord_ingot + "개<br>";
             store_text += "오버로드의 영혼 " + SD.overlord_soul + "개<br>";
-            store_text += "강화 오버로드 주괴 " + SD.enchantedoverlordingot + "개<br>";
+            store_text += "강화 오버로드 주괴 " + SD.enchanted_overlord_ingot + "개<br>";
             store_text += "</p>";
             break;
         // case n:

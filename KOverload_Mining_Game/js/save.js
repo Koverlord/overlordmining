@@ -37,6 +37,7 @@ var default_SD = { // 기본값 세이브파일
     expurchased : 0,
     doubleminingposs : 0,
     enchantedoverlordingot : 0,
+    enchanted_overlord_ingot : 0,
     autominetime : 10,
     robotmaker : 0,
     minepower : 0,
@@ -83,7 +84,7 @@ var Name = {
     pipe : "파이프",
     extractor : "추출기",
     extract_engine : "추출 엔진",
-    enchantedoverlordingot : "강화 오버로드 주괴",
+    enchanted_overlord_ingot : "강화 오버로드 주괴",
 };
 
 var Melt = {
@@ -102,10 +103,16 @@ function save() { // 세이브
     }
 }
 
+var Auto_save;
 function auto_save() {
-    Auto_save = !Auto_save
-    if (Auto_save) {
-        add_log("오토세이브가 켜졌습니다")
+    SD.Auto_save = !SD.Auto_save;
+    if (SD.Auto_save) {
+        add_log("오토세이브가 켜졌습니다");
+        Auto_save = setInterval(save, 30 * 1000); // 30초
+    }
+    else {
+        add_log("오토세이브가 꺼졌습니다");
+        clearTimeout(Auto_save);
     }
     
 }
@@ -141,7 +148,7 @@ function load() {
         SD = default_SD; // 세이브파일이 없을경우(처음) 세이브파일 생성
     }
 
-    for (x in SD.unlock) {
+    for (x in SD.unlock) { // 언락 확인
         unlock(x);
     }
 
@@ -149,4 +156,12 @@ function load() {
     for (i = 0; i < store_list.length; i++){
         store(i);
     };
+
+    if (SD.enchantedoverlordingot) { // 변수 수정으로 인해 보완 04.12 // 대충 나중에 지울것
+        SD.enchanted_overlord_ingot += SD.enchantedoverlordingot;
+        SD.enchantedoverlordingot = 0;
+    }
+
+    SD.Auto_save = !SD.Auto_save; // 오토 세이브 자동적용
+    auto_save();
 }

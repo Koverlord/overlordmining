@@ -16,10 +16,10 @@ function extract() {  //추출
         }
         else if (r_extract == 1) {      // 1%
             r_extract = Math.floor(Math.random() * (100)) + 1;
-            if (r_extract > 2) {        // 99%
+            if (r_extract > 2) {            // 99%
                 SD.overlord_ingot += SD.extractor_level; // 주괴
             }
-            else {                      // 1%
+            else {                          // 1%
                 SD.overlord_soul += SD.extractor_level;  // 영혼
             }
         }

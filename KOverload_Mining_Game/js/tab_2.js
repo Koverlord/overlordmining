@@ -1,7 +1,7 @@
 //탭2 - 제련소
 
-melt_ore = ["iron", "gold"];
-button_melt = document.getElementsByClassName("button_melt");
+const melt_ore = ["iron", "gold"];
+const button_melt = document.getElementsByClassName("button_melt");
 
 function real_melt(num) {
     if (SD[melt_ore[num]] >= SD["melt_count"]) {
@@ -21,13 +21,13 @@ function real_melt(num) {
 function melt(num) {
     if (Melt[`${melt_ore[num]}`] == 0) {
         Melt[`${melt_ore[num]}`] = setInterval(real_melt, 1000, num);
-        button_melt[num].innerHTML = "중단"
+        button_melt[num].innerHTML = "중단";
         add_log(Name[melt_ore[num]] + " 제련 시작");
     }
     else {
         clearTimeout(Melt[`${melt_ore[num]}`]);
         Melt[`${melt_ore[num]}`] = 0;
-        button_melt[num].innerHTML = "제련"
+        button_melt[num].innerHTML = "제련";
         add_log(Name[melt_ore[num]] + " 제련 중지");
     }
 

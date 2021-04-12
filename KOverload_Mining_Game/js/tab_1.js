@@ -13,7 +13,7 @@ function tab_UGS(num) {
 }
 
 const special_material = {
-    7 : ['iron_ingot', 'enchantedoverlordingot']
+    7 : ['iron_ingot', 'enchanted_overlord_ingot']
 };
 
 const special_price = {

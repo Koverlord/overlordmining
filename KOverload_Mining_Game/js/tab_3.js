@@ -37,7 +37,7 @@ const craft_result = {
     3 : "extractor",
     4 : "overlord_part",
     5 : "overlord_ingot",
-    6 : "enchantedoverlordingot"
+    6 : "enchanted_overlord_ingot"
 };
     
 function craft(num) {
