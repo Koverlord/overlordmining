@@ -21,13 +21,22 @@ const special_price = {
 };
 
 let UGS_price = []; // 가격
-const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1, 2]; // 최고 레벨 (-1은 레벨제한 없음)
-let UGS_material = ["iron_ingot", "gold_ingot", "emerald", "ruby", "overlord_ingot", "diamond", "iron_ingot", ""]; // 미네랄
+const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1, 2, 19]; // 최고 레벨 (-1은 레벨제한 없음)
+let UGS_material = {
+    0 : 'iron_ingot',
+    1 : 'gold_ingot',
+    2 : 'emerald',
+    3 : 'ruby',
+    4 : 'overlord_ingot',
+    5 : 'diamond',
+    6 : 'iron_ingot',
+    7 : 'iron_ingot',
+    8 : ['alloy_iron_gold', 'pipe', 'extract_engine', 'overlord_ingot']
+};
 
 function UGS_load(num) {
     let UGS_list = document.getElementsByClassName("UGS_list");
     let UGS_text = "";
-
     switch (num) {
         case 0: // 한번에 얻는 광물 개수 증가
             UGS_price[num] = parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
@@ -71,7 +80,14 @@ function UGS_load(num) {
             SD.melt_multiply = SD.UGS_lvl[num] + 1;
             UGS_text += "광물 1개당 주괴 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
-
+        case 8: // 오버로드 1개당 추출 아이템 수 증가
+            UGS_price[num] = [];
+            UGS_price[num][0] = (SD.UGS_lvl[num] + 2) * 100;
+            UGS_price[num][1] = (SD.UGS_lvl[num] + 2) * 10;
+            UGS_price[num][2] = (SD.UGS_lvl[num] + 2);
+            UGS_price[num][3] = (SD.UGS_lvl[num] + 1) * 5;
+            SD.extractor_level +=1;
+            UGS_text += "오버로드 1개당 추출 아이템 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
         // case num: // 설명
         //     UGS_price[num] = 가격 결정 식;
         //     결과 = 결과 결정 식;
@@ -83,13 +99,39 @@ function UGS_load(num) {
         UGS_text += "최고 레벨입니다"
     }
     else {
-        UGS_text += "업그레이드 재료 : " + Name[UGS_material[num]] + " " + UGS_price[num] + "개";
+        final_text = ""
+        if (num == 8){
+        for(let i = 0; i < UGS_material[num].length; i++){
+            final_text += Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 "
+            } 
+        }
+        else {final_text +=Name[UGS_material[num]] + " " + UGS_price[num] + "개 "}
+        UGS_text += "업그레이드 재료 : " + final_text
     }
     UGS_list[num].innerHTML = UGS_text;
 
 }
 
 function upgrade(num) {
+    if (num == 8) {
+        if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
+            add_log("최고 레벨입니다");
+            return;
+        for (let i = 0; i = UGS_material[num].length; i++){ // 재료 부족한 거지 컷
+            if (SD[UGS_material[num][i]] < UGS_price[num][i]) {
+                add_log("재료가 부족합니다");
+                return;
+            }
+        }
+        for (let i = 0; i = UGS_material[num].length; i++) {
+            SD[UGS_material[num][i]] -= UGS_price[num][i];
+        }
+        SD.UGS_lvl[num]++;
+        add_log("업그레이드 성공")
+
+    }
+    }
+    else {
     if (SD[UGS_material[num]] >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl[num] < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
         SD[UGS_material[num]] = SD[UGS_material[num]] - UGS_price[num]; // 재화 소모
         SD.UGS_lvl[num]++; // 레벨업
@@ -101,10 +143,10 @@ function upgrade(num) {
     else {
         add_log("재료가 부족합니다"); //재료부족이 아닌데 이메시지뜨면 잘못된것
     }
+    }
     UGS_load(num);
     store(0); // 광물
     store(1); // 주괴
     store(4); // 오버로드
 }
-
 
