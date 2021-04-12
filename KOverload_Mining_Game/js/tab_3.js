@@ -87,7 +87,7 @@ function craft(num) {
             }
             if (num == 4 || num == 5 || num == 6) { // 오버로드 아이템은 조합버프를 받지 않아야 하므로 오버로드 아이템의 번호를 적어둘것
                 SD[craft_result[num]] += craft_num;
-                add_log(craft_num * SD['b'] + "개 조합 완료");
+                add_log(craft_num + "개 조합 완료");
             }
             else { // 그외
                 SD[craft_result[num]] += craft * SD['b'];
