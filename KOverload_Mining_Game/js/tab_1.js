@@ -82,11 +82,11 @@ function UGS_load(num) {
             break;
         case 8: // 오버로드 1개당 추출 아이템 수 증가
             UGS_price[num] = [];
-            UGS_price[num][0] = (SD.UGS_lvl[num] + 2) * 100;
-            UGS_price[num][1] = (SD.UGS_lvl[num] + 2) * 10;
-            UGS_price[num][2] = (SD.UGS_lvl[num] + 2);
-            UGS_price[num][3] = (SD.UGS_lvl[num] + 1) * 5;
-            SD.extractor_level +=1;
+            UGS_price[num][0] = parseInt((SD.UGS_lvl[num] + 2) * 100);
+            UGS_price[num][1] = parseInt((SD.UGS_lvl[num] + 2) * 10);
+            UGS_price[num][2] = parseInt((SD.UGS_lvl[num] + 2));
+            UGS_price[num][3] = parseInt((SD.UGS_lvl[num] + 1) * 5);
+            SD.extractor_level = SD.UGS_lvl[num] + 1;
             UGS_text += "오버로드 1개당 추출 아이템 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
         // case num: // 설명
         //     UGS_price[num] = 가격 결정 식;
@@ -117,32 +117,31 @@ function upgrade(num) {
         if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
             add_log("최고 레벨입니다");
             return;
-        for (let i = 0; i = UGS_material[num].length; i++){ // 재료 부족한 거지 컷
+        }
+        for (let i = 0; i < UGS_material[num].length; i++){ // 재료 부족한 거지 컷
             if (SD[UGS_material[num][i]] < UGS_price[num][i]) {
                 add_log("재료가 부족합니다");
                 return;
             }
         }
-        for (let i = 0; i = UGS_material[num].length; i++) {
+        for (let i = 0; i < UGS_material[num].length; i++) {
             SD[UGS_material[num][i]] -= UGS_price[num][i];
         }
         SD.UGS_lvl[num]++;
-        add_log("업그레이드 성공")
-
-    }
+        add_log("업그레이드 성공");
     }
     else {
-    if (SD[UGS_material[num]] >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl[num] < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
-        SD[UGS_material[num]] = SD[UGS_material[num]] - UGS_price[num]; // 재화 소모
-        SD.UGS_lvl[num]++; // 레벨업
-        add_log("업그레이드 성공!");
-    }
-    else if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
-        add_log("최고 레벨입니다");
-    }
-    else {
-        add_log("재료가 부족합니다"); //재료부족이 아닌데 이메시지뜨면 잘못된것
-    }
+        if (SD[UGS_material[num]] >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl[num] < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
+            SD[UGS_material[num]] = SD[UGS_material[num]] - UGS_price[num]; // 재화 소모
+            SD.UGS_lvl[num]++; // 레벨업
+            add_log("업그레이드 성공!");
+        }
+        else if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
+            add_log("최고 레벨입니다");
+        }
+        else {
+            add_log("재료가 부족합니다"); //재료부족이 아닌데 이메시지뜨면 잘못된것
+        }
     }
     UGS_load(num);
     store(0); // 광물
