@@ -13,11 +13,11 @@ function tab_UGS(num) {
 }
 
 const special_material = {
-    0 : 'iron_ingot'
+    7 : ['iron_ingot']
 };
 
 const special_price = {
-    0 : '500'
+    7 : ['500']
 };
 
 let UGS_price = []; // 가격
@@ -66,10 +66,10 @@ function UGS_load(num) {
             UGS_text += "한번에 제련하는 광물 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
         case 7: // 광물 1개당 주괴 수 증가
-            UGS_material[7] = special_material[SD.UGS_lvl['7']];
-            UGS_price[num] = special_price[SD.UGS_lvl[num]];
+            UGS_material[7] = special_material['7'[SD.UGS_lvl['7']]];
+            UGS_price[num] = special_price['7'[SD.UGS_lvl[num]]];
             SD.melt_multiply = SD.UGS_lvl[num] + 1;
-            UGS_text += "광물 1개당 주괴 수 증가. level: " + SD.UGS_lvl[num] + "<br>";
+            UGS_text += "광물 1개당 주괴 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
 
         // case num: // 설명
