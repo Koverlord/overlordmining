@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>[K]Overlord Mining Game</title>
-    <!-- <script src="mining.js"></script> -->
+    <link href="img/icon.png" rel="shortcut icon" type="image/x-icon">
     <link href="mining.css" rel="stylesheet" type="text/css">
     <script src="js/main.js"></script>
     <script src="js/save.js"></script>
@@ -9,18 +9,20 @@
     <script src="js/tab_2.js"></script>
     <script src="js/tab_3.js"></script>
     <script src="js/tab_4.js"></script>
-    <!-- <script src="js/tab_5.js"></script> -->
+    <script src="js/tab_5.js"></script>
     <script src="js/development_option.js"></script>
+    <link href="이미지주소.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
     <ul style="background-color: #333;"> <!--메뉴 탭-->
         <li><div class="tab_menu active" onclick="tab(0)">홈</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(1); for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);}">업그레이드 상점</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(1); for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);}">강화 상점</div></li>
         <li><div class="tab_menu not_active" onclick="tab(2);">제련소</div></li>
         <li><div class="tab_menu not_active" onclick="tab(3);">조합소</div></li>
         <li><div id="unlock_Extract" class="tab_menu not_active" onclick="tab(4);">추출소</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(5);">옵션</div></li>
-        <li><div id="unlock_Develop" class="tab_menu not_active" onclick="tab(6); test()" style="display: none;">개발용 테스트옵션</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(5);">로봇 제작소</div></li>
+        <li><div class="tab_menu not_active" onclick="tab(6);">옵션</div></li>
+        <li><div id="unlock_Develop" class="tab_menu not_active" onclick="tab(7); test()" style="display: none;">개발용 테스트옵션</div></li>
         <!-- <li>테스트</li> -->
     </ul>
     
