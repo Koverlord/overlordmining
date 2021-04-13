@@ -7,16 +7,16 @@
     margin: 4px 0 0 0;
 }
 
-.box::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 10px;
 }
-.box::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: #2f3542;
     border-radius: 10px;
     background-clip: padding-box;
     border: 2px solid transparent;
 }
-.box::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background-color: grey;
     border-radius: 10px;
     box-shadow: inset 0px 0px 5px white;
