@@ -1,3 +1,5 @@
+// 탭 5 : 로봇 제작소
+
 tab_robot_num = 0;
 function tab_robot(num) {
     let tab_robot_list = document.getElementsByClassName("tab_robot")

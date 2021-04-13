@@ -1,4 +1,4 @@
-//탭1 - 업그레이드
+//탭1 - 강화
 
 tab_UGS_num = 0;
 function tab_UGS(num) {
@@ -106,7 +106,7 @@ function UGS_load(num) {
             } 
         }
         else {final_text +=Name[UGS_material[num]] + " " + UGS_price[num] + "개 "}
-        UGS_text += "업그레이드 재료 : " + final_text
+        UGS_text += "강화 재료 : " + final_text
     }
     UGS_list[num].innerHTML = UGS_text;
 
@@ -128,13 +128,13 @@ function upgrade(num) {
             SD[UGS_material[num][i]] -= UGS_price[num][i];
         }
         SD.UGS_lvl[num]++;
-        add_log("업그레이드 성공");
+        add_log("강화 성공");
     }
     else {
         if (SD[UGS_material[num]] >= UGS_price[num] && SD.UGS_lvl[num] / UGS_maxlvl[num] < 1) { // 보유재화 =< 필요재화 확인 && 만렙 > 현제레벨 확인, 만렙=-1(렙제없음)은 음수가 나옴(<1)
             SD[UGS_material[num]] = SD[UGS_material[num]] - UGS_price[num]; // 재화 소모
             SD.UGS_lvl[num]++; // 레벨업
-            add_log("업그레이드 성공!");
+            add_log("강화 성공!");
         }
         else if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
             add_log("최고 레벨입니다");

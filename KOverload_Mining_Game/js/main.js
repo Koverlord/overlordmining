@@ -2,7 +2,7 @@
 
 function tab(num) { //num번째 탭으로 전환
     const tab_size = document.getElementsByClassName("tab_menu").length;
-    let tab_list = document.getElementsByClassName("tab_menu");
+    const tab_list = document.getElementsByClassName("tab_menu");
     for (i = 0; i < tab_size; i++) {
         document.getElementById("tab" + i).style.display = "none";
         tab_list[i].className = "tab_menu not_active";
@@ -11,10 +11,10 @@ function tab(num) { //num번째 탭으로 전환
     tab_list[num].className = "tab_menu active";
 }
 
-tab_store_num = 0;
+let tab_store_num = 0;
 function tab_store(num) {
-    let tab_store_list = document.getElementsByClassName("tab_store")
-    let store_list = document.getElementsByClassName("store");
+    const tab_store_list = document.getElementsByClassName("tab_store")
+    const store_list = document.getElementsByClassName("store");
     tab_store_list[tab_store_num].className = "tab_store not_active";
     store_list[tab_store_num].style.display = "none";
     tab_store_list[num].className = "tab_store active";
@@ -23,7 +23,19 @@ function tab_store(num) {
     store(num);
 }
 
-var n = 0;
+let tab_mine_num = 0;
+function tab_mine(num) {
+    const tab_mine_list = document.getElementsByClassName("tab_mine")
+    const mine_list = document.getElementsByClassName("mine");
+    tab_mine_list[tab_mine_num].className = "tab_mine not_active";
+    // mine_list[tab_mine_num].style.display = "none";
+    tab_mine_list[num].className = "tab_mine active";
+    // mine_list[num].style.display = "block";
+    tab_mine_num = num;
+    // mine(num);
+}
+
+let n = 0;
 function add_log(log) { // log를 id="log"인 div에 추가함
     n++;
     var log_line = document.createElement("p");
