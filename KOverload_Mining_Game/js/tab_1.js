@@ -21,7 +21,7 @@ const special_price = {
 };
 
 let UGS_price = []; // 가격
-const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1, 2, 19]; // 최고 레벨 (-1은 레벨제한 없음)
+const UGS_maxlvl = [-1, 100, -1, -1, 99, 4, -1, 2, 9]; // 최고 레벨 (-1은 레벨제한 없음)
 let UGS_material = {
     0 : 'iron_ingot',
     1 : 'gold_ingot',
