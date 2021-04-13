@@ -82,10 +82,10 @@ function UGS_load(num) {
             break;
         case 8: // 오버로드 1개당 추출 아이템 수 증가
             UGS_price[num] = [];
-            UGS_price[num][0] = parseInt((SD.UGS_lvl[num] + 2) * 100);
+            UGS_price[num][0] = parseInt((SD.UGS_lvl[num] + 2) * 200);
             UGS_price[num][1] = parseInt((SD.UGS_lvl[num] + 1) * 30);
             UGS_price[num][2] = parseInt((SD.UGS_lvl[num] + 1) * 10);
-            UGS_price[num][3] = parseInt((SD.UGS_lvl[num] + 1) * 5);
+            UGS_price[num][3] = parseInt((SD.UGS_lvl[num] + 1) * 50);
             SD.extractor_level = SD.UGS_lvl[num] + 1;
             UGS_text += "오버로드 1개당 추출 아이템 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
         // case num: // 설명
