@@ -91,7 +91,7 @@ function craft(num) {
             }
             else { // 그외
                 SD[craft_result[num]] += craft_num * SD.b;
-                add_log(craft_num + "개 조합 완료");
+                add_log(craft_num * SD.b + "개 조합 완료");
             }
         }
     }
