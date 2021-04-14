@@ -62,8 +62,9 @@ var default_SD = { // 기본값 세이브파일
     A_test : 0,
     UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0, 0],
     unlock : {
-        Develop : 0, //개발자용 탭
-        Extract : 0, //추출기 탭
+        Develop : 0, // 개발자용 탭
+        Extract : 0, // 추출기 탭
+        Legend_mine : 0, // (임시) 전설의 광산 탭, 변수명 임시임
     }
 };
 
