@@ -23,16 +23,13 @@ function tab_store(num) {
     store(num);
 }
 
-let tab_mine_num = 0;
+let tab_mine_num = 0; // 전역변수
 function tab_mine(num) {
     const tab_mine_list = document.getElementsByClassName("tab_mine")
-    const mine_list = document.getElementsByClassName("mine");
     tab_mine_list[tab_mine_num].className = "tab_mine not_active";
-    // mine_list[tab_mine_num].style.display = "none";
     tab_mine_list[num].className = "tab_mine active";
-    // mine_list[num].style.display = "block";
     tab_mine_num = num;
-    // mine(num);
+    document.getElementById("button_mine").setAttribute("onclick", "mine(" + num + ")")
 }
 
 let n = 0; // 전역변수
@@ -49,9 +46,12 @@ function add_log(log) { // log를 id="log"인 div에 추가함
     }
 }
 
-let store_list = document.getElementsByClassName("store");
+const store_list = document.getElementsByClassName("store");
 function store(num) {  //스토어 업데이트
-    var store_text = "";
+    let store_text = "";
+    if (!num == tab_store_num) {
+        return;
+    }
     switch (num) {
         case 0: //광물
             store_text += "<p>";
@@ -108,46 +108,77 @@ function store(num) {  //스토어 업데이트
     //최적화 하자면 업데이트를 전체를 하는게 아니라 수정된 자원이 있는 줄만 replace로 수정하면 될듯
 }
 
-var repeatmining = 1;
-function mining(rep) { // 광질
-    if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs% 확률임)
-        repeatmining = 2;
-        add_log("한번 더 채광!")
+// ["광물", 확률, 변수1, 변수2] = 광물을 확률에 따라 변수1 + 변수2 만큼 회득
+// 주사위는 각각 독립된 확률을 의미함
+// 광산은 말그대로 광산끼리 나눈거
+
+let MI = [];
+function var_init() { // 변수 초기화 variable_initialization
+    MI = [ // mine_information
+        [ // 0번째 광산 : 일반
+            [ // 0번째 주사위 : 광물
+                ["iron", 50, SD.a, SD.c],
+                ["gold", 30, SD.a, SD.c],
+                ["diamond", 10, SD.a, SD.d],
+                ["emerald", 5, SD.a, SD.d],
+                ["ruby", 5, SD.a, SD.d]
+            ],
+            [ // 1번째 주사위 : 오버로드
+                ["overlord", SD.overlord_poss, SD.a, SD.f],
+                ["nothing", 100 - SD.overlord_poss, 0, 0]
+            ]
+        ],
+        [ // 1번째 광산 : 전설
+            [ // 0번째 주사위 : 광물
+                ["nothing", 90, SD.e, 0],
+                ["mythrill", 5, SD.e, 0],
+                ["orichalcum", 4, SD.e, 0],
+                ["adamantite", 1, SD.e, 0],
+            ]
+        ]
+        // [
+        //     [
+        //         []
+        //     ]
+        // ]
+    ];
+}
+
+
+function mine(num) {
+    let rep_mine;
+    if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs%)
+        rep_mine = 2;
+        add_log("이중 채광!")
     }
     else {
-        repeatmining = 1;
+        rep_mine = 1;
     }
-    for (i = 0; i < repeatmining; i++) {
-        var r_n = Math.floor(Math.random() * (100)) + 1; // 1 ~ 100 사이의 정수 랜덤생성
-        var r_no = Math.floor(Math.random() * (100)) + 1;
-        if (r_n > 50) {
-            SD['iron'] += (SD['a'] + SD['c']) * rep;
-            add_log("철 " + (SD.a + SD.c) * rep + "개 획득! 현재 " + SD.iron + "개");
+    for (j = 0; j < rep_mine; j++) {
+        for (k in MI[num]) { // 주사위
+            let sum_percent = 0;
+            for (i in MI[num][k]) { // 확률 합 구하기
+                sum_percent += MI[num][k][i][1];
+            }
+            let RM = parseInt(Math.random() * (sum_percent)) // RM = random_number, 0 ~ sum_percent - 1 사이의 정수인 난수 생성
+            for (i in MI[num][k]) { // 가챠
+                if (MI[num][k][i][1] > RM) {
+                    if (MI[num][k][i][0] == "nothing") {;
+                        
+                    }
+                    else {
+                        SD[MI[num][k][i][0]] += parseInt(MI[num][k][i][2] + MI[num][k][i][3]);
+                        add_log(Name[MI[num][k][i][0]]+ " " + parseInt(MI[num][k][i][2] + MI[num][k][i][3]) + "개 회득! 현재 " + SD[MI[num][k][i][0]] + "개");
+                    }
+                    break;
+                }
+                RM -= MI[num][k][i][1];
+            }
         }
-        else if (r_n > 20) {
-            SD['gold'] += (SD['a'] + SD['c']) * rep;
-            add_log("금 " + (SD['a'] + SD['c']) * rep + "개 획득! 현재 " + SD.gold + "개");
-        }
-        else if (r_n > 10) {
-            SD['diamond'] += (SD['a'] + SD['d']) * rep;
-            add_log("다이아몬드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.diamond + "개");
-        }
-        else if (r_n > 5) {
-            SD['emerald'] += (SD['a'] + SD['d']) * rep;
-            add_log("에메랄드 " + (SD['a'] + SD['d']) * rep + "개 획득! 현재 " + SD.emerald + "개");
-        }
-        else if (r_n > 0) {
-            SD['ruby'] += (SD['a'] + SD['d']) * rep;
-            add_log("루비 " + (SD.a + SD.d) * rep + "개 획득! 현재 " + SD.ruby + "개");
-        }
-        
-        if (r_no <= SD.overlord_poss) {
-            SD['overlord'] += (SD['a'] * SD['f']) * rep;
-            add_log("오버로드 " + (SD.a * SD.f) * rep + "개 획득! 현재 " + SD.overlord + "개");
+        for (i = 0; i < store_list.length; i++){
+            store(i);
         }
     }
-    store(0); // 광물
-    store(4); // 오버로드
 }
 
 function Tab_size() {
@@ -179,7 +210,7 @@ window.addEventListener("beforeunload", function (e) { // 새로고침 경고문
 window.onload = function () { // 페이지가 다 load 되면 load()함수 실행
     load();
     Tab_size();
-
+    var_init();
     SD.Auto_Save = !SD.Auto_Save;
     auto_save();
 }
