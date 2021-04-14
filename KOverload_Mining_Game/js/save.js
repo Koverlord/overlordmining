@@ -76,10 +76,11 @@ var Name = {
     emerald : "에메랄드",
     diamond : "다이아몬드",
     alloy_iron_gold : "철-금 합금",
-    overlord_ingot : "오버로드 주괴",
     pipe : "파이프",
     extractor : "추출기",
     extract_engine : "추출 엔진",
+    overlord : "오버로드",
+    overlord_ingot : "오버로드 주괴",
     enchanted_overlord_ingot : "강화 오버로드 주괴",
 };
 
