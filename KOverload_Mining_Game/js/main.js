@@ -11,7 +11,7 @@ function tab(num) { //num번째 탭으로 전환
     tab_list[num].className = "tab_menu active";
 }
 
-let tab_store_num = 0;
+let tab_store_num = 0; // 전역변수
 function tab_store(num) {
     const tab_store_list = document.getElementsByClassName("tab_store")
     const store_list = document.getElementsByClassName("store");
@@ -35,7 +35,7 @@ function tab_mine(num) {
     // mine(num);
 }
 
-let n = 0;
+let n = 0; // 전역변수
 function add_log(log) { // log를 id="log"인 div에 추가함
     n++;
     var log_line = document.createElement("p");
