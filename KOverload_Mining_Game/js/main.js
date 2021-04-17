@@ -168,7 +168,7 @@ function mine(num) {
                     }
                     else {
                         SD[MI[num][k][i][0]] += parseInt(MI[num][k][i][2] + MI[num][k][i][3]);
-                        add_log(Name[MI[num][k][i][0]]+ " " + parseInt(MI[num][k][i][2] + MI[num][k][i][3]) + "개 회득! 현재 " + SD[MI[num][k][i][0]] + "개");
+                        add_log(Name[MI[num][k][i][0]]+ " " + parseInt(MI[num][k][i][2] + MI[num][k][i][3]) + "개 획득! 현재 " + SD[MI[num][k][i][0]] + "개");
                     }
                     break;
                 }
