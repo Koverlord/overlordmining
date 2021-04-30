@@ -14,14 +14,14 @@
 </head>
 <body>
     <ul style="background-color: #333;"> <!--메뉴 탭-->
-        <li><div class="tab_menu active" onclick="tab(0)">홈</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(1); for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);}">강화 상점</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(2);">제련소</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(3);">조합소</div></li>
-        <li><div id="unlock_Extract" class="tab_menu not_active" onclick="tab(4);">추출소</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(5);">로봇 제작소</div></li>
-        <li><div class="tab_menu not_active" onclick="tab(6);">옵션</div></li>
-        <li><div id="unlock_Develop" class="tab_menu not_active" onclick="tab(7); test()" style="display: none;">개발용 테스트옵션</div></li>
+        <li><div class="tab_menu active" onclick="tab_menu(0)">홈</div></li>
+        <li><div class="tab_menu not_active" onclick="tab_menu(1); for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);}">강화 상점</div></li>
+        <li><div class="tab_menu not_active" onclick="tab_menu(2);">제련소</div></li>
+        <li><div class="tab_menu not_active" onclick="tab_menu(3);">조합소</div></li>
+        <li><div id="unlock_Extract" class="tab_menu not_active" onclick="tab_menu(4);">추출소</div></li>
+        <li><div class="tab_menu not_active" onclick="tab_menu(5);">로봇 제작소</div></li>
+        <li><div class="tab_menu not_active" onclick="tab_menu(6);">옵션</div></li>
+        <li><div id="unlock_Develop" class="tab_menu not_active" onclick="tab_menu(7); test()" style="display: none;">개발용 테스트옵션</div></li>
         <!-- <li>테스트</li> -->
     </ul>
     
@@ -49,7 +49,7 @@
         </tr>
     </table>
 
-    <div id="tab0"> <!--탭0 광산-->
+    <div class="menu"> <!--탭0 광산-->
         <div class="box" style="width: 100%; margin: 1px 0 0 3px;">
             <ul style="background-color: #eee; margin: 10px 0px;">
                 <li><div class="tab_mine active" onclick="tab_mine(0);">일반</div></li>
@@ -65,7 +65,7 @@
         </div>
     </div>
     
-    <div id="tab1" style="display: none; width: 800px;">  <!--탭1 UGS-->
+    <div class="menu" style="display: none; width: 800px;">  <!--탭1 UGS-->
         <div class="box" style="width: 100%; margin: 1px 0 0 3px;">
             <ul style="background-color: #eee; margin: 10px 0px;">
                 <li><div class="tab_UGS active" onclick="tab_UGS(0);">일반</div></li>
@@ -123,7 +123,7 @@
         </div>
     </div>
 
-    <div id="tab2" style="display: none; width: 800px;">  <!--탭2 제련-->
+    <div class="menu" style="display: none; width: 800px;">  <!--탭2 제련-->
         <div class="box" style="width: 100%; margin: 1px 0 0 3px;">
             <table style="width: 100%;">
                 <tr>
@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <div id="tab3" style="display: none; width: 800px;">  <!--탭3 제작소-->
+    <div class="menu" style="display: none; width: 800px;">  <!--탭3 제작소-->
         <div class="box" style="width: 100%; margin: 1px 0 0 3px;">
             <ul style="background-color: #eee; margin: 10px 0px;">
                 <li><div class="tab_craft active" onclick="tab_craft(0);">일반</div></li>
@@ -187,11 +187,11 @@
         </div>
     </div>
 
-    <div id="tab4" style="display: none; width: 800px;"> <!--탭4 추출소-->
+    <div class="menu" style="display: none; width: 800px;"> <!--탭4 추출소-->
         <div class="button button5" onclick="extract()">추출</div>
     </div>
 
-    <div id="tab5" style="display: none; width: 800px;"> <!--탭5 로봇 제작소-->
+    <div class="menu" style="display: none; width: 800px;"> <!--탭5 로봇 제작소-->
         <div class="box" style="width: 100%; margin: 1px 0 0 3px;">
             <ul style="background-color: #eee; margin: 10px 0px;">
                 <li><div class="tab_robot active" onclick="tab_robot(0);">부품 조합</div></li>
@@ -235,13 +235,13 @@
         </div>
     </div>
 
-    <div id="tab6" style="display: none; width: 800px;">  <!--탭6 옵션-->
+    <div class="menu" style="display: none; width: 800px;">  <!--탭6 옵션-->
         <div class="button button5" onclick="save()">세이브</div>
         <div class="button button5" onclick="load()">로드</div>
         <div class="button button5" onclick="auto_save()">오토 세이브</div>
     </div>
 
-    <div id="tab7" style="display: none; width: 800px;">  <!--탭7 개발자용 테스트 옵션-->
+    <div class="menu" style="display: none; width: 800px;">  <!--탭7 개발자용 테스트 옵션-->
         <div class="box" style="width: 100%; margin: 1px 0 0 3px;">
             <table style="width: 100%;">
                 <tr>

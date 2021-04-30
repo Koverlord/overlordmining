@@ -1,14 +1,15 @@
 //탭0, 메인
 
-function tab(num) { //num번째 탭으로 전환
-    const tab_size = document.getElementsByClassName("tab_menu").length;
-    const tab_list = document.getElementsByClassName("tab_menu");
-    for (i = 0; i < tab_size; i++) {
-        document.getElementById("tab" + i).style.display = "none";
-        tab_list[i].className = "tab_menu not_active";
-    }
-    document.getElementById("tab" + num).style.display = "block";
-    tab_list[num].className = "tab_menu active";
+let tab_menu_num = 0; // 전역변수
+function tab_menu(num) {
+    const tab_menu_list = document.getElementsByClassName("tab_menu")
+    const menu_list = document.getElementsByClassName("menu");
+    tab_menu_list[tab_menu_num].className = "tab_menu not_active";
+    menu_list[tab_menu_num].style.display = "none";
+    tab_menu_list[num].className = "tab_menu active";
+    menu_list[num].style.display = "block";
+    tab_menu_num = num;
+    // menu(num);
 }
 
 let tab_store_num = 0; // 전역변수
@@ -181,11 +182,11 @@ function mine(num) {
     }
 }
 
-function Tab_size() {
+function Tab_size() { // 메뉴 사이즈 조정
     const tab_size = document.getElementsByClassName("tab_menu").length;
     let table_main_size = parseInt(document.getElementById("table_main").offsetWidth);
     for (i = 0; i < tab_size; i++) {
-        document.getElementById("tab" + i).style.width = table_main_size - 28 + "px";
+        document.getElementsByClassName("menu")[i].style.width = table_main_size - 28 + "px";
     }
 }
 
