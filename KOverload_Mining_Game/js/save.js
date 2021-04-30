@@ -94,11 +94,6 @@ var Melt = {
 function save() { // 세이브
     localStorage["saveFile"] = JSON.stringify(SD);
     add_log("*세이브되었습니다*");
-    if (SD.iron > 1000000000000) {
-        alert("철 1조개를 어케넘기누 시발련들아");
-        reset();
-        save();
-    }
 }
 
 let Auto_save;
