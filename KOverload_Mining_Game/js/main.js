@@ -9,7 +9,6 @@ function tab_menu(num) {
     tab_menu_list[num].className = "tab_menu active";
     menu_list[num].style.display = "block";
     tab_menu_num = num;
-    // menu(num);
 }
 
 let tab_store_num = 0; // 전역변수
@@ -112,7 +111,6 @@ function store(num) {  //스토어 업데이트
 // ["광물", 확률, 변수1, 변수2] = 광물을 확률에 따라 변수1 + 변수2 만큼 회득
 // 주사위는 각각 독립된 확률을 의미함
 // 광산은 말그대로 광산끼리 나눈거
-
 let MI = [];
 function var_init() { // 변수 초기화 variable_initialization
     MI = [ // mine_information
