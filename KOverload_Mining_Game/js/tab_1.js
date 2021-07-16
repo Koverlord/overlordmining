@@ -34,7 +34,7 @@ let UGS_material = {
     8 : ['alloy_iron_gold', 'pipe', 'extract_engine', 'overlord_ingot']
 };
 
-function UGS_load(num) {
+function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스트 표시, 가격 갱신 함수
     let UGS_list = document.getElementsByClassName("UGS_list");
     let UGS_text = "";
     switch (num) {
@@ -95,15 +95,15 @@ function UGS_load(num) {
         //     break;
         
     }
-    if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
+    if (SD.UGS_lvl[num] == UGS_maxlvl[num]) { // 최고 레벨은 업그레이드 불가
         UGS_text += "최고 레벨입니다"
     }
     else {
         final_text = ""
-        if (num == 8){
-        for(let i = 0; i < UGS_material[num].length; i++){
-            final_text += Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 "
-            } 
+        if (num == 8){ // 이 업그레이드는 재료가 여러 개라서 특별처리
+            for(let i = 0; i < UGS_material[num].length; i++){
+                final_text += Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 "
+                } 
         }
         else {final_text +=Name[UGS_material[num]] + " " + UGS_price[num] + "개 "}
         UGS_text += "강화 재료 : " + final_text
@@ -113,7 +113,7 @@ function UGS_load(num) {
 }
 
 function upgrade(num) {
-    if (num == 8) {
+    if (num == 8) { // 특별처리
         if (SD.UGS_lvl[num] == UGS_maxlvl[num]) {
             add_log("최고 레벨입니다");
             return;
