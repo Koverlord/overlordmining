@@ -148,11 +148,6 @@ function load() {
         store(i);
     };
 
-    if (SD.enchantedoverlordingot) { // 변수 수정으로 인해 보완 04.12 // 대충 나중에 지울것
-        SD.enchanted_overlord_ingot += SD.enchantedoverlordingot;
-        SD.enchantedoverlordingot = 0;
-    }
-
     // SD.Auto_save = !SD.Auto_save; // 오토 세이브 자동적용
     // auto_save();
 }
