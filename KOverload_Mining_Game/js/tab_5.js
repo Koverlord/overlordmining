@@ -25,14 +25,14 @@ const part_price = {
     3 : ['2000', "100"]
 };
 const part_result = {
-    0 : "robot_body[0]",
-    1 : "circuit[0]",
-    2 : "CPU[0]",
-    3 : "mining_drill[0]"
+    0 : "robot_body",
+    1 : "circuit",
+    2 : "CPU",
+    3 : "mining_drill"
 };
 
 const robot_material = {
-    0 : ["robot_body[0]", "circuit[0]", "CPU[0]", "mining_drill[0]"]
+    0 : ["robot_body", "circuit", "CPU", "mining_drill"]
 };
 
 const robot_price = {
@@ -40,7 +40,7 @@ const robot_price = {
 };
 
 const robot_result = {
-    0 : "mining_robot[0]"
+    0 : "mining_robot"
 }
 
 function part_craft(num) {
@@ -80,14 +80,14 @@ function robot_craft(num){
         }
     }
     for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
-        if (SD[robot_material[num][i]] < robot_price[num][i]) {
+        if (SD[robot_material[num][i]][0] < robot_price[num][i]) {
             add_log("재료가 부족합니다");
             return;
         }
     }
     for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
-        SD[robot_material[num][i]] -= robot_price[num][i]; }
-    SD[robot_result[num]] += 1;
+        SD[robot_material[num][i]][0] -= robot_price[num][i]; }
+    SD[robot_result[num]][0] += 1;
     add_log("일반 채광 로봇 제작 완료");
     
     store(1); // 주괴
