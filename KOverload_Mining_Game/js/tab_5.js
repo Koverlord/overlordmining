@@ -14,7 +14,7 @@ function tab_robot(num) {
 const part_material = {
     0 : ["alloy_iron_gold", "overlord_ingot"],
     1 : ["iron_ingot", "gold_ingot"],
-    2 : ["enchantedoverlordingot", "circuit"],
+    2 : ["enchanted_overlord_ingot", "circuit"],
     3 : ["diamond", "overlord_ingot"]
 };
 
@@ -73,7 +73,7 @@ function part_craft(num) {
 }
 
 function robot_craft(num){
-    if (num==0) { // 로봇 공간이 충분한지 확인.
+    if (num == 0) { // 로봇 공간이 충분한지 확인.
         if (maxrobot-robot_count < 1) {
             add_log("로봇의 공간이 부족합니다");
             return;
