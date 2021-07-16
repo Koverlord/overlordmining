@@ -25,14 +25,14 @@ const part_price = {
     3 : ['2000', "100"]
 };
 const part_result = {
-    0 : "robot_body",
-    1 : "circuit",
-    2 : "CPU",
-    3 : "mining_drill"
+    0 : "robot_body[0]",
+    1 : "circuit[0]",
+    2 : "CPU[0]",
+    3 : "mining_drill[0]"
 };
 
 const robot_material = {
-    0 : ["robot_body", "circuit", "CPU", "mining_drill"]
+    0 : ["robot_body[0]", "circuit[0]", "CPU[0]", "mining_drill[0]"]
 };
 
 const robot_price = {
@@ -71,7 +71,6 @@ function part_craft(num) {
     store(3); // 조합템
     store(4); // 오버로드 템
 }
-
 
 function robot_craft(num){
     if (num==0) { // 로봇 공간이 충분한지 확인.
