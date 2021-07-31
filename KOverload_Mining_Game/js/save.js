@@ -33,7 +33,6 @@ var default_SD = { // 기본값 세이브파일
     melt_multiply : 1, // 광물 하나당 나오는 주괴 개수
     extractor_level : 1,
     doubleminingposs : 0,
-    enchantedoverlordingot : 0,
     enchanted_overlord_ingot : 0,
     auto_mining_time : 10,
     robot_maker : 0,
@@ -148,11 +147,6 @@ function load() {
     for (i = 0; i < store_list.length; i++){
         store(i);
     };
-
-    if (SD.enchantedoverlordingot) { // 변수 수정으로 인해 보완 04.12 // 대충 나중에 지울것
-        SD.enchanted_overlord_ingot += SD.enchantedoverlordingot;
-        SD.enchantedoverlordingot = 0;
-    }
 
     // SD.Auto_save = !SD.Auto_save; // 오토 세이브 자동적용
     // auto_save();

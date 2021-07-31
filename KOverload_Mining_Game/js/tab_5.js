@@ -14,7 +14,7 @@ function tab_robot(num) {
 const part_material = {
     0 : ["alloy_iron_gold", "overlord_ingot"],
     1 : ["iron_ingot", "gold_ingot"],
-    2 : ["enchantedoverlordingot", "circuit"],
+    2 : ["enchanted_overlord_ingot", "circuit"],
     3 : ["diamond", "overlord_ingot"]
 };
 
@@ -30,6 +30,18 @@ const part_result = {
     2 : "CPU",
     3 : "mining_drill"
 };
+
+const robot_material = {
+    0 : ["robot_body", "circuit", "CPU", "mining_drill"]
+};
+
+const robot_price = {
+    0 : ["1", "500", "1", "2"]
+};
+
+const robot_result = {
+    0 : "mining_robot"
+}
 
 function part_craft(num) {
     let part_max_craft = parseInt(SD[part_material[num][0]] / part_price[num][0]);
@@ -54,6 +66,30 @@ function part_craft(num) {
         add_log(robot_craft_num + "개 조합 완료");
         
     }
+    store(1); // 주괴
+    store(2); // 합금
+    store(3); // 조합템
+    store(4); // 오버로드 템
+}
+
+function robot_craft(num){
+    if (num == 0) { // 로봇 공간이 충분한지 확인.
+        if (maxrobot-robot_count < 1) {
+            add_log("로봇의 공간이 부족합니다");
+            return;
+        }
+    }
+    for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
+        if (SD[robot_material[num][i]][0] < robot_price[num][i]) {
+            add_log("재료가 부족합니다");
+            return;
+        }
+    }
+    for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
+        SD[robot_material[num][i]][0] -= robot_price[num][i]; }
+    SD[robot_result[num]][0] += 1;
+    add_log("일반 채광 로봇 제작 완료");
+    
     store(1); // 주괴
     store(2); // 합금
     store(3); // 조합템
