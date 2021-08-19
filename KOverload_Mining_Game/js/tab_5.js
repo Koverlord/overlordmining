@@ -14,7 +14,7 @@ function tab_robot(num) {
 const part_material = {
     0 : ["alloy_iron_gold", "overlord_ingot"],
     1 : ["iron_ingot", "gold_ingot"],
-    2 : ["enchanted_overlord_ingot", "circuit"],
+    2 : ["enchanted_overlord_ingot", "circuit[0]"],
     3 : ["diamond", "overlord_ingot"]
 };
 
