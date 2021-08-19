@@ -14,7 +14,7 @@ function tab_robot(num) {
 const part_material = {
     0 : ["alloy_iron_gold", "overlord_ingot"],
     1 : ["iron_ingot", "gold_ingot"],
-    2 : ["enchanted_overlord_ingot", "circuit[0]"],
+    2 : ["enchanted_overlord_ingot", "circuit"],
     3 : ["diamond", "overlord_ingot"]
 };
 
@@ -87,7 +87,7 @@ function robot_craft(num){
     }
     for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
         SD[robot_material[num][i]][0] -= robot_price[num][i]; }
-    SD[robot_result[num]][0] += 1;
+    SD[robot_result[num]] += 1;
     add_log("일반 채광 로봇 제작 완료");
     
     store(1); // 주괴
