@@ -62,7 +62,7 @@ function part_craft(num) {
         for(let i = 0; i <= part_material[num].length; i++) { // 재료 소모  
             SD[part_material[num][i]] -= part_price[num][i] * robot_craft_num;
         }
-        SD[part_result[num]][0] += robot_craft_num;
+        SD[part_result[num]] += robot_craft_num;
         add_log(robot_craft_num + "개 조합 완료");
         
     }
@@ -87,7 +87,7 @@ function robot_craft(num){
     }
     for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
         SD[robot_material[num][i]][0] -= robot_price[num][i]; }
-    SD[robot_result[num]] += 1;
+    SD[robot_result[num]][0] += 1;
     add_log("일반 채광 로봇 제작 완료");
     
     store(1); // 주괴
