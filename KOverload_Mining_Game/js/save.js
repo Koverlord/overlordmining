@@ -37,7 +37,7 @@ var default_SD = { // 기본값 세이브파일
     auto_mining_time : 10,
     robot_maker : 0,
     minepower : [0],
-    circuit : [0],
+    circuit : 0,
     maxrobot : 5,
     robot_body : [0],
     CPU : [0],
