@@ -74,7 +74,7 @@ function part_craft(num) {
 
 function robot_craft(num){
     if (num == 0) { 
-        if (maxrobot-robot_count < 1) { // 로봇 공간이 충분한지 확인.
+        if (SD.maxrobot-SD.robot_count < 1) { // 로봇 공간이 충분한지 확인.
             add_log("로봇의 공간이 부족합니다");
             return;
         }
