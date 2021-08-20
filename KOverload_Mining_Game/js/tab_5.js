@@ -100,7 +100,7 @@ function auto_mine() {
     SD.Auto_Mine = !SD.Auto_Mine;
     if (SD.Auto_Mine) {
         add_log("자동광질이 켜졌습니다");
-        Auto_mine = setInterval( function() {mine(SD.minepower[0])}, SD.auto_mining_time);
+        Auto_mine = setInterval( function() {mine(0,SD.minepower[0])}, SD.auto_mining_time);
     }
     else {
         add_log("자동광질이 꺼졌습니다");
