@@ -34,7 +34,7 @@ var default_SD = { // 기본값 세이브파일
     extractor_level : 1,
     doubleminingposs : 0,
     enchanted_overlord_ingot : 0,
-    auto_mining_time : 10,
+    auto_mining_time : 1000,
     robot_maker : 0,
     minepower : [0],
     circuit : 0,
@@ -58,6 +58,7 @@ var default_SD = { // 기본값 세이브파일
     mythpurchased3 : 0,
     test1 : 1, // 이건 뭐지;;
     Auto_Save : 0,
+    Auto_Mine : 0,
     A_test : 0,
     UGS_lvl : [0, 0, 0, 0, 0, 0, 0, 0, 0],
     unlock : {
