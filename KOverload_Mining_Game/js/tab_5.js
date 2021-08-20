@@ -89,7 +89,7 @@ function robot_craft(num){
         SD[robot_material[num][i]][0] -= robot_price[num][i]; }
     SD[robot_result[num]][0] += 1;
     add_log("일반 채광 로봇 제작 완료");
-    robot_refresh()
+    robot_refresh();
     store(1); // 주괴
     store(2); // 합금
     store(3); // 조합템
@@ -109,8 +109,8 @@ function auto_mine() {
 }
 
 function robot_refresh() {
-    SD.robot_count = SD.mining_robot[0]
-    SD.minepower[0] = SD.mining_robot[0] * 5
-    auto_mine()
-    auto_mine()
+    SD.robot_count = SD.mining_robot[0];
+    SD.minepower[0] = SD.mining_robot[0] * 5;
+    auto_mine();
+    auto_mine();
 }
