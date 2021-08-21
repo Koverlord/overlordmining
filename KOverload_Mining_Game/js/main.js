@@ -144,7 +144,7 @@ function var_init() { // 변수 초기화 variable_initialization
 }
 
 
-function mine(num , num2) {
+function mine(num , num2 = 1) {
     let rep_mine;
     if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs%)
         rep_mine = 2;
