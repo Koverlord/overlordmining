@@ -212,5 +212,6 @@ window.onload = function () { // 페이지가 다 load 되면 load()함수 실�
     var_init();
     SD.Auto_Save = !SD.Auto_Save;
     auto_save();
-    robot_refresh();
+    SD.Auto_Mine = !SD.Auto_Mine;
+    auto_mine();
 }

@@ -71,7 +71,7 @@ function part_craft(num) {
     store(3); // 조합템
     store(4); // 오버로드 템
 }
-
+2
 function robot_craft(num){
     if (num == 0) { 
         if (SD.maxrobot - SD.robot_count < 1) { // 로봇 공간이 충분한지 확인.
@@ -85,7 +85,7 @@ function robot_craft(num){
             return;
         }
     }
-    for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
+    for (let i = 0; i < robot_material[num].length; i++){
         SD[robot_material[num][i]][0] -= robot_price[num][i]; }
     SD[robot_result[num]][0] += 1;
     add_log("일반 채광 로봇 제작 완료");
