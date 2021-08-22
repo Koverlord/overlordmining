@@ -84,6 +84,7 @@ var Name = {
     overlord : "오버로드",
     overlord_ingot : "오버로드 주괴",
     enchanted_overlord_ingot : "강화 오버로드 주괴",
+    robot_maker : "로봇 제작기",
 };
 
 var Melt = {
