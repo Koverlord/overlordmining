@@ -64,14 +64,16 @@ function craft(num) {
                 add_log("추출소 탭이 해금되었습니다");
                 SD.unlock.Extract = 1;
                 unlock("Extract");
+                document.getElementById("button_extract").innerHTML = "제작 불가"; // 버튼 텍스트 변경
+                document.getElementById("button_extract").style.color = "#888"; // 회색
             }
             else if(num == 7) {
                 add_log("로봇 제작소 탭이 해금되었습니다");
                 SD.unlock.Robot = 1;
                 unlock("Robot");
+                document.getElementById("button_robot").innerHTML = "제작 불가"; // 버튼 텍스트 변경
+                document.getElementById("button_robot").style.color = "#888"; // 회색
             }
-            document.getElementById("button_extract").innerHTML = "제작 불가"; // 버튼 텍스트 변경
-            document.getElementById("button_extract").style.color = "#888"; // 회색
         }
     }
 
