@@ -80,13 +80,13 @@ function robot_craft(num){
         }
     }
     for (let i = 0; i < robot_material[num].length; i++){ // 재료 부족한 거지 컷
-        if (SD[robot_material[num][i]][0] < robot_price[num][i]) {
+        if (SD[robot_material[num][i]] < robot_price[num][i]) {
             add_log("재료가 부족합니다");
             return;
         }
     }
     for (let i = 0; i < robot_material[num].length; i++){
-        SD[robot_material[num][i]][0] -= robot_price[num][i]; }
+        SD[robot_material[num][i]] -= robot_price[num][i]; }
     SD[robot_result[num]][0] += 1;
     add_log("일반 채광 로봇 제작 완료");
     robot_refresh();
