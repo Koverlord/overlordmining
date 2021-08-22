@@ -64,6 +64,7 @@ var default_SD = { // 기본값 세이브파일
     unlock : {
         Develop : 0, // 개발자용 탭
         Extract : 0, // 추출기 탭
+        Robot : 0,
         Legend_mine : 0, // (임시) 전설의 광산 탭, 변수명 임시임
     }
 };

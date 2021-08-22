@@ -71,7 +71,6 @@ function part_craft(num) {
     store(3); // 조합템
     store(4); // 오버로드 템
 }
-2
 function robot_craft(num){
     if (num == 0) { 
         if (SD.maxrobot - SD.robot_count < 1) { // 로봇 공간이 충분한지 확인.

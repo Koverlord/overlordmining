@@ -18,7 +18,8 @@ const craft_material = {
     3 : ["alloy_iron_gold", "pipe", "extract_engine"],
     4 : ["overlord_scrap"],
     5 : ["overlord_part", "overlord_essence"],
-    6 : ["overlord_soul", "overlord_ingot" , "overlord_essence"]
+    6 : ["overlord_soul", "overlord_ingot" , "overlord_essence"],
+    7 : ["alloy_iron_gold", "enchanted_overlord_ingot"]
 };
 
 const craft_price = {
@@ -28,7 +29,8 @@ const craft_price = {
     3 : ["100", "10", "1"],
     4 : ["5"],
     5 : ["10", "10"],
-    6 : ["1", "10", "1000"]
+    6 : ["1", "10", "1000"],
+    7 : ["1000", "10"]
 };
 const craft_result = {
     0 : "alloy_iron_gold",
@@ -37,11 +39,12 @@ const craft_result = {
     3 : "extractor",
     4 : "overlord_part",
     5 : "overlord_ingot",
-    6 : "enchanted_overlord_ingot"
+    6 : "enchanted_overlord_ingot",
+    7 : "robot_maker",
 };
     
 function craft(num) {
-    if (num == 3) { // 추출기
+    if (num == 3 || num == 7) { // 추출기
         if (SD[craft_result[num]] == 1) {
             add_log("이미 조합하셨습니다");
         }
@@ -57,9 +60,16 @@ function craft(num) {
             }
             SD[craft_result[num]] = 1;
             add_log(Name[craft_result[num]] + " 조합 완료");
-            add_log("추출소 탭이 해금되었습니다");
-            SD.unlock.Extract = 1;
-            unlock("Extract");
+            if (num == 3) {
+                add_log("추출소 탭이 해금되었습니다");
+                SD.unlock.Extract = 1;
+                unlock("Extract");
+            }
+            else if(num == 7) {
+                add_log("로봇 제작소 탭이 해금되었습니다");
+                SD.unlock.Robot = 1;
+                unlock("Robot");
+            }
             document.getElementById("button_extract").innerHTML = "제작 불가"; // 버튼 텍스트 변경
             document.getElementById("button_extract").style.color = "#888"; // 회색
         }

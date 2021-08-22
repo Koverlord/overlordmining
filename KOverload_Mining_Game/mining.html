@@ -19,7 +19,7 @@
         <li><div class="tab_menu not_active" onclick="tab_menu(2);">제련소</div></li>
         <li><div class="tab_menu not_active" onclick="tab_menu(3);">조합소</div></li>
         <li><div id="unlock_Extract" class="tab_menu not_active" onclick="tab_menu(4);">추출소</div></li>
-        <li><div class="tab_menu not_active" onclick="tab_menu(5);">로봇 제작소</div></li>
+        <li><div id="unlock_Robot" class="tab_menu not_active" onclick="tab_menu(5);">로봇 제작소</div></li>
         <li><div class="tab_menu not_active" onclick="tab_menu(6);">옵션</div></li>
         <li><div id="unlock_Develop" class="tab_menu not_active" onclick="tab_menu(7); test()" style="display: none;">개발용 테스트옵션</div></li>
     </ul>
@@ -165,6 +165,11 @@
                 <tr>
                     <td style="width: 80%;"><div>추출기<br>재료 : 철-금 합금 100개, 파이프 10개, 추출 엔진 1개</div></td>
                     <td style="width: 20%;"><div id="button_extract" class="button button5" onClick="craft(3)">조합</div></td>
+                </tr>
+                <tr><td colspan="2"><hr></td></tr>
+                <tr>
+                    <td style="width: 80%;"><div>로봇 제작기<br>재료 : 철-금 합금 1000개, 강화 오버로드 주괴 10개</div></td>
+                    <td style="width: 20%;"><div id="button_extract" class="button button5" onClick="craft(7)">조합</div></td>
                 </tr>
             </table>
             <table class="craft" style="width: 100%; display: none;">

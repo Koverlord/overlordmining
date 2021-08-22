@@ -144,7 +144,7 @@ function var_init() { // 변수 초기화 variable_initialization
 }
 
 
-function mine(num , num2 = 1) {
+function mine(num , mult = 1) {
     let rep_mine;
     if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs%)
         rep_mine = 2;
@@ -166,8 +166,8 @@ function mine(num , num2 = 1) {
                         
                     }
                     else {
-                        SD[MI[num][k][i][0]] += (parseInt(MI[num][k][i][2] + MI[num][k][i][3]) * num2);
-                        add_log((Name[MI[num][k][i][0]]+ " " + parseInt(MI[num][k][i][2] + MI[num][k][i][3]) * num2) + "개 획득! 현재 " + SD[MI[num][k][i][0]] + "개");
+                        SD[MI[num][k][i][0]] += (parseInt(MI[num][k][i][2] + MI[num][k][i][3]) * mult);
+                        add_log((Name[MI[num][k][i][0]]+ " " + parseInt(MI[num][k][i][2] + MI[num][k][i][3]) * mult) + "개 획득! 현재 " + SD[MI[num][k][i][0]] + "개");
                     }
                     break;
                 }
