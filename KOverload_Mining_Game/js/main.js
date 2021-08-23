@@ -104,23 +104,23 @@ function var_init() { // 변수 초기화 variable_initialization
     MI = [ // mine_information
         [ // 0번째 광산 : 일반
             [ // 0번째 주사위 : 광물
-                ["iron", 50, SD.a, SD.c],
-                ["gold", 30, SD.a, SD.c],
-                ["diamond", 10, SD.a, SD.d],
-                ["emerald", 5, SD.a, SD.d],
-                ["ruby", 5, SD.a, SD.d]
+                ["iron", 50, SD.a + SD.c],
+                ["gold", 30, SD.a + SD.c],
+                ["diamond", 10, SD.a + SD.d],
+                ["emerald", 5, SD.a + SD.d],
+                ["ruby", 5, SD.a + SD.d]
             ],
             [ // 1번째 주사위 : 오버로드
-                ["overlord", SD.overlord_poss, SD.a, SD.f],
-                ["nothing", 100 - SD.overlord_poss, 0, 0]
+                ["overlord", SD.overlord_poss, SD.a * SD.f],
+                ["nothing", 100 - SD.overlord_poss, 0]
             ]
         ],
         [ // 1번째 광산 : 전설
             [ // 0번째 주사위 : 광물
-                ["nothing", 90, SD.e, 0],
-                ["mythrill", 5, SD.e, 0],
-                ["orichalcum", 4, SD.e, 0],
-                ["adamantite", 1, SD.e, 0],
+                ["nothing", 90, SD.e],
+                ["mythrill", 5, SD.e],
+                ["orichalcum", 4, SD.e],
+                ["adamantite", 1, SD.e],
             ]
         ]
         // [
@@ -132,9 +132,9 @@ function var_init() { // 변수 초기화 variable_initialization
 }
 
 
-function mine(num , mult = 1) {
+function mine(num , multi = 1) {
     let rep_mine;
-    if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs%)
+    if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleiningposs%)
         rep_mine = 2;
         add_log("이중 채광!")
     }
@@ -154,8 +154,8 @@ function mine(num , mult = 1) {
                         
                     }
                     else {
-                        SD[MI[num][k][i][0]] += (parseInt(MI[num][k][i][2] + MI[num][k][i][3]) * mult);
-                        add_log((Name[MI[num][k][i][0]]+ " " + parseInt(MI[num][k][i][2] + MI[num][k][i][3]) * mult) + "개 획득! 현재 " + SD[MI[num][k][i][0]] + "개");
+                        SD[MI[num][k][i][0]] += parseInt(MI[num][k][i][2] * multi);
+                        add_log((Name[MI[num][k][i][0]]+ " " + parseInt(MI[num][k][i][2] * multi) + "개 획득! 현재 " + SD[MI[num][k][i][0]] + "개"));
                     }
                     break;
                 }
