@@ -9,6 +9,7 @@ function tab_robot(num) {
     tab_robot_list[num].className = "tab_robot active";
     robot_list[num].style.display = "block";
     tab_robot_num = num;
+    robot_space();
 }
 
 const part_material = {
@@ -85,7 +86,8 @@ function robot_craft(num){
         }
     }
     for (let i = 0; i < robot_material[num].length; i++){
-        SD[robot_material[num][i]] -= robot_price[num][i]; }
+        SD[robot_material[num][i]] -= robot_price[num][i]; 
+    }
     SD[robot_result[num]][0] += 1;
     add_log("일반 채광 로봇 제작 완료");
     robot_refresh();
@@ -114,4 +116,10 @@ function robot_refresh() {
     SD.minepower[0] = SD.mining_robot[0] * 5;
     auto_mine();
     auto_mine();
+}
+
+function robot_space() {
+    let space_text;
+    space_text = document.getElementById("robot_admin");
+    space_text.innerHTML = "현재 로봇 공간 : " + SD.robot_count + "/" + SD.maxrobot;
 }

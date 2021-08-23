@@ -83,7 +83,7 @@ function store(num) {  //스토어 업데이트
             store_text += "로봇 몸체 " + SD.robot_body + "개<br>";
             store_text += "회로 " + SD.circuit + "개<br>";
             store_text += "CPU " + SD.CPU + "개<br>";
-            store_text += "드릴 " + SD.mining_drill + "개<br>";
+            store_text += "채광 드릴 " + SD.mining_drill + "개<br>";
             store_text += "</p>";
             break;    
         case 4: // 오버로드
