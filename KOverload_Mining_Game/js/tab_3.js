@@ -43,7 +43,7 @@ const craft_result = {
     7 : "robot_maker",
 };
     
-function craft(num) {
+function craft(num,click) {
     if (num == 3 || num == 7) { // 추출기
         if (SD[craft_result[num]] == 1) {
             add_log("이미 조합하셨습니다");
@@ -84,9 +84,16 @@ function craft(num) {
             max_craft = parseInt(SD[craft_material[num][i]] / craft_price[num][i]);
             }
         }
-
-        let craft_num = parseInt("0" + prompt("조합할 개수를 입력해 주세요\n현재 업그레이드 미적용 기준 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
-        // console.log(craft_num); // 입력한 숫자 확인용
+        let craft_num;
+        if (click.shiftKey) {
+            if (max_craft == 0) {
+                return;
+            }
+            craft_num = max_craft;
+        }
+        else {
+            craft_num = parseInt("0" + prompt("조합할 개수를 입력해 주세요\n현재 업그레이드 미적용 기준 최대 조합 가능 개수 : " + max_craft + "개")); // 음수 써도 0으로 바뀜
+        }
         if (craft_num == 0) { //자연수 아니면 여기서 걸러짐
             add_log("자연수를 입력해 주세요");
         }
