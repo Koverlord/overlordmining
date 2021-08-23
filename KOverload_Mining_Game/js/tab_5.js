@@ -103,7 +103,9 @@ function auto_mine() {
     }
     else {
         add_log("자동광질이 꺼졌습니다");
-        clearTimeout(Auto_mine);
+        try {
+            clearTimeout(Auto_mine);
+          } catch(e) {}
     }
 }
 
