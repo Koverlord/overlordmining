@@ -79,14 +79,14 @@ var Name = {
     overlord_ingot : "오버로드 주괴",
     enchanted_overlord_ingot : "강화 오버로드 주괴",
     robot_maker : "로봇 제작기",
-    robot_body : "",
-    overlord_essence : "",
-    overlord_scrap : "",
-    overlord_part : "",
-    circuit : "",
-    CPU : "",
-    mining_drill : "",
-    overlord_soul : "",
+    robot_body : "로봇 몸체",
+    overlord_essence : "오버로드의 정수",
+    overlord_scrap : "오버로드의 파편",
+    overlord_part : "오버로드의 조각",
+    circuit : "회로",
+    CPU : "CPU",
+    mining_drill : "채광 드릴",
+    overlord_soul : "오버로드의 영혼",
 };
 
 var Melt = {
