@@ -45,17 +45,11 @@ var default_SD = { // 기본값 세이브파일
     robot_count : 0,
     mining_robot : [0],
     excavator_robot : [0],
-    mythmineticket : 0,
+    myth_mine : 0,
     mythrill : 0,
     orichalcum : 0,
     adamantite : 0,
     udc : 1, // 할인율 Upgrade DisCount
-    mythupgrade1 : 10,
-    mythpurchased1 : 0,
-    mythupgrade2 : 10,
-    mythpurchased2 : 0,
-    mythupgrade3 : 10,
-    mythpurchased3 : 0,
     test1 : 1, // 이건 뭐지;;
     Auto_Save : 0,
     Auto_Mine : 0,
