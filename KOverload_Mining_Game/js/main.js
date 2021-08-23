@@ -52,60 +52,48 @@ function store(num) {  //스토어 업데이트
     if (!num == tab_store_num) {
         return;
     }
-    switch (num) {
-        case 0: //광물
-            store_text += "<p>";
-            store_text += "철 " + SD.iron + "개<br>";
-            store_text += "금 " + SD.gold + "개<br>";
-            store_text += "다이아몬드 " + SD.diamond + "개<br>";
-            store_text += "에메랄드 " + SD.emerald + "개<br>";
-            store_text += "루비 " + SD.ruby + "개<br>";
-            store_text += "오버로드 " + SD.overlord + "개<br>";
-            store_text += "</p>";
-            break;
-        case 1: //주괴
-            store_text += "<p>";
-            store_text += "철 주괴 " + SD.iron_ingot + "개<br>";
-            store_text += "금 주괴 " + SD.gold_ingot + "개<br>";
-            store_text += "오버로드 주괴 " + SD.overlord_ingot + "개<br>";
-            store_text += "강화 오버로드 주괴 " + SD.enchanted_overlord_ingot + "개<br>";
-            store_text += "</p>";
-            break;        
-        case 2: //합금
-            store_text += "<p>";
-            store_text += "철-금 합금 " + SD.alloy_iron_gold + "개<br>";
-            store_text += "</p>";
-            break;        
-        case 3: //조합
-            store_text += "<p>";
-            store_text += "파이프 " + SD.pipe + "개<br>";
-            store_text += "추출 엔진 " + SD.extract_engine + "개<br>";
-            store_text += "로봇 몸체 " + SD.robot_body + "개<br>";
-            store_text += "회로 " + SD.circuit + "개<br>";
-            store_text += "CPU " + SD.CPU + "개<br>";
-            store_text += "채광 드릴 " + SD.mining_drill + "개<br>";
-            store_text += "</p>";
-            break;    
-        case 4: // 오버로드
-            store_text += "<p>";
-            store_text += "오버로드 " + SD.overlord + "개<br>";
-            store_text += "오버로드의 정수 " + SD.overlord_essence + "개<br>";
-            store_text += "오버로드의 파편 " + SD.overlord_scrap + "개<br>";
-            store_text += "오버로드의 조각 " + SD.overlord_part + "개<br>";
-            store_text += "오버로드 주괴 " + SD.overlord_ingot + "개<br>";
-            store_text += "오버로드의 영혼 " + SD.overlord_soul + "개<br>";
-            store_text += "강화 오버로드 주괴 " + SD.enchanted_overlord_ingot + "개<br>";
-            store_text += "</p>";
-            break;
-        // case n:
-        //     store_text += "<p>";
-        //     store_text += "";
-        //     store_text += "</p>";
-        //     break;
-    }
-    store_list[num].innerHTML = store_text;
 
-    //최적화 하자면 업데이트를 전체를 하는게 아니라 수정된 자원이 있는 줄만 replace로 수정하면 될듯
+    const store_goods = [
+        [
+            "iron",
+            "gold",
+            "diamond",
+            "emerald",
+            "ruby",
+            "overlord",
+        ],
+        [
+            "iron_ingot",
+            "gold_ingot",
+            "overlord_ingot",
+            "enchanted_overlord_ingot",
+        ],
+        [
+            "alloy_iron_gold",
+        ],
+        [
+            "pipe",
+            "extract_engine",
+            "robot_body",
+            "circuit",
+            "CPU",
+            "mining_drill",
+        ],
+        [
+            "overlord",
+            "overlord_essence",
+            "overlord_scrap",
+            "overlord_part",
+            "overlord_ingot",
+            "overlord_soul",
+            "enchanted_overlord_ingot",
+        ],
+    ];
+
+    store_text += "<p>";
+    store_goods[num].forEach(i => store_text += Name[i] + " " + SD[i] + "개<br>");
+    store_text += "</p>";
+    store_list[num].innerHTML = store_text;
 }
 
 // ["광물", 확률, 변수1, 변수2] = 광물을 확률에 따라 변수1 + 변수2 만큼 회득
