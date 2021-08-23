@@ -13,8 +13,8 @@ function tab_craft(num) {
 
 const craft_material = {
     0 : ["iron_ingot", "gold_ingot"],
-    1 : ["alloy_iron_gold", "diamond", "ruby"],
-    2 : ["alloy_iron_gold", "emerald"],
+    1 : ["alloy_iron_gold", "emerald", "ruby"],
+    2 : ["alloy_iron_gold", "diamond"],
     3 : ["alloy_iron_gold", "pipe", "extract_engine"],
     4 : ["overlord_scrap"],
     5 : ["overlord_part", "overlord_essence"],
@@ -24,8 +24,8 @@ const craft_material = {
 
 const craft_price = {
     0 : ["15", "15"],
-    1 : ["10", "50", "50"],
-    2 : ["30", "200"],
+    1 : ["10", "30", "30"],
+    2 : ["50", "300"],
     3 : ["100", "10", "1"],
     4 : ["5"],
     5 : ["10", "10"],
