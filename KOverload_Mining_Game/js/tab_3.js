@@ -19,7 +19,8 @@ const craft_material = {
     4 : ["overlord_scrap"],
     5 : ["overlord_part", "overlord_essence"],
     6 : ["overlord_soul", "overlord_ingot" , "overlord_essence"],
-    7 : ["alloy_iron_gold", "enchanted_overlord_ingot"]
+    7 : ["alloy_iron_gold", "enchanted_overlord_ingot"],
+    8 : ["diamond", "emerald", "ruby"],
 };
 
 const craft_price = {
@@ -30,7 +31,8 @@ const craft_price = {
     4 : ["5"],
     5 : ["10", "10"],
     6 : ["1", "10", "1000"],
-    7 : ["1000", "10"]
+    7 : ["1000", "10"],
+    8 : ["500", "300", "300"],
 };
 const craft_result = {
     0 : "alloy_iron_gold",
@@ -41,10 +43,11 @@ const craft_result = {
     5 : "overlord_ingot",
     6 : "enchanted_overlord_ingot",
     7 : "robot_maker",
+    8 : "gem_mine",
 };
     
 function craft(num,click) {
-    if (num == 3 || num == 7) { // 추출기
+    if (num == 3 || num == 7 || num == 8) { // 기계, 광산 입장권
         if (SD[craft_result[num]] == 1) {
             add_log("이미 조합하셨습니다");
         }
@@ -73,6 +76,13 @@ function craft(num,click) {
                 unlock("Robot");
                 document.getElementById("button_robot").innerHTML = "제작 불가"; // 버튼 텍스트 변경
                 document.getElementById("button_robot").style.color = "#888"; // 회색
+            }
+            else if(num == 8) {
+                add_log("보석 광산이 해금되었습니다");
+                SD.unlock.Gem_mine = 1;
+                unlock("Gem_mine");
+                document.getElementById("button_gem").innerHTML = "제작 불가"; // 버튼 텍스트 변경
+                document.getElementById("button_gem").style.color = "#888"; // 회색
             }
         }
     }

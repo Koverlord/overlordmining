@@ -53,7 +53,7 @@
             <ul style="background-color: #eee; margin: 10px 0px;">
                 <li><div class="tab_mine active" onclick="tab_mine(0);">일반</div></li>
                 <li><div id="unlock_Legend_mine" class="tab_mine not_active" onclick="tab_mine(1);">전설</div></li>
-                <li><div class="tab_mine not_active" onclick="tab_mine(2);">보석</div></li>
+                <li><div id="unlock_Gem_mine" class="tab_mine not_active" onclick="tab_mine(2);">보석</div></li>
             </ul>
             <table style="width: 100%;">
                 <tr>
@@ -144,6 +144,7 @@
                 <li><div class="tab_craft active" onclick="tab_craft(0);">일반</div></li>
                 <li><div class="tab_craft not_active" onclick="tab_craft(1);">기계</div></li>
                 <li><div class="tab_craft not_active" onclick="tab_craft(2);">오버로드</div></li>
+                <li><div class="tab_craft not_active" onclick="tab_craft(3);">광산 입장권</div></li>
             </ul>
             <table class="craft" style="width: 100%;">
                 <tr>
@@ -186,6 +187,12 @@
                 <tr>
                     <td style="width: 80%;"><div>강화 오버로드 주괴<br>재료 : 오버로드의 영혼 1개, 오버로드 주괴 10개, 오버로드의 정수 1000개</div></td>
                     <td style="width: 20%;"><div class="button button5" onClick="craft(6,event)">조합</div></td>
+                </tr>
+            </table>
+            <table class="craft" style="width: 100%; display: none;">
+                <tr>
+                    <td style="width: 80%;"><div>보석 광산 입장권<br>재료 : 다이아몬드 500개, 에메랄드 300개, 루비 300개</div></td>
+                    <td style="width: 20%;"><div id="button_gem" class="button button5" onClick="craft(8)">조합</div></td>
                 </tr>
             </table>
         </div>

@@ -45,7 +45,8 @@ var default_SD = { // 기본값 세이브파일
     robot_count : 0,
     mining_robot : [0],
     excavator_robot : [0],
-    myth_mine : 0,
+    gem_mine : 0,
+    legend_mine : 0,
     mythrill : 0,
     orichalcum : 0,
     adamantite : 0,
@@ -59,7 +60,8 @@ var default_SD = { // 기본값 세이브파일
         Develop : 0, // 개발자용 탭
         Extract : 0, // 추출기 탭
         Robot : 0,
-        Legend_mine : 0, // (임시) 전설의 광산 탭, 변수명 임시임
+        Gem_mine : 0,
+        Legend_mine : 0, // 전설의 광산 탭
     }
 };
 
@@ -87,6 +89,7 @@ var Name = {
     CPU : "CPU",
     mining_drill : "채광 드릴",
     overlord_soul : "오버로드의 영혼",
+    gem_mine : "보석 광산 입장권",
 };
 
 var Melt = {
