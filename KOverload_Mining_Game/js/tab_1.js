@@ -70,7 +70,7 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
             UGS_text += "한번에 조합하는 일반 아이템 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
         case 6: // 한번에 제련하는 광물 개수 증가
-            UGS_price[num] = parseInt((50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25) * SD.udc);
+            UGS_price[num] = parseInt(50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25);
             SD.melt_count = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
             UGS_text += "한번에 제련하는 광물 개수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
@@ -85,7 +85,7 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
             UGS_price[num][0] = parseInt((SD.UGS_lvl[num] + 1) * 500);
             UGS_price[num][1] = parseInt((SD.UGS_lvl[num] + 1) * 30);
             UGS_price[num][2] = parseInt((SD.UGS_lvl[num] + 1) * 10);
-            UGS_price[num][3] = parseInt((SD.UGS_lvl[num] + 1) * 50);
+            UGS_price[num][3] = parseInt(50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25);
             SD.extractor_level = SD.UGS_lvl[num] + 1;
             UGS_text += "오버로드 1개당 추출 아이템 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
         // case num: // 설명
