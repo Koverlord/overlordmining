@@ -34,7 +34,7 @@ var default_SD = { // 기본값 세이브파일
     extractor_level : 1,
     doubleminingposs : 0,
     enchanted_overlord_ingot : 0,
-    auto_mining_time : 1000,
+    auto_mining_time : 5000,
     robot_maker : 0,
     minepower : [0],
     circuit : 0,
