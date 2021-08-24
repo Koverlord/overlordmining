@@ -21,6 +21,7 @@ const craft_material = {
     6 : ["overlord_soul", "overlord_ingot" , "overlord_essence"],
     7 : ["alloy_iron_gold", "enchanted_overlord_ingot"],
     8 : ["diamond", "emerald", "ruby"],
+    9 : ["overlord_ingot", "enchanted_overlord_ingot"],
 };
 
 const craft_price = {
@@ -33,6 +34,7 @@ const craft_price = {
     6 : ["1", "10", "1000"],
     7 : ["1000", "10"],
     8 : ["500", "300", "300"],
+    9 : ["10000", "400"],
 };
 const craft_result = {
     0 : "alloy_iron_gold",
@@ -44,10 +46,11 @@ const craft_result = {
     6 : "enchanted_overlord_ingot",
     7 : "robot_maker",
     8 : "gem_mine",
+    9 : "legend_mine",
 };
     
 function craft(num,click) {
-    if (num == 3 || num == 7 || num == 8) { // 기계, 광산 입장권
+    if (num == 3 || num == 7 || num == 8 || num == 9) { // 기계, 광산 입장권
         if (SD[craft_result[num]] == 1) {
             add_log("이미 조합하셨습니다");
         }
@@ -83,6 +86,13 @@ function craft(num,click) {
                 unlock("Gem_mine");
                 document.getElementById("button_gem").innerHTML = "제작 불가"; // 버튼 텍스트 변경
                 document.getElementById("button_gem").style.color = "#888"; // 회색
+            }
+            else if(num == 9) {
+                add_log("전설의 광산이 해금되었습니다");
+                SD.unlock.Legend_mine = 1;
+                unlock("Legend_mine");
+                document.getElementById("button_legend").innerHTML = "제작 불가"; // 버튼 텍스트 변경
+                document.getElementById("button_legend").style.color = "#888"; // 회색
             }
         }
     }

@@ -47,9 +47,11 @@ var default_SD = { // 기본값 세이브파일
     excavator_robot : [0],
     gem_mine : 0,
     legend_mine : 0,
+    crystal : 0,
     mythrill : 0,
     orichalcum : 0,
     adamantite : 0,
+    legendarium : 0,
     udc : 1, // 할인율 Upgrade DisCount
     test1 : 1, // 이건 뭐지;;
     Auto_Save : 0,
@@ -90,6 +92,12 @@ var Name = {
     mining_drill : "채광 드릴",
     overlord_soul : "오버로드의 영혼",
     gem_mine : "보석 광산 입장권",
+    legend_mine : "전설의 광산 입장권",
+    crystal : "수정",
+    mythrill : "미스릴",
+    orichalcum : "오리칼쿰",
+    adamantite : "아다만타이트",
+    legendarium : "레전더리움",
 };
 
 var Melt = {

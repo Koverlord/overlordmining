@@ -61,6 +61,11 @@ function store(num) {  //스토어 업데이트
             "emerald",
             "ruby",
             "overlord",
+            "crystal",
+            "mythrill",
+            "orichalcum",
+            "adamantite",
+            "legendarium",
         ],
         [
             "iron_ingot",
@@ -117,10 +122,12 @@ function var_init() { // 변수 초기화 variable_initialization
         ],
         [ // 1번째 광산 : 전설
             [ // 0번째 주사위 : 광물
-                ["nothing", 90, SD.e],
-                ["mythrill", 5, SD.e],
-                ["orichalcum", 4, SD.e],
-                ["adamantite", 1, SD.e],
+                ["nothing", 399, SD.e],
+                ["crystal", 300, SD.e],
+                ["mythrill", 150, SD.e],
+                ["orichalcum", 100, SD.e],
+                ["adamantite", 50, SD.e],
+                ["legendarium", 1, SD.e],
             ]
         ],
         [ // 2번째 광산 : 보석
