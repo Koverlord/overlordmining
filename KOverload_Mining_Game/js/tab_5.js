@@ -121,5 +121,5 @@ function robot_refresh() {
 function robot_space() {
     let space_text;
     space_text = document.getElementById("robot_admin");
-    space_text.innerHTML = "현재 로봇 공간 : " + SD.robot_count + "/" + SD.maxrobot;
+    space_text.innerHTML = "현재 로봇 공간 : " + SD.robot_count + "/" + SD.maxrobot + " 광질 파워 : " + SD.minepower[0];
 }
