@@ -113,7 +113,7 @@ function auto_mine() {
 
 function robot_refresh() {
     SD.robot_count = SD.mining_robot[0];
-    SD.minepower[0] = SD.mining_robot[0] * 5;
+    SD.minepower[0] = SD.mining_robot[0];
     auto_mine();
     auto_mine();
 }
