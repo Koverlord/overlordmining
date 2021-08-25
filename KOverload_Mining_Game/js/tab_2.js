@@ -3,7 +3,7 @@
 const melt_ore = ["iron", "gold", "mythrill"];
 const button_melt = document.getElementsByClassName("button_melt");
 
-var firepowers = { // 광물 당 요구 화력
+var firePowers = { // 광물 당 요구 화력
     iron : 1,
     gold : 2,
     mythrill : 100,
@@ -21,7 +21,7 @@ var melt_result = { // 제련 결과
     mythrill : "mythrill_ingot",
 }
 function real_melt(num) {
-    let final_melt_count = parseInt(SD["melt_count"] / firepowers[melt_ore[num]]);
+    let final_melt_count = parseInt(SD["melt_count"] / firePowers[melt_ore[num]]);
     if (SD[melt_ore[num]] >= final_melt_count && final_melt_count != 0) {
         SD[melt_ore[num]] -= final_melt_count;
         SD[melt_result[melt_ore[num]]] += final_melt_count * SD["melt_multiply"];
