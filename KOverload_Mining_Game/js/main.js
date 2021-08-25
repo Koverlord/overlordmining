@@ -215,7 +215,7 @@ function toNotation(num) {
     return `${Math.floorAt(num/(1000**nth), -3)}${unit[nth]}`
 }
 
-function bugfix() {
+function update() {
     switch (SD.version) {
         case 0:
             SD.legend_ore = SD.legendarium;
@@ -253,5 +253,5 @@ window.onload = function () { // 페이지가 다 load 되면 load()함수 실�
         SD.Auto_Mine = 1;
         auto_mine();
     }
-    bugfix()
+    update();
 }
