@@ -9,6 +9,9 @@ function tab_menu(num) {
     tab_menu_list[num].className = "tab_menu active";
     menu_list[num].style.display = "block";
     tab_menu_num = num;
+    if (num == 2) {
+        melt_text()
+    }
 }
 
 let tab_store_num = 0; // 전역변수
@@ -72,6 +75,7 @@ function store(num) {  //스토어 업데이트
             "gold_ingot",
             "overlord_ingot",
             "enchanted_overlord_ingot",
+            "mythrill_ingot",
         ],
         [
             "alloy_iron_gold",
@@ -199,6 +203,16 @@ function unlock(Key) {
     else {
         lock.style.display = "block";
     }
+}
+
+Math.floorAt = function(num, at) {
+    return Math.floor(num/(10**at))*(10**at)
+}
+
+function toNotation(num) {
+    nth = Math.floor(Math.log10(num)/3)
+    unit = ["", "K", "M", "B", "T"]
+    return `${Math.floorAt(num/(1000**nth), -3)}${unit[nth]}`
 }
 
 function bugfix() {

@@ -1,12 +1,30 @@
 //탭2 - 제련소
 
-const melt_ore = ["iron", "gold"];
+const melt_ore = ["iron", "gold", "mythrill"];
 const button_melt = document.getElementsByClassName("button_melt");
 
+var firepowers = { // 광물 당 요구 화력
+    iron : 1,
+    gold : 2,
+    mythrill : 100,
+}
+
+var Melt = {
+    iron : 0,
+    gold : 0,
+    mythrill : 0,
+}
+
+var melt_result = { // 제련 결과
+    iron : "iron_ingot",
+    gold : "gold_ingot",
+    mythrill : "mythrill_ingot",
+}
 function real_melt(num) {
-    if (SD[melt_ore[num]] >= SD["melt_count"]) {
-        SD[melt_ore[num]] -= SD["melt_count"];
-        SD[`${melt_ore[num]}_ingot`] += SD["melt_count"] * SD["melt_multiply"];
+    let final_melt_count = parseInt(SD["melt_count"] / firepowers[melt_ore[num]]);
+    if (SD[melt_ore[num]] >= final_melt_count && final_melt_count != 0) {
+        SD[melt_ore[num]] -= final_melt_count;
+        SD[melt_result[melt_ore[num]]] += final_melt_count * SD["melt_multiply"];
         store(0); // 광물
         store(1); // 주괴
         // add_log(Name[melt_ore[num]] + " 1개 제련!");
@@ -30,6 +48,9 @@ function melt(num) {
         button_melt[num].innerHTML = "제련";
         add_log(Name[melt_ore[num]] + " 제련 중지");
     }
+}
 
-
+function melt_text() {
+    let melt_texts = document.getElementById("firepower");
+    melt_texts.innerHTML = "현재 화력 : " + SD.melt_count;
 }
