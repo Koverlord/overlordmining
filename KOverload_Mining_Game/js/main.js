@@ -65,7 +65,7 @@ function store(num) {  //스토어 업데이트
             "mythrill",
             "orichalcum",
             "adamantite",
-            "legendarium",
+            "legend_ore",
         ],
         [
             "iron_ingot",
@@ -127,7 +127,7 @@ function var_init() { // 변수 초기화 variable_initialization
                 ["mythrill", 150, SD.e],
                 ["orichalcum", 100, SD.e],
                 ["adamantite", 50, SD.e],
-                ["legendarium", 1, SD.e],
+                ["legend_ore", 1, SD.e],
             ]
         ],
         [ // 2번째 광산 : 보석
@@ -220,4 +220,6 @@ window.onload = function () { // 페이지가 다 load 되면 load()함수 실�
         SD.Auto_Mine = 1;
         auto_mine();
     }
+    SD.legend_ore = SD.legendarium;
+    SD.legendarium = 0;
 }
