@@ -3,6 +3,7 @@
 var SD = {}; // 현제 세이브파일이 될 예정
 
 var default_SD = { // 기본값 세이브파일
+    version : 0, // 버전 업데이트시 같이 올라가야함
     iron : 0,
     iron_ingot : 0,
     gold : 0,
@@ -51,7 +52,7 @@ var default_SD = { // 기본값 세이브파일
     mythrill : 0,
     orichalcum : 0,
     adamantite : 0,
-    legend_ore : 0,
+    legend_ore : 0, //제거해야함
     mythrill_ingot : 0,
     legendarium : 0,
     udc : 1, // 할인율 Upgrade DisCount

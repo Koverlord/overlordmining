@@ -220,12 +220,23 @@ function toNotation(num) {
     return `${Math.floorAt(num/(1000**nth), -3)}${unit[nth]}`
 }
 
-function bugfix() {
-    SD.legend_ore = SD.legendarium;
-    SD.legendarium = 0;
-    SD.auto_mining_time = 5000;
-    if (SD.UGS_lvl[4] >= 19) {
-        SD.UGS_lvl[4] = 19;
+function update() { // 버전 올릴때 default_SD.version 도 같이 올릴것
+    switch (SD.version) {
+        case 0:
+            SD.legend_ore = SD.legendarium;
+            //SD.legendarium = 0;
+            SD.auto_mining_time = 5000;
+            if (SD.UGS_lvl[4] >= 19) {
+                SD.UGS_lvl[4] = 19;
+            }
+            SD.version = 1;
+        //case 1:
+            // 패치 1
+        //case 2:
+            //패치 2
+        //case 3:
+            //패치 3
+            break;
     }
 }
 
@@ -247,5 +258,5 @@ window.onload = function () { // 페이지가 다 load 되면 load()함수 실�
         SD.Auto_Mine = 1;
         auto_mine();
     }
-    bugfix()
+    update();
 }
