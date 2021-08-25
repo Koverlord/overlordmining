@@ -215,7 +215,7 @@ function toNotation(num) {
     return `${Math.floorAt(num/(1000**nth), -3)}${unit[nth]}`
 }
 
-function update() {
+function update() { // 버전 올릴때 default_SD.version 도 같이 올릴것
     switch (SD.version) {
         case 0:
             SD.legend_ore = SD.legendarium;

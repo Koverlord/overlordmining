@@ -3,7 +3,7 @@
 var SD = {}; // 현제 세이브파일이 될 예정
 
 var default_SD = { // 기본값 세이브파일
-    version : 0,
+    version : 0, // 버전 업데이트시 같이 올라가야함
     iron : 0,
     iron_ingot : 0,
     gold : 0,
