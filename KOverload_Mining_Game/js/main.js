@@ -216,11 +216,22 @@ function toNotation(num) {
 }
 
 function bugfix() {
-    SD.legend_ore = SD.legendarium;
-    SD.legendarium = 0;
-    SD.auto_mining_time = 5000;
-    if (SD.UGS_lvl[4] >= 19) {
-        SD.UGS_lvl[4] = 19;
+    switch (SD.version) {
+        case 0:
+            SD.legend_ore = SD.legendarium;
+            //SD.legendarium = 0;
+            SD.auto_mining_time = 5000;
+            if (SD.UGS_lvl[4] >= 19) {
+                SD.UGS_lvl[4] = 19;
+            }
+            SD.version = 1;
+        //case 1:
+            // 패치 1
+        //case 2:
+            //패치 2
+        //case 3:
+            //패치 3
+            break;
     }
 }
 
