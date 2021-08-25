@@ -152,18 +152,10 @@ function var_init() { // 변수 초기화 variable_initialization
 
 
 function mine(num , multi = 1, mode = "manual") {
-    if (mode == "manual"){ // 수동 채광 전용
-        let rep_mine;
-        if (Math.random() < (SD.doubleminingposs / 100)) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleiningposs%)
-            rep_mine = 2;
-            add_log("이중 채광!")
-        }
-        else {
-            rep_mine = 1;
-        }
-    }
-    else { // 자동광질 시 변수오류 방지
-        rep_mine = 1;
+    let rep_mine = 1;
+    if ((Math.random() < (SD.doubleminingposs / 100)) && (mode == "manual")) { // 0~1 사이의 난수 생성후 doubleminingposs/100 보다 적을경우 2배 채광 (doubleminingposs%)
+        rep_mine = 2;
+        add_log("이중 채광!")
     }
     for (j = 0; j < rep_mine; j++) {
         for (k in MI[num]) { // 주사위
