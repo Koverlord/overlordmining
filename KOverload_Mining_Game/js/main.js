@@ -100,7 +100,7 @@ function store(num) {  //스토어 업데이트
     ];
 
     store_text += "<p>";
-    store_goods[num].forEach(i => store_text += Name[i] + " " + SD[i] + "개<br>");
+    store_goods[num].forEach(i => store_text += `${Name[i]} ${toNotation(`${SD[i]}`)} 개<br>`);
     store_text += "</p>";
     store_list[num].innerHTML = store_text;
 }
@@ -210,6 +210,9 @@ Math.floorAt = function(num, at) {
 }
 
 function toNotation(num) {
+    if (num == 0) {
+        return 0;
+    }
     nth = Math.floor(Math.log10(num)/3)
     unit = ["", "K", "M", "B", "T"]
     return `${Math.floorAt(num/(1000**nth), -3)}${unit[nth]}`
