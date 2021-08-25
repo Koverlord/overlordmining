@@ -205,7 +205,11 @@ function bugfix() {
     SD.legend_ore = SD.legendarium;
     SD.legendarium = 0;
     SD.auto_mining_time = 5000;
+    if (SD.UGS_lvl[4] >= 19) {
+        SD.UGS_lvl[4] = 19;
+    }
 }
+
 window.addEventListener("beforeunload", function (e) { // 새로고침 경고문
     var confirmationMessage = 'It looks like you have been editing something. '
                             + 'If you leave before saving, your changes will be lost.';
