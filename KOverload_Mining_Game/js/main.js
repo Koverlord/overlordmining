@@ -202,17 +202,13 @@ function unlock(Key) {
     }
 }
 
-Math.floorAt = function(num, at) {
-    return Math.floor(num/(10**at))*(10**at)
-}
-
 function toNotation(num) {
-    if (num == 0) {
-        return 0;
-    }
     nth = Math.floor(Math.log10(num)/3)
+    if (nth < 1) {
+        return num;
+    }
     unit = ["", "K", "M", "B", "T"]
-    return `${Math.floorAt(num/(1000**nth), -3)}${unit[nth]}`
+    return `${(num/(1000**nth)).toFixed(3)}${unit[nth]}`
 }
 
 function update() { // 버전 올릴때 default_SD.version 도 같이 올릴것
