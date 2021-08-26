@@ -139,9 +139,9 @@ function var_init() { // 변수 초기화 variable_initialization
         ],
         [ // 2번째 광산 : 보석
             [ // 0번째 주사위 : 광물
-                ["diamond", 40, parseInt((SD.a + SD.d) / 3)],
-                ["emerald", 25, parseInt((SD.a + SD.d) / 3)],
-                ["ruby", 25, parseInt((SD.a + SD.d) / 3)],
+                ["diamond", 40, parseInt((SD.a + SD.d) / 2)],
+                ["emerald", 25, parseInt((SD.a + SD.d) / 2)],
+                ["ruby", 25, parseInt((SD.a + SD.d) / 2)],
                 ["nothing", 10, SD.a],
             ]
         ]
