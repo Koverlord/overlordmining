@@ -171,7 +171,7 @@ function mine(num , multi = 1, mode = "manual") {
                     }
                     else {
                         SD[MI[num][k][i][0]] += parseInt(MI[num][k][i][2] * multi);
-                        add_log((`${Name[MI[num][k][i][0]]} ${parseInt(MI[num][k][i][2] * multi)}개 회득! 현재 ${toNotation(SD[MI[num][k][i][0]])}개`));
+                        add_log((`${Name[MI[num][k][i][0]]} ${parseInt(MI[num][k][i][2] * multi)}개 획득! 현재 ${toNotation(SD[MI[num][k][i][0]])}개`));
                     }
                     break;
                 }
