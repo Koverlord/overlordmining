@@ -54,6 +54,8 @@ var default_SD = { // 기본값 세이브파일
     adamantite : 0,
     legend_ore : 0, //제거해야함
     mythrill_ingot : 0,
+    orichalcum_ingot : 0,
+    adamantite_ingot : 0,
     legendarium : 0,
     udc : 1, // 할인율 Upgrade DisCount
     test1 : 1, // 이건 뭐지;;
@@ -102,6 +104,8 @@ var Name = {
     adamantite : "아다만타이트",
     legend_ore : "전설의 광석",
     mythrill_ingot : "미스릴 주괴",
+    orichalcum_ingot : "오리칼쿰 주괴",
+    adamantite_ingot : "아다만타이트 주괴",
     legendarium : "레전더리움",
 };
 

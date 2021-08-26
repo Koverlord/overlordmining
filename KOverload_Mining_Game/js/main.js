@@ -76,6 +76,9 @@ function store(num) {  //스토어 업데이트
             "overlord_ingot",
             "enchanted_overlord_ingot",
             "mythrill_ingot",
+            "orichalcum_ingot",
+            "adamantite_ingot",
+            "legendarium",
         ],
         [
             "alloy_iron_gold",

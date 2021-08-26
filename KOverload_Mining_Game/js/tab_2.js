@@ -1,24 +1,33 @@
 //탭2 - 제련소
 
-const melt_ore = ["iron", "gold", "mythrill"];
+const melt_ore = ["iron", "gold", "mythrill", "orichalcum", "adamantite", "legend_ore"];
 const button_melt = document.getElementsByClassName("button_melt");
 
 var firePowers = { // 광물 당 요구 화력
     iron : 1,
     gold : 2,
     mythrill : 100,
+    orichalcum : 200,
+    adamantite : 500,
+    legend_ore : 1000,
 }
 
 var Melt = {
     iron : 0,
     gold : 0,
     mythrill : 0,
+    orichalcum : 0,
+    adamantite : 0,
+    legend_ore : 0,
 }
 
 var melt_result = { // 제련 결과
     iron : "iron_ingot",
     gold : "gold_ingot",
     mythrill : "mythrill_ingot",
+    orichalcum : "orichalcum_ingot",
+    adamantite : "adamantite_ingot",
+    legend_ore : "legendarium",
 }
 function real_melt(num) {
     let final_melt_count = parseInt(SD["melt_count"] / firePowers[melt_ore[num]]);
