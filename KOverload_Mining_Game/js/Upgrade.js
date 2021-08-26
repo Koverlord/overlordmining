@@ -1,24 +1,33 @@
 class Upgrade {
-    constructor(attrs={}) {
-        this.id = attrs.id ?? 0;
-        this.cost = attrs.cost;
-    }
-    
-    buyable() {
-        for (i in this.cost) {
-            if (SD[i] < this.cost[i]) return false;
+    constructor(calcPrice, calcEffect) {
+        this.level = 0
+        this.calcPrice = calcPrice
+        this.getPrice = () => {
+            const price = {};
+            for (const i in calcPrice) {
+                price[i] = this.calcPrice[i](this.level);
+            }
+            return price;
         }
+        this.calcEffect = calcEffect;
+        this.getEffect = () => this.calcEffect(this.level);
+    }
+
+    isBuyable() {
+        const price = this.getPrice();
+        for (const i in price) {
+            if (SD[i] < price[i]) return false;
+        } 
         return true;
     }
 
     buy() {
-        if (!this.buyable()) {
-            add_log("재료가 부족합니다.");
-            return;
+        const price = this.getPrice();
+        for (const i in price) {
+            SD[i] -= price[i];
         }
-        for (i in this.cost) {
-            SD[i] -= this.cost[i]
-            SD.upgrades[this.id] += 1
-        }
+        this.level++;
     }
 }
+
+const upg = new Upgrade({iron: n => n * 10, gold: n => n ** 2}, n => 10 - n * 2);
