@@ -196,12 +196,16 @@ function Tab_size() { // 메뉴 사이즈 조정
 }
 
 function unlock(Key) {
-    let lock = document.getElementById("unlock_" + Key);
+    const lock = document.getElementsByClassName("unlock_" + Key);
     if (!SD.unlock[Key]) {
-        lock.style.display = "none";
+        for (let i = 0; i < lock.length; i++) {
+            lock[i].style.display = "none";
+        }
     }
     else {
-        lock.style.display = "block";
+        for (let i = 0; i < lock.length; i++) {
+            lock[i].style.display = "block";
+        }
     }
 }
 

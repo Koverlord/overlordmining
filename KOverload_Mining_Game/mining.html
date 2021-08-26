@@ -18,10 +18,10 @@
         <li><div class="tab_menu not_active" onclick="tab_menu(1); for(var i = 0; i < document.getElementsByClassName('UGS_list').length; i++){ UGS_load(i);}">강화 상점</div></li>
         <li><div class="tab_menu not_active" onclick="tab_menu(2);">제련소</div></li>
         <li><div class="tab_menu not_active" onclick="tab_menu(3);">조합소</div></li>
-        <li><div id="unlock_Extract" class="tab_menu not_active" onclick="tab_menu(4);">추출소</div></li>
-        <li><div id="unlock_Robot" class="tab_menu not_active" onclick="tab_menu(5);">로봇 제작소</div></li>
+        <li><div class="tab_menu not_active unlock_Extract" onclick="tab_menu(4);">추출소</div></li>
+        <li><div class="tab_menu not_active unlock_Robot" onclick="tab_menu(5);">로봇 제작소</div></li>
         <li><div class="tab_menu not_active" onclick="tab_menu(6);">옵션</div></li>
-        <li><div id="unlock_Develop" class="tab_menu not_active" onclick="tab_menu(7); test()" style="display: none;">개발용 테스트옵션</div></li>
+        <li><div class="tab_menu not_active unlock_Develop" onclick="tab_menu(7); test()" style="display: none;">개발용 테스트옵션</div></li>
     </ul>
     
     <table id="table_main" style="height: 304px; overflow-y: hidden; margin: 0px 0px 4px 0px;"> <!--항상 노출-->
@@ -52,8 +52,8 @@
         <div class="box" style="width: 100%; margin: 1px 0 0 3px;">
             <ul style="background-color: #eee; margin: 10px 0px;">
                 <li><div class="tab_mine active" onclick="tab_mine(0);">일반</div></li>
-                <li><div id="unlock_Legend_mine" class="tab_mine not_active" onclick="tab_mine(1);">전설</div></li>
-                <li><div id="unlock_Gem_mine" class="tab_mine not_active" onclick="tab_mine(2);">보석</div></li>
+                <li><div class="tab_mine not_active unlock_Legend_mine" onclick="tab_mine(1);">전설</div></li>
+                <li><div class="tab_mine not_active unlock_Gem_mine" onclick="tab_mine(2);">보석</div></li>
             </ul>
             <table style="width: 100%;">
                 <tr>
@@ -135,25 +135,25 @@
                     <td style="width: 80%;"><div>금 제련하기<br>2 화력 / 광석</div></td>
                     <td style="width: 20%;"><div class="button button5 button_melt" onclick="melt.bind(this)('1');">제련</div></td>
                 </tr>
-                <tr><td colspan="2"><hr></td></tr>
+                <tr><td class="unlock_Legend_mine" colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div>미스릴 제련하기<br>100 화력 / 광석</div></td>
-                    <td style="width: 20%;"><div class="button button5 button_melt" onclick="melt.bind(this)('2');">제련</div></td>
+                    <td style="width: 80%;"><div class="unlock_Legend_mine">미스릴 제련하기<br>100 화력 / 광석</div></td>
+                    <td style="width: 20%;"><div class="button button5 button_melt unlock_Legend_mine" onclick="melt.bind(this)('2');">제련</div></td>
                 </tr>
-                <tr><td colspan="2"><hr></td></tr>
+                <tr><td class="unlock_Legend_mine" colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div>오리칼쿰 제련하기<br>200 화력 / 광석</div></td>
-                    <td style="width: 20%;"><div class="button button5 button_melt" onclick="melt.bind(this)('3');">제련</div></td>
+                    <td style="width: 80%;"><div class="unlock_Legend_mine">오리칼쿰 제련하기<br>200 화력 / 광석</div></td>
+                    <td style="width: 20%;"><div class="button button5 button_melt unlock_Legend_mine" onclick="melt.bind(this)('3');">제련</div></td>
                 </tr>
-                <tr><td colspan="2"><hr></td></tr>
+                <tr><td class="unlock_Legend_mine" colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div>아다만타이트 제련하기<br>500 화력 / 광석</div></td>
-                    <td style="width: 20%;"><div class="button button5 button_melt" onclick="melt.bind(this)('4');">제련</div></td>
+                    <td style="width: 80%;"><div class="unlock_Legend_mine">아다만타이트 제련하기<br>500 화력 / 광석</div></td>
+                    <td style="width: 20%;"><div class="button button5 button_melt unlock_Legend_mine" onclick="melt.bind(this)('4');">제련</div></td>
                 </tr>
-                <tr><td colspan="2"><hr></td></tr>
+                <tr><td class="unlock_Legend_mine" colspan="2"><hr></td></tr>
                 <tr>
-                    <td style="width: 80%;"><div>전설의 광석 제련하기<br>1000 화력 / 광석</div></td>
-                    <td style="width: 20%;"><div class="button button5 button_melt" onclick="melt.bind(this)('5');">제련</div></td>
+                    <td style="width: 80%;"><div class="unlock_Legend_mine">전설의 광석 제련하기<br>1000 화력 / 광석</div></td>
+                    <td style="width: 20%;"><div class="button button5 button_melt unlock_Legend_mine" onclick="melt.bind(this)('5');">제련</div></td>
                 </tr>
             </table>
         </div>

@@ -66,8 +66,8 @@ var default_SD = { // 기본값 세이브파일
     unlock : {
         Develop : 0, // 개발자용 탭
         Extract : 0, // 추출기 탭
-        Robot : 0,
-        Gem_mine : 0,
+        Robot : 0, // 로봇 제작소 탭
+        Gem_mine : 0, // 보석 광산 탭
         Legend_mine : 0, // 전설의 광산 탭
     }
 };
