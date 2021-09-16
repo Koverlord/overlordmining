@@ -49,6 +49,30 @@ function add_log(log) { // log를 id="log"인 div에 추가함
     }
 }
 
+function display(num) {
+    let x = document.getElementById("display" + num);
+    let positionValue1 = x.getBoundingClientRect();
+    let y = document.getElementById("displayInformation");
+    let positionValue2 = x.getBoundingClientRect();
+    y.style.top = positionValue1.top - positionValue2.height +'px';
+    y.style.left = positionValue1.left - positionValue2.width + 'px'; 
+    y.style.display = "block";
+    display_text = "";
+    switch(num){
+        case 0:
+            display_text += "한번에 얻는 광물의 양을 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 적용치 : ";
+            display_text += SD.a-1;
+            y.innerHTML = display_text;
+            break;
+    }
+}
+
+function displayOff(){
+    document.getElementById("displayInformation").style.display = "none";
+}
+
 const store_list = document.getElementsByClassName("store");
 function store(num) {  //스토어 업데이트
     let store_text = "";
