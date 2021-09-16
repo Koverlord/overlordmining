@@ -51,11 +51,10 @@ function add_log(log) { // log를 id="log"인 div에 추가함
 
 function display(num) {
     let x = document.getElementById("display" + num);
-    let positionValue1 = x.getBoundingClientRect();
     let y = document.getElementById("displayInformation");
-    let positionValue2 = x.getBoundingClientRect();
-    y.style.top = positionValue1.top - positionValue2.height +'px';
-    y.style.left = positionValue1.left - positionValue2.width + 'px'; 
+    let positionValue = x.getBoundingClientRect();
+    y.style.top = positionValue.top + positionValue.height + window.scrollY + 'px';
+    y.style.left = positionValue.left + positionValue.width + window.scrollX + 'px'; 
     y.style.display = "block";
     display_text = "";
     switch(num){
@@ -68,6 +67,7 @@ function display(num) {
             break;
     }
 }
+
 
 function displayOff(){
     document.getElementById("displayInformation").style.display = "none";
