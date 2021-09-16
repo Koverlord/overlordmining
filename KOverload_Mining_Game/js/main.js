@@ -53,7 +53,7 @@ function display(num) {
     let x = document.getElementById("display" + num);
     let y = document.getElementById("displayInformation");
     let positionValue = x.getBoundingClientRect();
-    y.style.top = positionValue.top + positionValue.height + window.scrollY + 'px';
+    y.style.top = positionValue.top - positionValue.height + window.scrollY + 'px';
     y.style.left = positionValue.left + positionValue.width + window.scrollX + 'px'; 
     y.style.display = "block";
     display_text = "";
@@ -61,8 +61,45 @@ function display(num) {
         case 0:
             display_text += "한번에 얻는 광물의 양을 증가시킵니다.";
             display_text += "<br>";
-            display_text += "현재 적용치 : ";
+            display_text += "현재 적용치 : +";
             display_text += SD.a-1;
+            y.innerHTML = display_text;
+            break;
+        case 1:
+            display_text += "두번 광질이 될 확률을 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 확률 : ";
+            display_text += SD.doubleminingposs;
+            display_text += "%";
+            y.innerHTML = display_text;
+            break;
+        case 2:
+            display_text += "한번에 얻는 금속의 양을 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 적용치 : +";
+            display_text += SD.c;
+            y.innerHTML = display_text;
+            break;
+        case 3:
+            display_text += "한번에 얻는 보석의 양을 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 적용치 : +";
+            display_text += SD.d;
+            y.innerHTML = display_text;
+            break;
+        case 4:
+            display_text += "일반 광산에서 오버로드가 나오는 확률을 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 확률 : ";
+            display_text += SD.overlord_poss;
+            display_text += "%";
+            y.innerHTML = display_text;
+            break;
+        case 5:
+            display_text += "조합 한번에 조합되는 일반 아이템 개수를 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 적용치 : +";
+            display_text += SD.b;
             y.innerHTML = display_text;
             break;
     }
