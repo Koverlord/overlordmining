@@ -52,7 +52,7 @@ var default_SD = { // 기본값 세이브파일
     mythrill : 0,
     orichalcum : 0,
     adamantite : 0,
-    legend_ore : 0, //제거해야함
+    legend_ore : 0,
     mythrill_ingot : 0,
     orichalcum_ingot : 0,
     adamantite_ingot : 0,
