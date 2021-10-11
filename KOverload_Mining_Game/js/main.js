@@ -289,8 +289,11 @@ function update() { // 버전 올릴때 default_SD.version 도 같이 올릴것
                 SD.UGS_lvl[4] = 19;
             }
             SD.version = 1;
-        //case 1:
-            // 패치 1
+        case 1:
+            for(let i = 9; i <= 60; i++) { // 재료 소모
+                SD.UGS_lvl[i] = 0;
+            }
+            SD.version = 2;
         //case 2:
             //패치 2
         //case 3:

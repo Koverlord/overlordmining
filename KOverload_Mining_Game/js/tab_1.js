@@ -1,5 +1,10 @@
 //탭1 - 강화
 
+// 업글 추가할 때 해야 할 것 : 
+// UGS_maxlvl에 값 추가
+// UGS_material에 값 추가
+// UGS_load에 코드 추가
+
 tab_UGS_num = 0;
 function tab_UGS(num) {
     let tab_UGS_list = document.getElementsByClassName("tab_UGS")
@@ -21,7 +26,7 @@ const special_price = {
 };
 
 let UGS_price = []; // 가격
-const UGS_maxlvl = [-1, 100, -1, -1, 19, 4, -1, 2, 9]; // 최고 레벨 (-1은 레벨제한 없음)
+const UGS_maxlvl = [-1, 100, -1, -1, 19, 4, -1, 2, 9, -1]; // 최고 레벨 (-1은 레벨제한 없음)
 let UGS_material = {
     0 : 'iron_ingot',
     1 : 'gold_ingot',
@@ -31,7 +36,8 @@ let UGS_material = {
     5 : 'diamond',
     6 : 'iron_ingot',
     7 : 'iron_ingot',
-    8 : ['alloy_iron_gold', 'pipe', 'extract_engine', 'overlord_ingot']
+    8 : ['alloy_iron_gold', 'pipe', 'extract_engine', 'overlord_ingot'],
+    9 : 'mythrill',
 };
 
 function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스트 표시, 가격 갱신 함수
@@ -88,6 +94,11 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
             UGS_price[num][3] = parseInt(50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 450);
             SD.extractor_level = SD.UGS_lvl[num] + 1;
             UGS_text += "오버로드 1개당 추출 아이템 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
+        case 9: // 전설의 광산에서 한번에 얻는 광물 개수 증가
+            UGS_price[num] = parseInt(200 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 100);
+            SD.e = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
+            UGS_text += "전설의 광산에서 한번에 얻는 광물 개수 증가 level : " + SD.UGS_lvl[num] + "<br>";
+        break;
         // case num: // 설명
         //     UGS_price[num] = 가격 결정 식;
         //     결과 = 결과 결정 식;
