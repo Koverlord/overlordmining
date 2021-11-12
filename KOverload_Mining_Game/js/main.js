@@ -102,6 +102,14 @@ function display(num) {
             display_text += SD.b;
             y.innerHTML = display_text;
             break;
+        case 6:
+            display_text += "광석 하나를 제련할때 나오는 주괴의 개수를 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 적용치 : 광석 한개당 ";
+            display_text += SD.melt_multiply;
+            display_text += "개"
+            y.innerHTML = display_text;
+            break;
     }
 }
 
