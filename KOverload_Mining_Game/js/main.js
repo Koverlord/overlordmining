@@ -124,7 +124,6 @@ function store(num) {  //스토어 업데이트
     if (!num == tab_store_num) {
         return;
     }
-
     const store_goods = [
         [
             "iron",
