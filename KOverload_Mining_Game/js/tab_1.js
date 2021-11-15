@@ -87,13 +87,17 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
             UGS_text += "광물 1개당 주괴 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             break;
         case 8: // 오버로드 1개당 추출 아이템 수 증가
+            console.log('8 시작');
             UGS_price[num] = [];
             UGS_price[num][0] = parseInt((SD.UGS_lvl[num] + 1) * 500);
             UGS_price[num][1] = parseInt(50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 25);
             UGS_price[num][2] = parseInt(20 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 10);
             UGS_price[num][3] = parseInt(50 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 450);
+            console.log(UGS_price[num]);
             SD.extractor_level = SD.UGS_lvl[num] + 1;
             UGS_text += "오버로드 1개당 추출 아이템 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
+            console.log(UGS_price[num]);
+            console.log(UGS_price[8]);
         case 9: // 전설의 광산에서 한번에 얻는 광물 개수 증가
             UGS_price[num] = parseInt(200 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 100);
             SD.e = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
@@ -104,7 +108,6 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
         //     결과 = 결과 결정 식;
         //     UGS_text += "업글 내용. level : " + SD.UGS_lvl[num] + "<br>";
         //     break;
-        
     }
     if (SD.UGS_lvl[num] == UGS_maxlvl[num]) { // 최고 레벨은 업그레이드 불가
         UGS_text += "최고 레벨입니다"
@@ -112,11 +115,13 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
     else {
         final_text = ""
         if (num == 8){ // 이 업그레이드는 재료가 여러 개라서 특별처리
+            console.log('8 함수 돌리는중');
             for(let i = 0; i < UGS_material[num].length; i++){
+                console.log(UGS_price[8]);
                 final_text += Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 "
                 } 
         }
-        else {final_text +=Name[UGS_material[num]] + " " + UGS_price[num] + "개 "}
+        else { final_text +=Name[UGS_material[num]] + " " + UGS_price[num] + "개 "}
         UGS_text += "강화 재료 : " + final_text
     }
     UGS_list[num].innerHTML = UGS_text;
