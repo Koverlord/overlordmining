@@ -103,6 +103,13 @@ function display(num) {
             y.innerHTML = display_text;
             break;
         case 6:
+            display_text += "한번에 제련하는 광물 개수를 증가시킵니다.";
+            display_text += "<br>";
+            display_text += "현재 적용치 : +";
+            display_text += SD.melt_count;
+            y.innerHTML = display_text;
+            break;
+        case 7:
             display_text += "광석 하나를 제련할때 나오는 주괴의 개수를 증가시킵니다.";
             display_text += "<br>";
             display_text += "현재 적용치 : 광석 한개당 ";
@@ -112,7 +119,6 @@ function display(num) {
             break;
     }
 }
-
 
 function displayOff(){
     document.getElementById("displayInformation").style.display = "none";
