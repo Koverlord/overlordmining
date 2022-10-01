@@ -120,6 +120,8 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
                 console.log(UGS_price[8]);
                 final_text += Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 "
                 console.log(Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 ")
+                console.log(UGS_price[num])
+                console.log(UGS_price[num][i])
                 } 
         }
         else { final_text +=Name[UGS_material[num]] + " " + UGS_price[num] + "개 "}
