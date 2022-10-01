@@ -98,6 +98,7 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
             UGS_text += "오버로드 1개당 추출 아이템 수 증가. level : " + SD.UGS_lvl[num] + "<br>";
             console.log(UGS_price[num]);
             console.log(UGS_price[8]);
+            break;
         case 9: // 전설의 광산에서 한번에 얻는 광물 개수 증가
             UGS_price[num] = parseInt(200 + SD.UGS_lvl[num] * (SD.UGS_lvl[num] + 1) * 100);
             SD.e = (parseInt((SD.UGS_lvl[num] + 1)/5) * - 5 + 2 * SD.UGS_lvl[num] + 2) * (parseInt((SD.UGS_lvl[num] + 1) / 5) + 1) / 2;
