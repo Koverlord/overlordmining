@@ -119,7 +119,7 @@ function UGS_load(num) { // 업그레이드 상점 로드 시에 가격 텍스�
             for(let i = 0; i < UGS_material[num].length; i++){
                 console.log(UGS_price[8]);
                 final_text += Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 "
-                console.long(Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 ")
+                console.log(Name[UGS_material[num][i]] + " " + UGS_price[num][i] + "개 ")
                 } 
         }
         else { final_text +=Name[UGS_material[num]] + " " + UGS_price[num] + "개 "}
